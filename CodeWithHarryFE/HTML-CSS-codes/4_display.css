@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+header{
+    border: 2px solid red;
+}
+
+img{
+    width: 50px;
+    margin: auto;
+    display: block;
+}
+h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+    text-align: center;
+
+}
+
+.box{
+    border: 4px solid #000;
+    background-color: gray;
+    margin: 4px;
+    padding: 23px;
+    display: inline-block;
+    /* box-sizing: border-box; */
+    width: 30%;
+
+}
+
+.container{
+    width: 1200px;
+    border: 1px solid red;
+    margin: 0 auto;
+}
