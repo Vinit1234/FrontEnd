@@ -1,0 +1,87 @@
+## VSCode Important Points:
+
+- Custom settings can be done which is stored at:
+    Settings> Open settings json (icon) => settings.json
+
+- Keyshortcuts can be customized and are stored at:
+    Settings> Open settings json (icon) => keybindings.json
+
+========================================================================
+## Keyboard shortcuts
+
+Ctrl+Enter = Move to next line
+Alt+Shift+F = Format code
+
+========================================================================
+## Emmet shortcuts:
+
+lorem10+tab
+
+table>thead+tbody+tfoot
+
+tr>td*2
+
+(div>input[type])*3
+
+(div>input[type]br)*3
+
+(label[for]div>input[type]br)*3
+
+
+>> to give id as box1, box2, box3...
+.box#box$*2
+
+O/p:
+<div class="box" id="box1"></div>
+<div class="box" id="box2"></div>
+
+
+========================================================================
+## Tips
+
+- Link online images as:
+https://source.unsplash.com/<image-id>
+
+
+- For codes of special symbols Google "html entity reference"
+
+
+- Get a list of web-safe fonts from:
+https://www.cssfontstack.com/
+
+https://fonts.google.com/
+
+
+
+
+
+========================================================================
+NOTES:
+
+We wont see bgcolor of parent container if it's children are applied float.
+Children overflow from parent container and parent's bgcolor gets hidden behind.
+Use overflow:auto in this case.
+Eg. <nav class="navbar">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Service</li>
+            <li>Contact Us</li>
+        </ul>
+    </nav>
+
+.navbar{
+    background-color:red;
+}
+ul{
+    overflow:auto;
+}
+
+
+
+
+
+
+
+
+
