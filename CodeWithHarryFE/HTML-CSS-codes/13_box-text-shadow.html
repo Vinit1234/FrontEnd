@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box shadow and text shadow</title>
+
+    <style>
+        .container{
+            display: flex;
+        }
+
+        .card{
+            padding: 23px 12px;
+            margin: 23px 12px;
+            border: 2px solid red;
+            background-color: rgb(238, 200, 200);
+
+            /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+
+            /* box-shadow: 10px 13px green; */
+            /* box-shadow: -10px -13px green; */
+            
+            /* 3rd value is for blur-radius */
+            /* box-shadow: 10px 13px 15px rgb(231, 139, 139); */
+
+            /* 4th value is for spread-radius to spread in all directions */
+
+            /* box-shadow: -7px -5px 10px 10px rgb(231, 139, 139); */
+            
+            /* inset gets shadow inside box */
+            box-shadow: inset 30px 25px rgb(68, 16, 159);
+
+            /* Shadows with different colors */
+            box-shadow: 6px 6px green, 14px 16px red;
+            
+        }
+
+        .card h2{
+            /* text-shadow: 3px 4px rgb(157, 150, 150); */
+            text-shadow: 3px 4px 5px rgb(123, 214, 208);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="card-1">
+            <h2>Card1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur earum illo id? Saepe quaerat, modi corrupti cum eaque hic tempora sapiente aut soluta maiores tempore nostrum vero, perspiciatis necessitatibus blanditiis?</p>
+        </div>
+        <div class="card" id="card-2">
+            <h2>Card2</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur earum illo id? Saepe quaerat, modi corrupti cum eaque hic tempora sapiente aut soluta maiores tempore nostrum vero, perspiciatis necessitatibus blanditiis?</p>
+        </div>
+        <div class="card" id="card-3">
+            <h2>Card3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur earum illo id? Saepe quaerat, modi corrupti cum eaque hic tempora sapiente aut soluta maiores tempore nostrum vero, perspiciatis necessitatibus blanditiis?</p>               
+        </div>
+    </div>
+</body>
+</html>
