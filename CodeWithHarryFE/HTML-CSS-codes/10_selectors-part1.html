@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on CSS Selectors</title>
+    <style>
+        h1 {
+            background-color: red;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* All child elements */
+        /* div p{
+            color:yellow;
+            background-color: green;
+            font-weight: bold;
+        } */
+
+        /* div p li{
+            color:yellow;
+            background-color: green;
+            font-weight: bold;
+        } */
+
+        /* Immediate child elements */
+        /* div > p{
+            color:yellow;
+            background-color: green;
+            font-weight: bold;
+        } */
+
+        /* Elements at same levels, ie siblings */
+        div + p{
+            color:white;
+            background-color: rgb(135, 26, 26);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is more on selectors</h1>
+
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li class="item"><p>This is another para inside li</p></li>
+                <li>This will not get affected</li>
+            </ul>
+            <p>This is a paragraph</p>
+        </div>
+        <p>This is another paragraph</p>
+    </div>
+    <p>This is outermost paragraph</p>
+</body>
+
+</html>
