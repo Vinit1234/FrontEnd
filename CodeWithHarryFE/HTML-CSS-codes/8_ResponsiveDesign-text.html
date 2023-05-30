@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> em, rem, vh and vw units + Responsive design</title>
+    <style>
+        html{
+            font-size: 25px;
+        }
+
+        .container{
+            font-size: 10px;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        #first{
+            /* em unit is used to set the size of all its child elements relative to its own size  */
+            /* ie, 10em means 10 times the size of parent (ie,in container) */
+            /* 10x10px=100px */
+            font-size: 3em;;
+            padding: 3em;
+        }
+
+        #second{
+
+            /* rem sets the sizes wrt size of html element ie, root element */
+            /* 3x25px = 75px */
+            font-size: 3rem;
+            padding: 3rem;
+        }
+        
+        p{
+            text-align: center;
+        }
+
+        a{
+            font-size: 2em;
+        }
+
+        .container-2{
+            /* width: 400px;
+            height: 344px; */
+            /* 100vh is complete height of screen */
+            height: 100vh;
+            /* 100vw is complete width of screen */
+            width: 100vw;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <h1 id="first">This is First heading</h1>
+        <h1 id="second">This is Second heading</h1>
+        <h1 id="third">This is Third heading</h1>
+        <p><a href="https://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984">Comprehensive guide to rem and em</a></p>
+     </div>
+
+     <div class="container-2">
+        <h1 id="fourth">This is fourth heading</h1>
+        <h1 id="fifth">This is fifth heading</h1>
+        <h1 id="sixth">This is sixth heading</h1>
+     </div>
+</body>
+</html>
