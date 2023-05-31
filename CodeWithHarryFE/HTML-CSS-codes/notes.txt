@@ -36,6 +36,16 @@ O/p:
 <div class="box" id="box2"></div>
 
 
+
+>> Enter content using {<content-here>}
+
+li.item{Hello World}
+
+O/P:
+<li class="item">Hello World</li>
+
+ul>li.item{<a></a>}*5
+
 ========================================================================
 ## Tips
 
