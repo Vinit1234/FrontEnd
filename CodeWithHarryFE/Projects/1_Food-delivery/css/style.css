@@ -27,6 +27,11 @@
 }
 
 /* Navigation Bar: List syling */
+#navbar{
+    /* Since position: absolute; in  #navbar::before*/
+    position: relative;
+}
+
 #navbar ul{
     display: flex;
 }
@@ -48,7 +53,13 @@
 
 #navbar ul li a{
     /* display: block; */
+    color: white;
     padding: 3px 22px;
     border-radius: 20px;
     text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color:black;
+    background-color: white;
 }
