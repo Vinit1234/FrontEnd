@@ -2,6 +2,7 @@
 *{
     margin: 0;
     padding: 0;
+    /* border:1px solid red; */
 }
 
 /* CSS Variables */
@@ -14,6 +15,9 @@
 #navbar{
     display: flex;
     align-items: center;
+    /* Since position: absolute; in  #navbar::before*/
+    position: relative;
+    top: 0px;
 }
 
 #navbar::before{
@@ -24,6 +28,8 @@
     width: 100%;
     z-index: -1;
     opacity: 0.4;
+    /* top:0px;
+    left:0px; */
 }
 
 /* Navigation Bar: Logo and Image */
@@ -37,10 +43,6 @@
 }
 
 /* Navigation Bar: List syling */
-#navbar{
-    /* Since position: absolute; in  #navbar::before*/
-    position: relative;
-}
 
 #navbar ul{
     display: flex;
@@ -75,18 +77,23 @@
     justify-content: center;
     align-items: center;
 
+/* 1. So that navbar black/gray background gets hidden and overlapped by bg1.jpg image */
+    height: 459px;
     /* positions must be set at #home and #home::before also*/
-    position: relative;
+    /* position: absolute; */
 }
 #home::before{
     content: "";
     /* background: url("../bg1.jpg"); */
     background: url("../bg1.jpg") no-repeat center center/cover;
     position: absolute;
-    height: 100%;
+    height: 80%;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
     opacity: 0.8;
+    top:0px;
+/* 1. So that navbar black/gray background gets hidden and overlapped by bg1.jpg image */
+    /* height: 150%; */
 }
 
 #home h1{
@@ -109,18 +116,33 @@
 
 #services .box{
     border: 2px solid brown;
+    padding: 34px;
+    margin: 3px 6px;
+    border-radius: 28px;
+    background-color: rgb(232, 224, 224);
 }
 
 #services .box img{
     height: 100px;
     margin: auto;
     display: block;
+
+    
+}
+
+
+section.services-container {
+/* 1. So that navbar black/gray background gets hidden and overlapped by bg1.jpg image */
+    /* margin-top: 89px; */
+    padding-top: 40px;
+    /* border: 2px solid; */
 }
 
 /* Utiliy classes */
 .h-primary{
     font-size: 3.8rem;
     padding: 12px;
+    /* background-color: pink; */
 
 }
 
@@ -144,3 +166,4 @@
 .center{
     text-align: center;
 }
+
