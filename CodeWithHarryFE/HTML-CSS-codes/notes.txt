@@ -46,6 +46,11 @@ O/P:
 
 ul>li.item{<a></a>}*5
 
+>> div with 2 classes
+.h-secondary.center
+
+
+
 ========================================================================
 ## Tips
 
@@ -88,10 +93,39 @@ ul{
 }
 
 
+>> margin: auto; centers elements only when display is set to block
+#services .box img{
+    height: 100px;
+    margin: auto;
+    display: block;
+}
 
 
 
+>> Set background image where text remains visible
 
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
 
+    /* positions must be set at #home and #home::before also*/
+    position: relative;
+}
+#home::before{
+    content: "";
+    /* background: url("../bg1.jpg"); */
+    background: url("../bg1.jpg") no-repeat center center/cover;
+
+    /* positions must be set at #home and #before also*/
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
 
 

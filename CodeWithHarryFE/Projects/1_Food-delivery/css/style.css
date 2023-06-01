@@ -74,6 +74,9 @@
     height: 400px;
     justify-content: center;
     align-items: center;
+
+    /* positions must be set at #home and #home::before also*/
+    position: relative;
 }
 #home::before{
     content: "";
@@ -98,9 +101,31 @@
     font-size: 1.5rem;
 }
 
+/* Services Section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+
+#services .box{
+    border: 2px solid brown;
+}
+
+#services .box img{
+    height: 100px;
+    margin: auto;
+    display: block;
+}
+
 /* Utiliy classes */
 .h-primary{
     font-size: 3.8rem;
+    padding: 12px;
+
+}
+
+.h-secondary{
+    font-size: 2.8rem;
     padding: 12px;
 
 }
@@ -114,4 +139,8 @@
     font-size: 1.5rem;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.center{
+    text-align: center;
 }
