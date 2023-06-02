@@ -41,6 +41,7 @@
 
 #clients img{
     width: 66px;
+    height: 80px;
     padding: 6px;
 }
 
@@ -52,6 +53,10 @@
 /* Utility classes */
 .h-primary{
     font-size: 1.8rem;
+}
+
+.h-secondary{
+    font-size: 1.5rem;
 }
 
 .btn{

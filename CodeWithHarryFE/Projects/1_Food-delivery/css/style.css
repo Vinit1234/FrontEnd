@@ -140,7 +140,7 @@ section.services-container {
 
 /* Client Section */
 #client-section{
-    height: 344px;
+    /* height: 344px; */
     position: relative;
 
 }
@@ -166,7 +166,7 @@ section.services-container {
 }
 
 #clients img{
-    /* height: 124px; */
+    height: 124px;
 
 }
 
