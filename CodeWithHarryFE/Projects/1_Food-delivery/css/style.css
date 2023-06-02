@@ -78,7 +78,7 @@
     align-items: center;
 
 /* 1. So that navbar black/gray background gets hidden and overlapped by bg1.jpg image */
-    height: 459px;
+    /* height: 459px; */
     /* positions must be set at #home and #home::before also*/
     /* position: absolute; */
 }
@@ -141,7 +141,6 @@ section.services-container {
 /* Client Section */
 #client-section{
     height: 344px;
-    margin-top: 80px;
     position: relative;
 
 }
@@ -151,10 +150,9 @@ section.services-container {
     position: absolute;
     background: url('../bg.jpg');
     width: 100%;
-    height: 120%;
+    height: 100%;
     z-index: -1;
     opacity: 0.4;
-    top: -40px
 }
 
 #clients{
@@ -172,12 +170,58 @@ section.services-container {
 
 }
 
+/* Contact Section */
+#contact{
+    
+}
 
+#contact::before{
+    content: "";
+    position: absolute;
+    background: url(../contact.jpg) no-repeat center center/cover;
+    width: 100%;
+    height: 50%;
+    z-index:-1;
+    opacity: 0.4;
+    
+}
+
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+
+#contact-box form{
+    width: 40%;
+}
+
+#contact-box label{
+    font-size: 1.3rem;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+#contact-box input,
+#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 9px;
+    font-size: 1.3rem;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    padding: 9px 20px;
+}
 
 /* Utiliy classes */
 .h-primary{
     font-size: 3.8rem;
     padding: 12px;
+    margin-top: 40px;
     /* background-color: pink; */
 
 }
