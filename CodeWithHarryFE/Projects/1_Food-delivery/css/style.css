@@ -2,7 +2,7 @@
 *{
     margin: 0;
     padding: 0;
-    border:1px solid red;
+    /* border:1px solid red; */
 }
 
 /* CSS Variables */
@@ -166,7 +166,7 @@ section.services-container {
 }
 
 #clients img{
-    height: 124px;
+    /* height: 124px; */
 
 }
 

@@ -3,6 +3,12 @@
     flex-direction: column;
 }
 
+#navbar ul li a{
+    font-size: 1rem;
+    padding: 0px 7px;
+    padding-bottom: 8px;
+}
+
 /* Home section */
 #home{
     height: 280px;
@@ -29,8 +35,13 @@
 }
 
 /* Client's section */
-#client{
+#clients{
+    flex-wrap: wrap;
+}
 
+#clients img{
+    width: 66px;
+    padding: 6px;
 }
 
 /* Contact Us section */
