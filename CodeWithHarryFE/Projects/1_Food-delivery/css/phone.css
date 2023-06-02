@@ -41,7 +41,7 @@
 
 #clients img{
     width: 66px;
-    height: 80px;
+    height: auto;
     padding: 6px;
 }
 
