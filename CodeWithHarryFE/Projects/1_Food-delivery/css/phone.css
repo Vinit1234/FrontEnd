@@ -1,16 +1,27 @@
 /* Navigation */
 #navbar{
-
+    flex-direction: column;
 }
 
 /* Home section */
 #home{
+    height: 280px;
+    padding: 3px 25px;
+    
+}
 
+#home::before{
+    height: 400px;
+
+}
+
+#home p{
+    font-size: 1rem;
 }
 
 /* Services section */
 #services{
-    
+    flex-direction: column;
 }
 
 #services .box{
@@ -26,3 +37,12 @@
 
 
 /* Footer section */
+
+/* Utility classes */
+.h-primary{
+    font-size: 1.8rem;
+}
+
+.btn{
+    font-size: 1.2rem;
+}
