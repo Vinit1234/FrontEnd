@@ -46,7 +46,9 @@
 }
 
 /* Contact Us section */
-
+#contact-box form{
+    width: 80%;
+}
 
 /* Footer section */
 
