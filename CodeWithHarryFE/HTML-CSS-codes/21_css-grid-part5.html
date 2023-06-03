@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid: Layouts using grid-template-area</title>
+    <style>
+        .container{
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-areas: 
+            'navbar navbar navbar navbar' 
+            'section section section aside'
+            'footer footer footer footer';
+        }
+
+        .item{
+            background-color: rgb(153, 215, 215);
+            border: 2px solid #000;
+        }
+        #navbar{
+            grid-area: navbar;
+        }
+        #section{
+            grid-area: section;
+        }
+        #aside{
+            grid-area: aside;
+
+        }
+        .footer{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="navbar" class="item"><h1>Navbar</h1></div>
+        <div id="section" class="item"><h1>Section</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta similique in eius cum! Soluta dolore modi nesciunt doloribus? Necessitatibus maiores provident eaque. Incidunt, saepe. Laboriosam nihil mollitia similique atque incidunt.</p>
+        </div>
+        <div id="aside" class="item"><h1>Aside</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta similique in eius cum! Soluta dolore modi nesciunt doloribus? Necessitatibus maiores provident eaque. Incidunt, saepe. Laboriosam nihil mollitia similique atque incidunt.</p>
+        </div>
+        <footer class="footer item"><h1>Footer</h1></footer>
+    </div>
+</body>
+</html>
