@@ -35,6 +35,10 @@ O/p:
 <div class="box" id="box1"></div>
 <div class="box" id="box2"></div>
 
+>>.item{This is Item-$}*2
+O/P:
+<div class="item">This is Item-1</div>
+<div class="item">This is Item-2</div>
 
 
 >> Enter content using {<content-here>}
