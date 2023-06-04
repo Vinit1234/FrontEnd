@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Intro</title>
+    <script>
+        console.log('Hello world');
+        var a= 78;
+        var b="Dummy"
+        // Error
+        // console.log(c); 
+        var c;
+        // console.log(c); //undefined
+        c=3.14;
+        console.log("Sum=",(a+c));
+        // or console.log("Sum="+(a+c));
+        
+        // -------------------------------
+        // Strings
+
+        var s1="Hello";
+        var s2="World";
+        console.log(s1+s2);
+        console.log(s1+" "+s2);
+
+        var temp = `Value of 's2' is "${s2}" ` 
+        console.log(temp)
+        console.log("For new line use \\n and for backslash use \\");
+
+        var s3 = new String("New String") 
+        console.log(s3.toString());
+
+        // String functions
+        // NOTE: index starts from 0
+        s2= "This is a string";
+        var position = s2.indexOf("is");
+        console.log(position);
+        s2[position]="u";
+        console.log(s2); //String doesn't change ie, immutable.
+
+        position = s2.lastIndexOf("is");
+        console.log(position)
+
+        var substr1 = s2.slice(1,5);
+        // var substr1 = s2.substring(1,5);
+        // var substr1 = s2.slice(1,5);
+        console.log(substr1); //index 1 included 5 excluded
+        console.log(s2.substr(1,3)); //index 1 se 3 chars
+
+        console.log(s2.replace('string', 'thing'));
+        console.log(`s2 remains ${s2}`);
+
+        console.log(s2.toUpperCase());
+        console.log(s2.toLowerCase());
+        
+        var str= "    this contains whitespaces   "
+        console.log("Extra spaces removed from str:'"+str.trim()+"'");
+
+
+        console.log("char at index 5 is:"+str.charAt(5));
+
+        console.log("character code of char at index 5 is:"+str.charCodeAt(5));
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>This is a heading</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex doloribus, odio repudiandae quam dolore temporibus, ab assumenda eum natus officiis dignissimos harum itaque deserunt, omnis totam accusamus corrupti odit iure?</p>
+    </div>
+</body>
+</html>
