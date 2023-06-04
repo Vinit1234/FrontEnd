@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS: if-else condition and Switch case</title>
+    <script defer>
+        var s1="This is a string"
+        var s1="New String"
+        console.log(s1); //allowed
+
+        let s2= "Outer String"
+        {
+            var a="A-string"
+
+            //let Accessible only within scope of declaration
+            let s2= "Inner String"
+        // let s2= "First String"  // Redeclaration error
+
+            console.log(s2); // Inner string
+        }
+        console.log(a); //allowed
+        console.log(s2); //Outer string
+
+        // -----------------------------------------------
+
+        const c= "This cannot be changed";
+        // c="New string"  //Error
+
+        // if-else condition----------------------------------
+
+        let age= 17;
+        let pass_age=18;
+        if(age>pass_age){
+            console.log("You can take the pass");
+        }else if(age==pass_age){
+            console.log("Hey! Congratulations on your first pass!");
+        }else if(age==pass_age-1){
+            console.log("You are only 17 now, but we are allowing you at your own risk.");
+        }else{
+            console.log("Come when you get 18 or above.")
+        }
+
+        // Switch case
+        // const cups=45;
+        const cups="Something";
+        switch (cups) {
+            case 4:
+                console.log("Value of cups is 4")
+                break;
+            case 41:
+                console.log("Value of cups is 41")
+                break;
+            case 42:
+                console.log("Value of cups is 42")
+                break;
+            case "Something":
+                console.log("Value of cups is Something")
+                break;
+        
+            default:
+                console.log("You got a weird value.")
+                break;
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello World!!</h1>
+    </div>
+    
+</body>
+</html>
