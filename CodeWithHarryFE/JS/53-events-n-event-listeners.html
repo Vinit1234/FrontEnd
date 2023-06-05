@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event and event Listeners</title>
+</head>
+<body>
+    <div class="container">
+        <h1>This is my heading</h1>
+        <p id="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, dicta, ex exercitationem quia labore voluptatum cumque nobis, placeat reiciendis laborum accusantium rerum ratione voluptas iste animi! Debitis dolorum dolore amet.</p>
+        <div>
+            <button id="btn" onclick="toggleHide()">Show/Hide</button>
+        </div>
+    </div>
+
+    <script defer>
+        let para= document.getElementById("para");
+        para.addEventListener('mouseover', function run(){
+            console.log('Mouse Inside')
+        });
+        para.addEventListener('mouseout', function run(){
+            console.log('Mouse went outside.')
+        });
+
+
+        function toggleHide(){
+            let btn= document.getElementById("btn");
+            if (para.style.display=="none"){
+                para.style.display="block";
+            }else{
+                para.style.display="none";
+            }
+
+        }
+    </script>
+</body>
+</html>

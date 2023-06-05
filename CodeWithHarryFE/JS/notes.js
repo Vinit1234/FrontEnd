@@ -17,7 +17,19 @@ Scripts with the defer attribute are executed in order (i.e. first script 1, the
 Unlike async scripts, defer scripts are only executed after the entire document has been loaded.
 
 ----------------------------------------------------
+JS events:
+click
+contextmenu
+mouseover/mouseout
+mousedown/mouseup
+mousemove
 
+submit 
+focus
+
+DOMContentLoaded
+
+transitionend
 
 
 
