@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval & setTimeOut</title>
+</head>
+<body>
+    <div class="container">
+        Time now is <span id="time"></span>
+    </div>
+    
+    <script defer>
+        // setTimeOut() allows to run a function once after a certain interval of time and returns timeOut id
+        // clearTimeOut(timeOut_id) stops the execution of the function by setTimeOut for the returned timeOut id.
+        // setInterval() allows to run a function repeatedly after a certain interval of time
+
+        // function greet(){
+        //     console.log("Time's up! 2 seconds over!")
+        // }
+        // setTimeout(greet, 2000);
+
+        
+        // function greet(name){
+        //     console.log(`Time's up ${name}! Your 2 seconds are over!`)
+        // }
+        // setTimeout(greet, 2000, "Robert");
+
+
+        function greet(name, seconds=2){
+            console.log(`Time's up ${name}! Your ${seconds} seconds are over!`)
+        }
+
+        // let timeout_id=0;
+        // for (let index = 0; index < 6; index++) {
+        //     timeout_id=setTimeout(greet, index+3*1000, "Robert",index+3);
+        //     console.log(index+":>>>>>>>>>>>>>>>>>")
+        //     console.log("timeout_id:"+timeout_id);
+        //     if(timeout_id==4){
+        //         console.log(`timeout_id: 3 is not allowed!!`)
+        //         clearTimeout(timeout_id);
+        //         break;
+        //     }
+        // }
+
+        
+        // interval_id = setInterval(greet, 1000, "Roger");
+        
+        function displayTime(){
+           time=new Date();
+           console.log(time);
+           document.getElementById('time').innerHTML=time;
+        }
+        // interval_id = setInterval(displayTime, 1000);
+        
+    </script>
+</body>
+</html>
