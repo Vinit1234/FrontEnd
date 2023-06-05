@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer>
+        let myVar1=null;
+        let myVar2=undefined;
+        
+        let employee={
+            name:"Jack",
+            salary:10000,
+            office1:"Delhi",
+            "office 2":"Pune"
+        }
+        console.log(employee);
+        console.log(employee.name);
+        console.log(employee["name"]);
+        
+        // console.log(employee."office 2"); // Error
+        // console.log(employee.office 2); // Error
+        console.log(employee["office 2"]);
+
+        let names=[1,2,3,"Jack", undefined];
+        //let names=new Array(1,2,3,"Jack", undefined);
+        console.log(names[0]);
+        console.log(names.length)
+
+        names=names.sort();
+        names.push("New Element");
+
+        // Array with 23 elements (initially all undefined)
+        let nums = new Array(23);
+ 
+    </script>
+</head>
+<body>
+    <h1>Arrays and Objects</h1>
+</body>
+</html>
