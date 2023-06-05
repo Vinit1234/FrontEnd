@@ -30,7 +30,9 @@ focus
 DOMContentLoaded
 
 transitionend
+---------------------------------------------------
 
+DOM is tree-structure representation of HTML Elements which is created by browser.
 
 
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Dates</title>
+    <style>
+        .container{
+            font-size: 1.8rem;
+            padding: 32px;
+            background-color: antiquewhite;
+            border: 1px solid #000;
+            text-align: center;
+        }
+        #time{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Current time is <span id="time"></span>
+    </div>
+    <script defer>
+        console.log("This is date and time");
+        // let newdate = new Date(yr,month,date,hrs,mins,secs,milli-secs,);
+        // let dt = new Date(0); 
+        // let dt = new Date(1000);
+        let dt = new Date("2019-09-30");
+        console.log(dt);    // Sun Sep 29 2019 17:00:00 GMT-0700 (Pacific Daylight Time)
+        dt = new Date(2029, 4,6,7,8,9)
+        console.log(dt);
+
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>")
+        console.log("Year:", dt.getFullYear());
+        console.log("Date:", dt.getDate());
+        console.log("Hour:", dt.getHours());
+        console.log("Month(Index):", dt.getMonth());
+
+        console.log(">;>>>>>>>>>>>>>>>>>>>>>>")
+        dt.setDate(5);
+        console.log(dt);
+        // Valid. Js computes the date automatically and correctly 31May+1= 1st June
+        dt.setDate(32);
+        console.log(dt);
+
+        
+        //Date representation in milliseconds from epoc time
+        console.log(">;>>>>>>>>>>>>>>>>>>>>>>");
+        console.log(typeof(Date.now()));
+        let xdate = new Date(Date.now()); //date obj
+        let str_date = xdate.toString();  //string 
+        console.log(typeof(xdate));
+        console.log(typeof(str_date));
+        
+
+        setInterval(updateTime,1000);
+        function updateTime(){
+            // Allowed. Picks html element with id="time"
+            time.innerHTML = new Date();
+        }
+
+        
+
+    </script>
+</body>
+</html>
