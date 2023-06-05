@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <!-- Scipt here can't access DOM elements. Hence add to the end of body -->
+    <!-- <script defer>
+        let main=document.getElementById('main');
+        console.log(main);
+    </script> -->
+</head>
+
+<body>
+    <div id="main" class="container">
+        <ul id="nav">
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>More About Us</li>
+            <li>Contact Us</li>
+        </ul>
+    </div>
+    <div class="container">
+        Another Container
+    </div>
+
+
+
+    <!-- -------------------------------------------- -->
+    <script defer>
+        let main=document.getElementById('main');
+        console.log(main);
+        let nav=document.getElementById('nav');
+        console.log(nav);
+
+        // let nav_items = nav.innerHTML;
+        // console.log("Nav Inner HTML:\n"+nav_items);
+        // nav.innerHTML="<li>Dynamic element</li>";
+
+        let containers = document.getElementsByClassName('container');
+        // console.log(containers);
+        console.log(containers[0]);
+
+        // Returns 1st element which matches selector
+        let sel = document.querySelector('.container');
+        console.log("Selector returns ", sel);
+
+        //This doesnt work, converts sel into string and concats; hence object can't be seen on console
+        // console.log("Selector returns "+ sel); 
+
+        
+        // Returns all elements matching the selectors
+        let sel_all=document.querySelectorAll("#nav>li");
+        console.log("querySelectorAll returns: ",sel_all);
+        console.log("querySelectorAll first element: ",sel_all[0]);
+        sel_all[0].innerHTML="Inserted 1";
+        console.log("First li element value updated.")
+    </script>
+</body>
+</html>
