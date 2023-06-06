@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container{
+    background-color: #23424A;
+    color:white;
+    width: 80%;
+    margin: 0 auto;
+
+    /* setting height is bad idea  */
+    /* Avoid setting height as it is responsive by default. Setting height kills responsiveness */
+    /* height: 300px; */
+    
+    /* Rather set padding if you need more height */
+    /* 5em= 16x5 = 80px */
+    padding: 5em; 
+}

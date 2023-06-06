@@ -1,0 +1,10 @@
+- Websites are responsive by default. It's us who kill the responsiveness.
+
+#1: 
+Don't set height and width.
+If required, set width in percentage;
+and to give height use padding.
+
+Em vs rem - https://youtu.be/_-aDOAMmDHI
+
+
