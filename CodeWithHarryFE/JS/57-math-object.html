@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Object</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Math object</h1>
+    </div>
+    <script defer>
+        let m = Math;
+        // Take this as a reference for using methods and constants in Math object
+        console.log(m);
+        console.log("Math.PI=",Math.PI);
+
+        let a=34.64534;
+        let b= -89.5;
+
+        console.log("The values of a and b are: ", a, b);
+        console.log("Round of a", Math.round(a));
+        console.log("2 to power 3 =", Math.pow(2,3));
+        console.log("Sq. rt. of 36 =",Math.sqrt(36));
+        console.log("Sq. rt. of 60.25 =",Math.sqrt(60.25));
+
+        // Ceil, floor,round,absolute
+        console.log("Ceil Value(Round-up) of a is ",Math.ceil(a));
+        console.log("Floor Value(Round-down) of a is ",Math.floor(a));
+        console.log("Round Value of a is ",Math.round(a));
+        console.log("Absolute Value of a is ",Math.abs(a));
+        console.log("Absolute Value of b is ",Math.abs(b));
+        
+        // Trigonometry functions use radian and not degree
+        console.log("Sin() ",Math.sin(1.52));
+
+        // Min and max
+        console.log("Max value out of 4,23,32 = ",Math.max(4,23,32));
+        console.log("Min value out of 4,23,32 = ",Math.min(4,23,32));
+
+        //Random number generation
+        console.log("Random number =", Math.random()); //b/w 0 and 1
+        
+        // Random number between a and b = a+(b-a)*Math.random()
+        console.log("Random number b/w 1 and 100 =", 1+99*Math.random()); //b/w 0 and 100
+
+
+        
+
+
+    </script>
+</body>
+</html>
