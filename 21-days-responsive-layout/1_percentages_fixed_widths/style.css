@@ -23,4 +23,8 @@ body{
 .child{
     background-color: #38cfd9;
     height: 250px;
+
+    /* means 50% of parent */
+    /* Overflow can happen if text inside child is long. */
+    width: 50%;
 }
