@@ -10,6 +10,14 @@ body{
     background-color: #23424A;
     padding: 50px;
     
+    /* Kills responsiveness */
+    /* width: 900px;  */
+    
+    /* Not setting width is also responsive */
+
+    /* Percentages are responsive */
+    width: 80%;
+
 }
 
 .child{
