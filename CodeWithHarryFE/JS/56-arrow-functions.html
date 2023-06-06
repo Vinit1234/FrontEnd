@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+</head>
+
+<body>
+    <div class="container">Arrow functions</div>
+
+    <script defer>
+        // Learn more about "this" keyword from https://www.w3schools.com/js/js_this.asp
+
+
+        // function greet(){
+        //     console.log("Good morning");
+        // }
+        // greet();
+
+        // Arrow function
+        greet = () => { console.log("Good morning") };
+        // greet();
+
+        // setTimeout(() => {
+        //     console.log("Inside setTimeout()");
+        //     greet();
+        // }, 3000);
+
+
+        let half = a => a / 2;
+        console.log("Half(100)=" + half(100));
+
+        // let sum = (a,b)=>{ return a+b} //OR
+        let sum = (a, b) => a + b;
+        console.log("Sum is:" + sum(3, 40));
+
+
+        let obj1 = {
+            greeting: "Good Morning",
+            names: ["Harry", "Drake", "Celina", "Helly", "Sam"],
+            speak() {
+                // Inside anonymous function "this" refers to obj1
+                this.names.forEach((student) => {
+                    console.log(this.greeting + " " + student);
+                });
+
+                // Inside named function "this" refers to the function itself
+                this.names.forEach(function s(student) {
+
+                    // in named function this refers to global object ie, [object Window]
+                    if(student=="Harry"){
+                        console.log("Global object window:")
+                        console.log(this);
+                    }
+
+                });
+            }
+        }
+        obj1.speak();
+    </script>
+</body>
+
+</html>
