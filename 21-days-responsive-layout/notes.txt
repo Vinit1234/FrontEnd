@@ -8,3 +8,65 @@ and to give height use padding.
 Em vs rem - https://youtu.be/_-aDOAMmDHI
 
 
+
+
+#2 Relative units - Ems and rems:
+
+- ems are used in printing world.
+- ems are relative to immediate parent. If no value is set, it 
+is relative to 16px by default.
+- use ems when you want to maintain propotion of te designed components 
+(eg, designed button)
+- If ems are set in nested child elements, there might be compounding effect
+(compoundingly getting bigger or smaller).
+
+- rems were introduced to solve this problem.
+- rems are relative to root tag ie, <html> ie, ::root{}
+- rem units keep everything consistent thoughout the webpage.
+
+NOTE: By setting the font-size of parent element or root element, you can change
+the font-size of entire website. Hence it is recommended to use these 
+relative units ie, ems and rems.
+
+
+
+NOTE:
+Eg1.
+
+.col-123{
+    font-size:2em; /* means 16px *2 =32 */
+    margin-bottom: 2em; /* means 2*(previously set em value (ie, of font-size)) ie, 2*32=64  */
+    padding: 1rem;  /* Always relative to root; 16px by default */
+}
+
+Eg2.
+
+<button class="btn"></button>
+<button class="btn btn-small"></button>
+
+.btn{
+    background:black;
+    color:white;
+    
+    /* keeps padding propotionate to font-size in elements having btn-small class*/
+    /* ie,due to em padding adapts to font-size in the btn-small elements */
+    padding: 1em 3em; 
+
+    /*padding won't change if they are kept in rem here*/
+    padding: 1rem 3rem; 
+
+}
+
+btn-small{
+    /* Not recommended */
+    font-size: 0.5em;
+}
+
+
+
+#3 Max-width
+
+NOTE:
+Setting a fixed width on an element tends to be a bad idea. Instead we can use percentages, which make our lives easier.
+The only issue with this is, at large screens, things can get too big. Thankfully, we have max-width that can help us out!
+
