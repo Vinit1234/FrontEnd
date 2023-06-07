@@ -80,3 +80,38 @@ Design based on viewport units break for mobile screens.
 Avoid using viewport units as there are some accessibility issues.
 
 Note: the difference between vw (or vh) and percentages is that vw and vh are relative to the viewport whereas percentages are relative to the parent element.
+
+
+# Extra reading
+
+1. Width and max-width combination (max-width overpowers width)
+https://css-tricks.com/tale-width-max-width/
+
+2. Emmet documentation - https://docs.emmet.io/
+
+3. BEM (style of writing code) - https://youtu.be/SLjHSVwXYq4
+
+4. box-sizing: border-box - https://youtu.be/WlGQdgy-M6w
+
+
+
+#9  Flexbox Basics
+
+
+.row{
+    display: flex;
+    /*Adds gap b/w flex-items; 
+    supported only on modern browsers except MS InternetExplorer*/
+    gap: 100px;
+}
+
+.col{
+    /* Flex items */
+    width: 100%;
+}
+
+/* Combinators */
+/* Select a .col having .col before it */
+.col + .col{
+    background-color:limegreen;
+}
