@@ -24,14 +24,17 @@ body {
 }
 
 .container {
-  width: 80%;
-  max-width: 750px;
-  margin: 0 auto;
+  /* width: 80%; */
+  /* max-width: 750px; */
+  /* margin: 0 auto; */
   background: #23424a;
   color: white;
   padding: 50px 0;
 }
 
-.intro-content {
-  width: 50%;
+.intro-content,.more-content {
+  /* width: 50%; */
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
 }
