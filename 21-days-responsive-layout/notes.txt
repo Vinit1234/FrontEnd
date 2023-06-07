@@ -70,3 +70,13 @@ NOTE:
 Setting a fixed width on an element tends to be a bad idea. Instead we can use percentages, which make our lives easier.
 The only issue with this is, at large screens, things can get too big. Thankfully, we have max-width that can help us out!
 
+
+#4 viewport units 
+
+Viewport units are relative to browser's size on the screen.
+
+Design based on viewport units break for mobile screens.
+
+Avoid using viewport units as there are some accessibility issues.
+
+Note: the difference between vw (or vh) and percentages is that vw and vh are relative to the viewport whereas percentages are relative to the parent element.

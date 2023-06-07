@@ -43,6 +43,7 @@ h1 {
   background: linear-gradient(to left, #83a4d4 , #b6fbff);
   padding: 10vh 0;
   
+  /* viewport height */
   height: 100vh;
 }
 
