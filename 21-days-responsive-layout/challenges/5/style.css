@@ -32,3 +32,14 @@ body{
     max-width: 600px;
     /* margin: 0 auto; */
 }
+
+.btn{
+    background-color: #38CFD9;
+    color: #23424A;
+    border: none;
+    border-radius: 50px;
+    padding: 1em 2em;
+    font-size: var(--normal-font-size);
+    font-weight: bold;
+    margin-top: 2rem;
+}
