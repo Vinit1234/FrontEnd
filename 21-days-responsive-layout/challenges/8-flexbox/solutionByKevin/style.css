@@ -52,6 +52,11 @@ h1 {
     width: 100%;
 }
 
+.col + .col{
+    margin-left: 30px;
+}
+
+
 .hero {
     padding: 100px 0;
     background-color: #23424A;
@@ -64,6 +69,14 @@ h1 {
 
 .hero p {
     margin-bottom: 3em;
+}
+
+.accent-text{
+    color:#87629A;
+}
+
+.three-col{
+    padding: 3em 0;
 }
 
 .btn {
