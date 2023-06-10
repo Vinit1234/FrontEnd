@@ -14,14 +14,14 @@ h1 {
 }
 
 .container{
-    width: 80%;
+    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
 .inner-container{
     background-color: #24424a;
-    padding: 4rem;
+    padding: 4em;
     
 }
 .text-container{
@@ -63,3 +63,7 @@ h1 {
     color:#87629A
 }
 
+.odd-row{
+    background-color: #136C72;
+    color:white;
+}
