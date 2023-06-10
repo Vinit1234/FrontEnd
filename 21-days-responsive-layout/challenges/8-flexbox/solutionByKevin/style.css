@@ -77,6 +77,14 @@ h1 {
 
 .three-col{
     padding: 3em 0;
+    text-align: center;
+
+}
+
+.two-col{
+    background-color: #136c72;
+    color:white;
+    text-align: center;
 }
 
 .btn {
