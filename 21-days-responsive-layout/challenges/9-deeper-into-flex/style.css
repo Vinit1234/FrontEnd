@@ -89,3 +89,26 @@ h1 {
 .btn:focus {
     opacity: .75; 
 }
+
+.aside{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.card{
+    text-align: center;
+    color: white;
+}
+
+.accent{
+    background-color: #136c72;
+}
+
+.section > .container{
+    margin-top: 2rem;
+}
+
+.txt-section>h2{
+    color: #136c72;
+}
