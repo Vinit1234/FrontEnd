@@ -111,7 +111,118 @@ https://css-tricks.com/tale-width-max-width/
 }
 
 /* Combinators */
+/* Give spacing/gap between flex items */
 /* Select a .col having .col before it */
 .col + .col{
     background-color:limegreen;
 }
+
+
+>> Column widths and flexbox
+
+
+Try to keep minimal code in your flex row:
+
+Eg. 
+>> Incorrect approach ------------------------------------------------
+
+.row{
+    display: flex;
+    gap:1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+>> Correct approach ------------------------------------------------
+
+.row{
+    display: flex;
+}
+
+.col + .col{
+    margin-left: 30px;
+}
+
+.hero {
+    padding: 100px 0;
+}
+
+.three-col{
+    text-align: center;
+
+}
+
+.two-col{
+    text-align: center;
+}
+
+------------------------------------------------
+
+Avoid image stretching by fiving class to img:
+.hero__img{
+    align-self:flex-start;
+}
+
+------------------------------------------------
+
+<div class="parent">
+    <div class="child-1"></div>
+    <img class="child-2" src="" alt="">
+</div>
+
+
+.parent{
+    display:flex;
+}
+
+If you want child-1 and child-2 to be equally sized 
+while zoom-in and zoom-out then:
+
+.child-1{
+    width:100%;
+}
+.child-2{
+    width:100%;
+}
+
+
+If you want child-1 to take 60% and child-2 to take 30% 
+while zoom-in and zoom-out then:
+.child-1{
+    width:60%;
+    margin-right:10%;
+}
+.child-2{
+    width:30%;
+}
+
+If you want child-1 to take 60% and child-2 to adjust automatically
+while zoom-in and zoom-out then:
+
+.child-1{
+    width:60%;
+    margin-right:10%;
+}
+
+------------------------------------------------
+
+To make image responsive use div:
+
+<div class="img-wrapper">
+    <img src="" alt="">
+</div>
+
+img{
+    max-width:100%;
+}
+
+or
+
+img{
+    width:250px;
+    height:150px;
+    object-fit:cover;
+    object-position: bottom;
+    padding: 5px;
+}
+
