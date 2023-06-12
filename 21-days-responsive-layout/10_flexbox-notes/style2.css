@@ -1,0 +1,50 @@
+.container{
+    background-color: pink;
+    height: 25vh;
+    width: 80vw;
+    padding: 0.5em;
+    margin: 25vh auto 0;
+
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.item{
+    background-color: lightblue;
+    margin: 0.5em;
+    /* 
+    flex-grow: ;
+    flex-shrink: ;
+    flex-basis: ;
+    flex: ;
+    order: ;
+    align-self: ; */
+
+}
+
+/* they grow and shrink if stretched beyond flex-basis ie, 250px */
+.one{
+    /* flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 250px; */
+
+    /* Allowed */
+    flex:250px;
+
+    /* shorthand for flex-grow and flex-basis */
+    flex: 1 250px;
+}
+.two{
+    /* flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 250px; */
+
+    /* shorthand for flex-grow, flex-shrink and flex-basis */
+    flex: 2 1 250px;
+}
+.three{
+    flex-grow: 3;
+    flex-shrink: 3;
+    flex-basis: 250px;
+}
