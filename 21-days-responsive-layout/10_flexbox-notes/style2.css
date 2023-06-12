@@ -7,6 +7,8 @@
 
     display: flex;
     flex-direction: row;
+    /* Comment this for flex-grow, shrink and basis for folowing classes */
+    align-items: flex-start;
     
 }
 
@@ -33,15 +35,22 @@
     flex:250px;
 
     /* shorthand for flex-grow and flex-basis */
-    flex: 1 250px;
+    flex: 1 250px; 
 }
 .two{
     /* flex-grow: 2;
     flex-shrink: 1;
     flex-basis: 250px; */
-
+    
     /* shorthand for flex-grow, flex-shrink and flex-basis */
     flex: 2 1 250px;
+    
+    /* Breaks align-items rule in container */
+    align-self: flex-end;
+
+    /* by default order:0 */
+    /* order:-1; */
+    order:1;
 }
 .three{
     flex-grow: 3;
