@@ -230,3 +230,16 @@ img{
 
 #Exploring Flexbox
 
+Flexbox cheatsheet:
+https://flexbox.malven.co/
+
+https://www.samanthaming.com/flexbox30/
+
+align-content determines the spacing between lines
+(align-content doesn't interfere with items in a row but with rows itself. Hence, align-content will try to align rows with respect to each other and flex container.)
+
+align-items determines how the items as a whole are aligned within the container.(align-items is for items in a single row.)
+
+When there is only one line, align-content has no effect
+
+
