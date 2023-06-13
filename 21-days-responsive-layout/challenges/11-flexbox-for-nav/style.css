@@ -77,6 +77,12 @@ header {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
+    margin-left: 1em;
+}
+
+.nav__item {
+    margin-left: 1em;
 }
 
 .nav__link {
