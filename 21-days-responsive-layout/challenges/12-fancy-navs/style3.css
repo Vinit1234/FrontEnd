@@ -15,43 +15,58 @@ header{
     color: #FFF;
 }
 
-.container{
+.container3{
     width: 80%;
+    max-width: 1100px;
     margin: 0 auto;
     /* padding: 10px 0; */
     margin-bottom: 1rem;
     /* border: 1px solid red; */
 }
-.nav__list{
+
+.row3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__list3{
     display: flex;
     margin: 0;
     align-items: center;
 
 }
 
-.nav-items{
+.nav-items3{
     list-style-type: none;
-    padding: 10px;
+    padding: 1rem;
     text-transform: uppercase;
     align-items: center;
     
 }
 
-.nav-items:hover, .nav-items:focus{
+.nav-items3:hover, .nav-items3:focus{
     background-color: #104c4e;
 } 
 
-.nav-items > a{
+.nav-items3 > a{
     color:#FFF;
     text-decoration: none;
 
 }
 
-.btn{
+.btn3{
     border: none;
     color: #2d525c;
     padding: 5px 15px;
     font-size: 1.2rem;
     border-radius: 50px;
     text-transform: uppercase;
+}
+
+.logo{
+    padding: 0.6rem;
+}
+.logo:hover{
+    background-color: #104c4e;
 }
