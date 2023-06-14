@@ -16,6 +16,14 @@ body{
     font-size: 21px;
 }
 
+.container{
+    /* border: 2px solid red; */
+    width: 80%;
+    max-width: 1128px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
 .hero{
     background-color: var(--primary-color);
     
@@ -26,11 +34,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
     max-width: 900px;
-    margin: 0 auto;
+    /* border: 1px solid red; */
     padding:4rem;
-    font-size: 1.5rem;
 }
 
 .subtitle{
@@ -48,4 +54,24 @@ body{
     color: var(--secondary-color);
     font-family: 'Playfair Display', serif;
     font-size: 60px;
+}
+
+.row{
+    display: flex;
+}
+
+.col + .col{
+    margin-left: 2rem;
+}
+
+.txt-title{
+    text-align: center;
+    color: var(--secondary-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+
+}
+
+.white-section{
+    color:var(--tertiary-color);
 }
