@@ -63,6 +63,7 @@ body{
 .col{
     width: 50%;
 }
+
 .col + .col{
     margin-left: 2rem;
 }
@@ -79,14 +80,19 @@ body{
     color:var(--tertiary-color);
 }
 
-.green-section{
+.image-section-1{
     background-color: var(--tertiary-color);
 }
 
-.green-section>.row{
+.image-section-1>.row{
     color:#fff;
 }
 
 img {
     max-width: 100%;
+}
+
+.image-section-2{
+    background-color: var(--secondary-color);
+    color:#fff;
 }
