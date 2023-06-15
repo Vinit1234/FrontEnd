@@ -60,6 +60,9 @@ body{
     display: flex;
 }
 
+.col{
+    width: 50%;
+}
 .col + .col{
     margin-left: 2rem;
 }
@@ -74,4 +77,16 @@ body{
 
 .white-section{
     color:var(--tertiary-color);
+}
+
+.green-section{
+    background-color: var(--tertiary-color);
+}
+
+.green-section>.row{
+    color:#fff;
+}
+
+img {
+    max-width: 100%;
 }
