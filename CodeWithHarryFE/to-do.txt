@@ -8,3 +8,97 @@
 - Writing unit tests using Jest 
 
 # React JS
+
+
+An action plan can look like this:
+
+
+Month 1: Learn HTML and CSS
+Month 2: Learn Bootstrap/Tailwind and design fundamentals
+Month 3: Create websites using HTML, CSS and Bootstrap
+
+Month 4: Learn JavaScript
+Month 5: Learn more advanced JavaScript
+Month 6: Create websites using HTML, CSS and JavaScript or Editor X
+
+Month 7: Create a personal portfolio website and build a personal brand
+Month 8: Reach out to businesses to create websites for them (for free to gain experience)
+Month 9: Focus on improving knowledge and see what you need to work on
+
+Month 10: Get a minimum of 3 client websites on portfolio
+Month 11: Learn freelancing fundamentals and business essentials
+Month 12: Reach out to prospective clients, promote your work, and get paid clients or apply for a job.
+
+----------------------------------------------------------------
+Learn to build these clones:
+
+>> Landing Pages (HTML & CSS ):
+https://www.youtube.com/playlist?list=PLbtI3_MArDOnscF-pLyW8QU9oDIXBPnLo
+
+>> 10 Impressive Projects ideas in JS
+https://www.youtube.com/watch?v=UQnucbThyFw
+
+>> Ecommerce Website (HTML CSS JS)
+https://www.youtube.com/playlist?list=PL9bD98LkBR7P8MYh0RzNSHgeVNTA8g0nB
+
+>> Restaurant website
+https://www.youtube.com/watch?v=NtBOhRLDllk
+
+-----------------------------------------------------------------
+For UI/UX:
+Be good at:
+ - defining problems
+ - product research
+ - visual design(esthetics, principles of visual design)
+ - communication
+ - pitching and selling
+ - high fidelity prototyping
+
+Learn from:
+
+https://www.dailyui.co/
+https://www.youtube.com/playlist?list=PLDVpvW8ghDr9tasku_YvuTy_l0xPUtOHE
+https://dansapio.medium.com/
+https://www.youtube.com/playlist?list=PLlHtucAD9KT2VKBwCZooIvDAiJQZ0Hrur
+
+https://indianswhodesign.in/
+https://www.whiteboard.fm/
+https://www.cofolios.com/
+
+
+
+You should know:
+
+DS and Algo
+Case studies (End-to-end app)
+Architecture from scratch
+Vanilla JS mastery
+React
+Code optimization
+Redux state management
+
+Software Design Lifecycle
+Agile Development
+Project Management skills
+Team management skills
+
+
+=======================================================================
+## Action Plan:
+
+(When completed repeat tasks in same ratio)
+
+# Week 1:
+( Estimate 4 days to complete)
+Per day:
+    - 1hr Bootstrap with project
+    - 1hr JS
+    - 2hr Freecodecamp revision (HTML CSS: Flex Grid etc.)
+    - 1hr copywriting
+
+# Week 2:
+    - 2hrs Landing Pages
+    - 1hr ReactJS
+    - 1hr JS
+    - 1hr Bootstrap
+
