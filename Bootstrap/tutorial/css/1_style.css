@@ -1,0 +1,28 @@
+.container{
+    border: 5px solid red;
+    margin-bottom: 1rem;
+}
+
+.container-fluid{
+    border: 2px solid #000;
+}
+
+.box-1{
+    min-height: 50px;
+    background: rgb(237, 237, 80);
+}
+
+.box-2{
+    min-height: 50px;
+    background: orange;
+}
+
+.box-3{
+    min-height: 50px;
+    background: pink;
+}
+
+.box-4{
+    min-height: 50px;
+    background: rgb(106, 106, 184);
+}

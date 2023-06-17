@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/1_style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        container
+    </div>
+    <div class="container-fluid">container-fluid</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col box-1">Box-1</div>
+            <div class="col box-2">Box-2</div>
+            <div class="col box-3">Box-3</div>
+            <div class="col box-4">Box-4</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-6 box-1">Box-1</div>
+            <div class="col col-sm-6 box-2">Box-2</div>
+            <div class="col col-sm-6 box-3">Box-3</div>
+            <div class="col col-sm-6 box-4">Box-4</div>
+        </div>
+    </div>
+
+    <!-- column size 6 on (*)>=small screens and 8 on (*)>=large screens and 12 by default for the rest -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-8 box-1">Box-1</div>
+            <div class="col-sm-6 col-lg-8 box-2">Box-2</div>
+            <div class="col-sm-6 col-lg-8 box-3">Box-3</div>
+            <div class="col-sm-6 col-lg-8 box-4">Box-4</div>
+        </div>
+    </div>
+
+    <!-- Each row accomodates columns that add up to 12 column spaces -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 box-1">Box-1</div>
+            <div class="col-md-8 box-2">Box-2</div>
+            <div class="col-md-5 box-3">Box-3</div>
+            <div class="col-md-7 box-4">Box-4</div>
+        </div>
+    </div>
+
+    <!-- offset and breakpoints -->
+    <div class="container">
+        <div class="row">
+            <div class="col-3 box-1">Box-1</div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-4 box-1">Box-1 with offset-4</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 offset-md-4 col-lg-3 offset-lg-8 box-1">Box-1 with offset-md-4; offset-lg-8</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 offset-4 box-1">Box-1</div>
+            <div class="col-lg-3 offset-4 box-2">Box-2</div>
+            <div class="col-lg-3 offset-0 box-3 ">Box-3</div>
+        </div>
+    </div>
+
+    <!-- order-first and order-last -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 box-1 order-last">Box-1 order-last</div>
+            <div class="col-sm-3 box-2">Box-2</div>
+            <div class="col-sm-3 box-3 order-first">Box-3 order-first</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 box-1 order-lg-last">Box-1 (order-lg-last)</div>
+            <div class="col-sm-3 box-2">Box-2</div>
+            <div class="col-sm-3 box-3 order-lg-first">Box-3 (order-lg-first)</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 box-1 order-1">Box-1 (order-1)</div>
+            <div class="col-sm-3 box-2">Box-2</div>
+            <div class="col-sm-3 box-3 order-0">Box-3 (order-0)</div>
+        </div>
+    </div>
+
+    <script src="bootstrap-5.3.0/dist/js/bootstrap.js"></script>
+</body>
+
+</html>
