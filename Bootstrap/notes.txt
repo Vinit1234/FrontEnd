@@ -1,0 +1,53 @@
+## Bootstrap ===========================================
+
+NOTE: For Bootstrap auto-complete in vscode, use extension HTML CSS Support by ecmel.
+
+
+If you want to keep your project lightweight and want to run it when internet is 
+available, use CDN links.
+The downside of using CDN is that you cannot customize bootstrap.css
+
+If you need your website to work offline too, then download source from the following link.
+Also, if you want the ability to customize bootstrap, you need to download the source files from:
+https://getbootstrap.com/docs/5.3/getting-started/download/
+
+ie,
+https://github.com/twbs/bootstrap/archive/v5.3.0.zip
+
+NOTE: When source is downloaded you can keep the project light by including only 
+those files that are needed from css and js folder.
+
+==================================================================
+
+- Two container classes:
+.container (fixed width)
+.container-fluid (full width ie, width of viewport)
+
+
+.grid 
+.row (12 columns by default)
+.col-1 to .col-12
+
+Breakpoints for screen sizes:
+xs, sm, md, lg, xl, xxl
+
+
+.col-sm-6
+means take 6 column space in screen sizes >= sm
+
+.col-lg-12
+means take 12 column size in screen sizes >= lg
+
+
+.row can accomodate .col(s) that sum up to column size of 12 in a single row. Anything greater than that will be pushed to next row automatically.
+
+<div class="row">
+    <div class="col col-md-4 box-1">Box-1</div>
+    <div class="col col-md-8 box-2">Box-2</div>
+    <div class="col col-md-4 box-3">Box-3</div>
+</div>
+
+Here, box-1 and box-2 come at 1st row and box-3 is pushed to the next row.
+
+
+.offset-md-3 means leave 3 columns space and start with 4th column
