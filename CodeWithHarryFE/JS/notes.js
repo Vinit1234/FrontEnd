@@ -47,6 +47,33 @@ https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-htm
 
 
 
+## Tricky concepts========================================
+
+
+let obj1 = {
+    greeting: "Good Morning",
+    names: ["Harry", "Drake", "Celina", "Helly", "Sam"],
+    speak() {
+        // Inside anonymous function "this" refers to obj1
+        this.names.forEach((student) => {
+            console.log(this.greeting + " " + student);
+        });
+
+        // Inside named function "this" refers to the function itself
+        this.names.forEach(function s(student) {
+
+            // in named function this refers to global object ie, [object Window]
+            if(student=="Harry"){
+                console.log("Global object window:")
+                console.log(this);
+                console.log(obj1.greeting); //Good morning
+            }
+
+        });
+    }
+}
+obj1.speak();
+
 
 
 

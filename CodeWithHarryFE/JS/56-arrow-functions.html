@@ -41,7 +41,7 @@
         let obj1 = {
             greeting: "Good Morning",
             names: ["Harry", "Drake", "Celina", "Helly", "Sam"],
-            speak() {
+            speak: function() {
                 // Inside anonymous function "this" refers to obj1
                 this.names.forEach((student) => {
                     console.log(this.greeting + " " + student);
@@ -54,6 +54,7 @@
                     if(student=="Harry"){
                         console.log("Global object window:")
                         console.log(this);
+                        console.log(obj1.greeting) //Good morning
                     }
 
                 });
