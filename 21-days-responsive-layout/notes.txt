@@ -295,3 +295,8 @@ Reference:
 https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
 
 The tl;dr of the article: Use 600px, 900px, 1200px, and 1800px if you plan on giving the giant-monitor people something special. 
+
+The following line is important as it keeps our website responsive when changing the size of screen.
+If absent, the website will shrink and expand as it is (w/o reloacting any html element).
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
