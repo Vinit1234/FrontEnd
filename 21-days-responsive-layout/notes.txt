@@ -243,3 +243,46 @@ align-items determines how the items as a whole are aligned within the container
 When there is only one line, align-content has no effect
 
 
+----------------------------------------------------------------
+# min() max() and clamp()
+
+
+
+/* width: 70%;
+    max-width: 600px; */
+
+- Same as commented code above 
+locks/selects the width as min b/w the 2 values:
+width: min(600px,70%); 
+
+- keeps the width as max b/w 2 values: 
+width: max(600px,70%);
+
+- select max among 3 values (less used): 
+width: max(600px,70%, 50vw); 
+
+- can use max inside min and vice-a-versa (least used): 
+width: min(max(200px,40%),40vw); 
+
+- can use calculations also:
+width: min(500px + 20%, 1000px);
+
+-/* clamp(min-value, preferred-value ,max-value) */
+    width: clamp(200px, 50%, 20rem);
+
+
+Tip: Make font-size fluid:
+font-size: 2vw;  
+(Drawback: 
+- At small screen size, font becomes unreadable.
+- the font doesn't zoom-in when browser is zoomed-in as it's size is associated with screen size which remains fixed in this case.
+)
+
+Better trick:
+Better trick to make font-size fluid but fails for small screen size
+    font-size: calc(1vw + 0.5rem);
+
+Best trick:
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+
+
