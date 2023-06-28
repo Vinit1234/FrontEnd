@@ -40,7 +40,7 @@ h1 {
     background-color: #38CFD9;
     padding: .75em 2em;
     border-radius: 100px;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 .btn:hover,
@@ -139,7 +139,9 @@ header {
     background-color: #136c72;
 }
 
-@media (max-width:600px){
+/* @media (max-width:600px){ */
+/* Inspect and correct the breakpoint */
+@media (max-width:800px){
     .row{
         display: block;
     }
