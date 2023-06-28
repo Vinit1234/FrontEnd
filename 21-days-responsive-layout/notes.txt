@@ -305,3 +305,9 @@ If absent, the website will shrink and expand as it is (w/o reloacting any html 
 
 Generally, the smallest screen sizes are of 320px,
 ensure this while checking responsiveness of your website.
+
+
+The benefit of coding acc. to Mobile-first design is that it keeps style related stuff (typography,colors,backgrounds) grouped together and keeps all the layout stuff (inside media query) grouped together.
+
+Prefer Mobile-first design over Desktop first design.
+

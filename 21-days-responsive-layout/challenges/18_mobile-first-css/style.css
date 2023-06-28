@@ -80,3 +80,27 @@ section{
     background-color: #824936;
     counter-reset: #fff;
 }
+
+.container{
+    /* avoid long lines and make content more readable */
+    max-width: 1128px;
+}
+
+
+@media (min-width:600px) {
+    .row{
+        display: flex;
+    }
+    
+    .col{
+        width: 100%;
+    }
+
+    .col + .col{
+        margin-left: 5em;
+    }
+
+    .intro__title{
+        font-size: 3.75rem;
+    }
+}
