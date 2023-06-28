@@ -300,3 +300,8 @@ The following line is important as it keeps our website responsive when changing
 If absent, the website will shrink and expand as it is (w/o reloacting any html element).
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+------------------------------------------
+
+Generally, the smallest screen sizes are of 320px,
+ensure this while checking responsiveness of your website.

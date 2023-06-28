@@ -58,7 +58,8 @@ section{
 }
 
 .intro__title{
-    font-size: 60px;
+    /* font-size: 60px; */
+    font-size: 3rem;
 }
 
 .section-title{
@@ -68,4 +69,14 @@ section{
 
 .section-title--dark{
     color:#824936;
+}
+
+.section-three{
+    background-color: #222c2a;
+    color: #fff;
+}
+
+.section-four{
+    background-color: #824936;
+    counter-reset: #fff;
 }
