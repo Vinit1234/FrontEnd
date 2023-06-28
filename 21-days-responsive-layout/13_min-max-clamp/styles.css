@@ -40,6 +40,8 @@ body{
     /* can use max inside min and vice-a-versa (least used) */
     /* width: min(max(200px,40%),40vw); */
     
+    /* can use calculations also */
+    width: min(500px + 20%, 1000px);
 }
 
 .title{
