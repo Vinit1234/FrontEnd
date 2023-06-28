@@ -1,0 +1,14 @@
+//-------------------------------------------------
+Sources to Develop practical front-end skills:
+
+https://www.frontendmentor.io/challenges
+https://www.csszengarden.com/
+https://stylestage.dev/styles/
+https://www.frontendpractice.com/projects
+
+/* Level up your creativity */
+https://cssbattle.dev/
+https://www.codewars.com/
+
+/* Contributing to real projects */
+https://www.firsttimersonly.com/
