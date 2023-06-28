@@ -26,8 +26,20 @@ body{
     
     /* width: 70%;
     max-width: 600px; */
+
     /* Same as commented code above  */
-    width: min(600px,70%);
+    /* locks/selects the width as min b/w the 2 values */
+    width: min(600px,70%); 
+
+     /* keeps the width as max b/w 2 values  */
+    width: max(600px,70%);
+
+    /* select max among 3 values (less used) */
+    /* width: max(600px,70%, 50vw); */
+
+    /* can use max inside min and vice-a-versa (least used) */
+    /* width: min(max(200px,40%),40vw); */
+    
 }
 
 .title{
