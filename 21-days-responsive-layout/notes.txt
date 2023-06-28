@@ -284,3 +284,6 @@ Better trick to make font-size fluid but fails for small screen size
 
 Best trick:
     font-size: clamp(1rem, 1.25vw, 1.25rem);
+
+-------------------------------------------
+

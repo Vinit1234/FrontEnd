@@ -66,5 +66,6 @@ p{
 
     /* Best trick to make font-size fluid and keep them propotionate */
     font-size: clamp(1rem, 1.25vw, 1.25rem);
-
+    
+    /* if you want something like clamp() for backwards compatibility use feature queries  */
 }
