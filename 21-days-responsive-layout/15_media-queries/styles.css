@@ -14,3 +14,24 @@ body{
     padding: 10em 0;
     background-color: steelblue;
 }
+
+/* minimum 600px of bigger */
+/* @media (min-width:600px) {} */
+
+/* maximum 600px or smaller */
+/* @media (min-width:600px) {} */
+
+/* between 600px and 900px [ 600 and 900 included ]*/
+/* @media (min-width:600px) and (max-width:900px){} */
+
+@media (min-width:600px) {
+    .example{
+        background-color: olivedrab;
+    }
+}
+
+@media (max-width:900px) and (min-width:400px){
+    .example{
+        background-color: crimson;
+    }
+}
