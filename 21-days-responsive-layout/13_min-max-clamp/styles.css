@@ -23,8 +23,11 @@ body{
     background: white;
     padding: 3em;
     box-shadow: 0 0 3em rgbs(0,0,0,.15);
-    width: 70%;
-    max-width: 600px;
+    
+    /* width: 70%;
+    max-width: 600px; */
+    /* Same as commented code above  */
+    width: min(600px,70%);
 }
 
 .title{
