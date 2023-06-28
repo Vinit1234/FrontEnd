@@ -40,6 +40,7 @@ h1 {
     background-color: #38CFD9;
     padding: .75em 2em;
     border-radius: 100px;
+    margin-bottom: 2em;
 }
 
 .btn:hover,
@@ -138,3 +139,12 @@ header {
     background-color: #136c72;
 }
 
+@media (max-width:600px){
+    .row{
+        display: block;
+    }
+
+    .hero__img, .hero__text, .primary-content, .sidebar{
+        width: 100%;
+    }
+}
