@@ -139,3 +139,14 @@ header {
 }
 
 
+.nav{
+    flex-grow: 1;
+}
+
+.nav--secondary{
+    margin-left:auto;
+}
+
+.logo{
+    margin-right: 2em;
+}
