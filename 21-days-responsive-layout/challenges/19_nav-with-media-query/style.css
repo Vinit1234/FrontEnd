@@ -147,6 +147,19 @@ header {
     margin-left:auto;
 }
 
-.logo{
-    margin-right: 2em;
+
+@media (max-width:800px){
+    .row{
+        display: block;
+    }
+
+    .hero__img, .hero__text, .primary-content, .sidebar{
+        width: 100%;
+    }
+
+    .btn {
+        margin-bottom: 2em;
+    }
+
+
 }
