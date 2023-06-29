@@ -8,7 +8,9 @@
    2. Add a space between all the items
 */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -34,7 +36,7 @@ h1 {
 .btn {
     display: inline-block;
     text-decoration: none;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     color: #23424A;
     font-weight: 900;
     background-color: #38CFD9;
@@ -44,7 +46,7 @@ h1 {
 
 .btn:hover,
 .btn:focus {
-    opacity: .75; 
+    opacity: .75;
 }
 
 .container {
@@ -63,7 +65,7 @@ h1 {
     width: 100%;
 }
 
-.col + .col {
+.col+.col {
     margin-left: 30px;
 }
 
@@ -88,7 +90,8 @@ header {
 .nav__link {
     color: #fff;
     text-decoration: none;
-    text-transform: uppercase;;
+    text-transform: uppercase;
+    ;
 }
 
 .nav__link--button {
@@ -109,7 +112,7 @@ header {
     color: #FFF;
 }
 
-.hero__text { 
+.hero__text {
     width: 62%;
 }
 
@@ -139,21 +142,32 @@ header {
 }
 
 
-.nav{
+.nav {
     flex-grow: 1;
 }
 
-.nav--secondary{
-    margin-left:auto;
+.nav--secondary {
+    margin-left: auto;
+}
+
+.logo {
+    margin-right: 2em;
+}
+
+#menu_icon {
+    display: none;
 }
 
 
-@media (max-width:800px){
-    .row{
+@media (max-width:800px) {
+    .row {
         display: block;
     }
 
-    .hero__img, .hero__text, .primary-content, .sidebar{
+    .hero__img,
+    .hero__text,
+    .primary-content,
+    .sidebar {
         width: 100%;
     }
 
@@ -161,5 +175,42 @@ header {
         margin-bottom: 2em;
     }
 
+    /* making nav responsive for small screens  */
+    .nav {
+        display: none;
+    }
+
+    #menu_icon {
+        display: inline;
+    }
+
+    .logo {
+        max-width: 55%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5em 0;
+    }
+
+    .nav__list {
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .nav__item {
+        margin-left: 1em;
+        margin: 0 auto;
+        padding: 0.5em;
+    }
+
+    .nav--secondary {
+        margin-top: 0.5em;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+    }
 
 }

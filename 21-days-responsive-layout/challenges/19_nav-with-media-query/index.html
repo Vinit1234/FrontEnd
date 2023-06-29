@@ -12,6 +12,10 @@
 <body>
     <header>
         <div class="container row">
+            <div class="logo">
+                <img src="img/menu-icon.svg" id="menu_icon" alt="logo here">
+                <img src="img/logo.svg" alt="logo here">
+            </div>
             <nav class="nav">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
@@ -61,7 +65,17 @@
         </aside>
     </main>
 
-
+    <script>
+        let menu_icon =  document.getElementById("menu_icon");
+        menu_icon.addEventListener("click", function run(){
+            let nav = document.getElementsByClassName("nav");
+            if (nav[0].style.display!="none"){
+                nav[0].style.display="none";
+            }else{
+                nav[0].style.display="block";
+            }
+        });
+    </script>
 </body>
 
 </html>
