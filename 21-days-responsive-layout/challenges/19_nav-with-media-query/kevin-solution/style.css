@@ -133,6 +133,7 @@ header {
     position: relative;
 } 
 
+/* --------------------------- */
 
 .nav__list{
     margin: 0;
@@ -167,7 +168,7 @@ header {
 {
     opacity: .65;
 }
-
+/* --------------------------- */
 
 .logo {
     height: 30px;
@@ -210,11 +211,30 @@ header {
     .nav-toggle {
         display: none;
     }
-
+    
+/* --------------------------- */
+    /* Fix nav for larger screens */
     .nav {
+        /* makes nav visible large screen when nav is hidden in small screens and then screen size is expanded */
         visibility: visible;
         display: flex;
         height: auto;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    .nav__list{
+        display: flex;
+        margin: 0;
+    }
+
+    .nav__list--primary{
+        margin: 0 auto;
+    }
+
+    .nav__item{
+        margin: 0 0 0 1.5em;
     }
 
     .row {
@@ -222,6 +242,8 @@ header {
         justify-content: space-between;
 
     }
+
+/* --------------------------- */
 
     .hero__text {
         width: 62%;
