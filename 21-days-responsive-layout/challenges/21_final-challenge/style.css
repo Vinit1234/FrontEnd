@@ -8,4 +8,49 @@ body{
 
 header{
     background-color: #2E323F;
+    padding: 1em;
+    text-align: center;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo{
+    position: absolute;
+    left:0;
+}
+
+.nav{
+    padding: 0;
+}
+
+.nav__item {
+    list-style-type: none;
+    /* color: white; */
+    margin-top: 0.5em;
+    line-height: 1.2em;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    padding: 0.2em 0.5em;
+
+}
+
+.nav__link:hover, .nav__link:focus{
+    background-color: #21242e;
+} 
+
+.nav__link--button{
+    background-color: #A59678;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 0.5em 0.75em
 }
