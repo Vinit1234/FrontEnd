@@ -7,7 +7,7 @@
 }
 
 body {
-    
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Oswald', sans-serif; */
     font-size: 18px;
@@ -84,7 +84,7 @@ h1 {
 }
 
 
-.accent {
+.accent-text {
     color: #A59678;
 }
 
@@ -97,4 +97,21 @@ h1 {
     border: none;
     background-color: #A59678;
     color: #fff;;
+}
+
+/* ----------------------------- */
+
+/* Styling for section cards */
+
+.cards{
+    background-color: #e8e8ec;
+}
+
+section{
+    padding:1em;
+}
+
+.card{
+    margin-bottom: 2em;
+    text-align: center;
 }
