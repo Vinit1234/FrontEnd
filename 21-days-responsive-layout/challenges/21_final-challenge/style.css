@@ -73,6 +73,13 @@ h1 {
     padding: 0.5em 0.75em
 }
 
+.nav__link--button:hover,
+.nav__link--button:focus,
+.hero__btn:hover,
+.hero__btn:focus {
+    background-color: #776c57;
+}
+
 /* ----------------------------- */
 
 /* Styling for section "hero" */
@@ -88,30 +95,51 @@ h1 {
     color: #A59678;
 }
 
-.hero__btn{
-    padding:0.5em 1em;
+.hero__btn {
+    padding: 0.5em 1em;
     font-family: 'Oswald', sans-serif;
     font-size: 24px;
     text-transform: uppercase;
     border-radius: 50px;
     border: none;
     background-color: #A59678;
-    color: #fff;;
+    color: #fff;
 }
 
 /* ----------------------------- */
 
 /* Styling for section cards */
 
-.cards{
+.cards {
     background-color: #e8e8ec;
 }
 
-section{
-    padding:1em;
+section,
+main {
+    padding: 1em;
 }
 
-.card{
+.card {
     margin-bottom: 2em;
     text-align: center;
+}
+
+/* ----------------------------- */
+
+/* Styling for section main */
+
+h2 {
+    font-size: 21px;
+    color: #A59678;
+}
+
+.main-col-2>.card {
+    color: #fff;
+    background-color: #2E323F;
+    padding: 2em;
+    margin-bottom: 1em;
+}
+
+.main-col-2>.card:first-of-type {
+    margin-top: 2em;
 }
