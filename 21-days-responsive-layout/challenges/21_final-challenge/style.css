@@ -128,7 +128,7 @@ main {
 
 /* Styling for section main */
 
-h2 {
+.main-heading {
     font-size: 21px;
     color: #A59678;
 }
@@ -142,4 +142,32 @@ h2 {
 
 .main-col-2>.card:first-of-type {
     margin-top: 2em;
+}
+
+
+/* ----------------------------- */
+
+/* Styling for section footer */
+
+footer{
+    background-color: #2E323F;
+    color:#6F737F;
+    font-size: 16px;
+    text-align: center;
+    padding: 1em;
+}
+
+.footer-title{
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color:#fff;
+    text-align: center;
+}
+
+.footer-heading{
+    color:#A59678;
+}
+
+.footer__list>ul>li{
+    list-style: none;
 }
