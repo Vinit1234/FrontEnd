@@ -1,29 +1,46 @@
-*, ::after, ::before{
+*,
+::after,
+::before {
     box-sizing: border-box;
+    /* margin: 0; */
+    padding: 0;
 }
 
-body{
-    margin: 0;
+body {
+    
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Oswald', sans-serif; */
+    font-size: 18px;
 }
 
-header{
+header {
     background-color: #2E323F;
     padding: 1em;
     text-align: center;
 }
 
-.container{
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 90px;
+    margin: 0;
+    line-height: 1.3em;
+    margin-bottom: 0.5em;
+    /* margin-bottom: 1em; */
+}
+
+.container {
     width: 80%;
     margin: 0 auto;
     position: relative;
 }
 
-.logo{
+/* Styling for nav */
+.logo {
     position: absolute;
-    left:0;
+    left: 0;
 }
 
-.nav{
+.nav {
     padding: 0;
 }
 
@@ -44,13 +61,40 @@ header{
 
 }
 
-.nav__link:hover, .nav__link:focus{
+.nav__link:hover,
+.nav__link:focus {
     background-color: #21242e;
-} 
+}
 
-.nav__link--button{
+.nav__link--button {
     background-color: #A59678;
     border-radius: 50px;
     display: inline-block;
     padding: 0.5em 0.75em
+}
+
+/* ----------------------------- */
+
+/* Styling for section "hero" */
+
+.hero {
+    background-color: #3B4050;
+    color: #fff;
+    padding: 50px 0;
+}
+
+
+.accent {
+    color: #A59678;
+}
+
+.hero__btn{
+    padding:0.5em 1em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    border: none;
+    background-color: #A59678;
+    color: #fff;;
 }
