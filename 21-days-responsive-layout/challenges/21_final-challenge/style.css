@@ -208,10 +208,19 @@ footer{
     .col+.col{
         margin-left: 1em;
     }
+
+    .hero__text{
+        margin-left: 1em;
+    }
+
+    .hero__btn {
+        font-size: 21px;
+    }
 }
 
 
 @media (min-width:1000px){
+    /* Styling for nav */
     .menu-icon{
         display: none;
     }
@@ -230,4 +239,22 @@ footer{
     .logo{
         margin-right:2em;
     }
+
+    /* ------------------------ */
+    /* Styling for section hero */
+
+    .hero-heading{
+        max-width: 70%;
+    }
+
+    .hero__text{
+        max-width: 30%;
+        margin-left: 2em;
+
+    }
+
+    .hero__btn {
+        font-size: 24px;
+    }
+
 }
