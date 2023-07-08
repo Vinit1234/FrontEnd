@@ -56,7 +56,7 @@ h1 {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
-    font-size: 1.4em;
+    font-size: 18px;
     letter-spacing: 0.1em;
     padding: 0.2em 0.5em;
 
@@ -202,7 +202,8 @@ footer{
     }
 
     .col{
-        max-width: 30%;
+        /* max-width: 30%; */
+        max-width: 350px;
     }
     .col+.col{
         margin-left: 1em;
@@ -210,4 +211,23 @@ footer{
 }
 
 
-/* @media (min-width:1000px){} */
+@media (min-width:1000px){
+    .menu-icon{
+        display: none;
+    }
+
+    .nav-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav{
+        display: flex;
+        align-items: center;
+    }
+
+    .logo{
+        margin-right:2em;
+    }
+}
