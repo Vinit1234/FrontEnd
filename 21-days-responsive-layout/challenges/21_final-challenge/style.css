@@ -178,3 +178,36 @@ footer{
 .nav--visible{
     display: none;
 }
+
+/* Breakpoints : 700px, 1000px */
+
+@media (min-width:700px){
+    /* .main-col-2{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-col-2>.card {
+        max-width: 30%;
+        padding: 1em;
+    } */
+
+    .main-col-2>.card:first-of-type {
+        margin-top: 0;
+    }
+
+    .row{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col{
+        max-width: 30%;
+    }
+    .col+.col{
+        margin-left: 1em;
+    }
+}
+
+
+/* @media (min-width:1000px){} */
