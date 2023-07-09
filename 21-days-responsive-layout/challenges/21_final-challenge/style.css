@@ -173,6 +173,10 @@ footer{
     list-style: none;
 }
 
+.footer__list ul li{
+    padding: 0.5em;
+}
+
 /* ------------------------- */
 /* toggle nav items */
 .nav--visible{
@@ -257,4 +261,30 @@ footer{
         font-size: 24px;
     }
 
+    /* ------------------------ */
+    /* Styling for section main */
+    .main-col-1{
+        max-width: 70%;
+    }
+
+    .main-flex{
+        display: flex;
+    }
+
+    aside> .row{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-col-2 > .col+.col{
+        margin-left: 0;
+    }
+
+    footer .row{
+        text-align: justify;
+    }
+
+    .footer__text>p{
+        max-width: 90%;
+    }
 }
