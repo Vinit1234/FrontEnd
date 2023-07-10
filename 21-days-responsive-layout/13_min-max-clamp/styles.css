@@ -1,0 +1,71 @@
+*{box-sizing: border-box;}
+
+:root{
+    --clr-primary:#ee6352;
+    --clr-body:#333;
+    --clr-bg:#ddd;
+}
+
+body{
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
+    line-height: 1.6;
+    color:var(--clr-body);
+    background-color: var(--clr-bg);
+
+}
+
+.content{
+    background: white;
+    padding: 3em;
+    box-shadow: 0 0 3em rgbs(0,0,0,.15);
+    
+    /* width: 70%;
+    max-width: 600px; */
+
+    /* Same as commented code above  */
+    /* locks/selects the width as min b/w the 2 values */
+    width: min(600px,70%); 
+
+     /* keeps the width as max b/w 2 values  */
+    width: max(600px,70%);
+
+    /* select max among 3 values (less used) */
+    /* width: max(600px,70%, 50vw); */
+
+    /* can use max inside min and vice-a-versa (least used) */
+    /* width: min(max(200px,40%),40vw); */
+    
+    /* can use calculations also */
+    width: min(500px + 20%, 1000px);
+
+    width: 70%;
+}
+
+.title{
+    margin: 0 0 0.5em;
+    font-weight: 900;
+    color:var(--clr-primary);
+}
+
+
+p{
+    /* background-color: lightblue; */
+    /* clamp(min-value, preferred-value ,max-value) */
+    /* width: clamp(200px, 50%, 20rem); */
+
+    /* this trick to make font-size fluid has drawbacks */
+    /* font-size: 2vw;  */
+
+    /* Better trick to make font-size fluid but fails for small screen size */
+    /* font-size: calc(1vw + 0.5rem); */
+
+    /* Best trick to make font-size fluid and keep them propotionate */
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    
+    /* if you want something like clamp() for backwards compatibility use feature queries  */
+}

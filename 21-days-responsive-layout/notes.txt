@@ -243,3 +243,71 @@ align-items determines how the items as a whole are aligned within the container
 When there is only one line, align-content has no effect
 
 
+----------------------------------------------------------------
+# min() max() and clamp()
+
+
+
+/* width: 70%;
+    max-width: 600px; */
+
+- Same as commented code above 
+locks/selects the width as min b/w the 2 values:
+width: min(600px,70%); 
+
+- keeps the width as max b/w 2 values: 
+width: max(600px,70%);
+
+- select max among 3 values (less used): 
+width: max(600px,70%, 50vw); 
+
+- can use max inside min and vice-a-versa (least used): 
+width: min(max(200px,40%),40vw); 
+
+- can use calculations also:
+width: min(500px + 20%, 1000px);
+
+-/* clamp(min-value, preferred-value ,max-value) */
+    width: clamp(200px, 50%, 20rem);
+
+
+Tip: Make font-size fluid:
+font-size: 2vw;  
+(Drawback: 
+- At small screen size, font becomes unreadable.
+- the font doesn't zoom-in when browser is zoomed-in as it's size is associated with screen size which remains fixed in this case.
+)
+
+Better trick:
+Better trick to make font-size fluid but fails for small screen size
+    font-size: calc(1vw + 0.5rem);
+
+Best trick:
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+
+-------------------------------------------
+
+How do decide what breakpoints to use?
+
+Points/screen-sizes where your layout design starts to fail. Figure out breakpoints by inspecting and changing the size of the screen.
+
+Reference:
+https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
+
+The tl;dr of the article: Use 600px, 900px, 1200px, and 1800px if you plan on giving the giant-monitor people something special. 
+
+The following line is important as it keeps our website responsive when changing the size of screen.
+If absent, the website will shrink and expand as it is (w/o reloacting any html element).
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+------------------------------------------
+
+Generally, the smallest screen sizes are of 320px,
+ensure this while checking responsiveness of your website.
+
+
+The benefit of coding acc. to Mobile-first design is that it keeps style related stuff (typography,colors,backgrounds) grouped together and keeps all the layout stuff (inside media query) grouped together.
+
+Prefer Mobile-first design over Desktop first design.
+

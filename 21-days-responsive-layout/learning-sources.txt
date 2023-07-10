@@ -1,0 +1,54 @@
+//-------------------------------------------------
+Sources to Develop practical front-end skills:
+
+https://www.frontendmentor.io/challenges
+https://www.csszengarden.com/
+https://stylestage.dev/styles/
+https://www.frontendpractice.com/projects
+
+/* Level up your creativity */
+https://cssbattle.dev/
+https://www.codewars.com/
+
+/* Contributing to real projects */
+https://www.firsttimersonly.com/
+
+
+===========================================
+
+Links to other resources
+Here are all the links I mentioned in the previous lesson 😊
+
+My stuff
+My Youtube channel
+HTML & CSS Crash Course: https://scrimba.com/course/ghtmlcss
+
+Responsive Web Design Bootcamp (premium course)
+https://scrimba.com/course/gresponsive/
+
+
+Follow me on Twitter & Instagram
+
+Other stuff
+Free CSS Course by Wes bos: https://cssgrid.io/
+FrontEndMentor.io
+FreeCodeCamp
+
+Other fantastic YouTubers to learn from
+Brad Traversy - If you're going to sub to one dev related channel, Brad's probably the right one
+
+Web Dev Simplified - High quality content covering HTML & CSS, Vanilla JS, React, and more
+https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw
+
+DesignCourse - A nice mix of front-end and design content
+https://www.youtube.com/user/DesignCourse
+
+
+Program with Erik - Awesome Vue content
+Florin Pop - If you enjoy live streams and incredible amounts of high-quality content
+DevEd - Humour and high-quality dev content in one channel!
+Weibenfalk - High quality JS and React content
+Coder Coder - Nice, high quality front-end videos
+James Q Quick - HTML, CSS, JS and more
+Flavio - Good quality JS content
+Colt Steele - HTML, CSS, JS 

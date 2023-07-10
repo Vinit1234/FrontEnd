@@ -1,0 +1,290 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    /* margin: 0; */
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Oswald', sans-serif; */
+    font-size: 18px;
+}
+
+header {
+    background-color: #2E323F;
+    padding: 1em;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 90px;
+    margin: 0;
+    line-height: 1.3em;
+    margin-bottom: 0.5em;
+    /* margin-bottom: 1em; */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Styling for nav */
+.menu-icon {
+    position: absolute;
+    left: 0;
+}
+
+.nav {
+    padding: 0;
+}
+
+.nav__item {
+    list-style-type: none;
+    /* color: white; */
+    /* margin-top: 0.5em; */
+    /* line-height: 1.2em; */
+    margin: 0.5em 0;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    padding: 0.2em 0.5em;
+
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    background-color: #21242e;
+}
+
+.nav__link--button {
+    background-color: #A59678;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 0.5em 0.75em
+}
+
+.nav__link--button:hover,
+.nav__link--button:focus,
+.hero__btn:hover,
+.hero__btn:focus {
+    background-color: #776c57;
+}
+
+/* ----------------------------- */
+
+/* Styling for section "hero" */
+
+.hero {
+    background-color: #3B4050;
+    color: #fff;
+    padding: 50px 0;
+}
+
+
+.accent-text {
+    color: #A59678;
+}
+
+.hero__btn {
+    padding: 0.5em 1em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    border: none;
+    background-color: #A59678;
+    color: #fff;
+}
+
+/* ----------------------------- */
+
+/* Styling for section cards */
+
+.cards {
+    background-color: #e8e8ec;
+}
+
+section,
+main {
+    padding: 1em;
+}
+
+.card {
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+/* ----------------------------- */
+
+/* Styling for section main */
+
+.main-heading {
+    font-size: 21px;
+    color: #A59678;
+}
+
+.main-col-2>.card {
+    color: #fff;
+    background-color: #2E323F;
+    padding: 2em;
+    margin-bottom: 1em;
+}
+
+.main-col-2>.card:first-of-type {
+    margin-top: 2em;
+}
+
+
+/* ----------------------------- */
+
+/* Styling for section footer */
+
+footer{
+    background-color: #2E323F;
+    color:#6F737F;
+    font-size: 16px;
+    text-align: center;
+    padding: 1em;
+}
+
+.footer-title{
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color:#fff;
+    text-align: center;
+}
+
+.footer-heading{
+    color:#A59678;
+}
+
+.footer__list>ul>li{
+    list-style: none;
+}
+
+.footer__list ul li{
+    padding: 0.5em;
+}
+
+/* ------------------------- */
+/* toggle nav items */
+.nav--visible{
+    display: none;
+}
+
+/* Breakpoints : 700px, 1000px */
+
+@media (min-width:700px){
+    /* .main-col-2{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-col-2>.card {
+        max-width: 30%;
+        padding: 1em;
+    } */
+
+    .main-col-2>.card:first-of-type {
+        margin-top: 0;
+    }
+
+    .row{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col{
+        /* max-width: 30%; */
+        max-width: 350px;
+    }
+    .col+.col{
+        margin-left: 1em;
+    }
+
+    .hero__text{
+        margin-left: 1em;
+    }
+
+    .hero__btn {
+        font-size: 21px;
+    }
+}
+
+
+@media (min-width:1000px){
+    /* Styling for nav */
+    .menu-icon{
+        display: none;
+    }
+
+    .nav-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav{
+        display: flex;
+        align-items: center;
+    }
+
+    .logo{
+        margin-right:2em;
+    }
+
+    /* ------------------------ */
+    /* Styling for section hero */
+
+    .hero-heading{
+        max-width: 70%;
+    }
+
+    .hero__text{
+        max-width: 30%;
+        margin-left: 2em;
+
+    }
+
+    .hero__btn {
+        font-size: 24px;
+    }
+
+    /* ------------------------ */
+    /* Styling for section main */
+    .main-col-1{
+        max-width: 70%;
+    }
+
+    .main-flex{
+        display: flex;
+    }
+
+    aside> .row{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-col-2 > .col+.col{
+        margin-left: 0;
+    }
+
+    footer .row{
+        text-align: justify;
+    }
+
+    .footer__text>p{
+        max-width: 90%;
+    }
+}
