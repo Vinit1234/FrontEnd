@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import Navbar from "./component/Navbar";
 
 // let name = "Vinit";
 function App() {
@@ -59,6 +60,11 @@ function App() {
     </div>
   </div>
 </nav>
+<hr />
+  <Navbar/>
+  
+  {/* Component with props */}
+  {/* <Navbar title="TextUtils2" aboutText="About TextUtils"/> */}
     </>
 
   );

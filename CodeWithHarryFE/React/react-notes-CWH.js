@@ -196,3 +196,84 @@ Add Bootstrap CSS in head tag:
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+{/* ==================================================================== */}
+{/* ## Props and Prop typs in React */}
+
+NOTE: The is special naming for JS modules:
+- Their extension should be .mjs instead of js => module1.mjs
+- Modules should reside in src folder
+
+- To understan Props we make a new component folder in src folder.
+Components are always named with Capital (first) letter eg, Navbar.js
+
+- To make React Function Based component write:
+rfc + tab
+
+- Define a component like Navbar.js and insert into you App.js 
+using componet's tag <Navbar/>
+This way you can define your entire component in their respective js files,
+and insert the Response. tags in App.js . This gives a clean look to App.js
+
+You can dynamically change parts of your component by passing Props.
+Eg. <Navbar title="TextUtils"/>
+Here title="TextUtils" is Props.
+These Props are collected via their respective constructor function.
+Eg. In Navbar.js
+function Navbar(props){
+....
+<a href="/"> {props.title} </a>
+}
+
+If you want to pass multiple props, you can group those values 
+into object and pass them to constructor function and then 
+use them in their constructor function.
+
+NOTE: Props are read only. You should not modify them 
+inside the component's constructor function.
+
+---------------------------------------------------------------
+## PropTypes (inside respective component.js)
+
+Means type of data expected in the  ie, 
+propTypes are used for type checking.
+
+If the prop's value does not match with the type mentioned in 
+propType, you'll get a Warning: Failed PropType 
+
+- To import PropTypes write:
+impt + tab
+
+- PropTypes.string
+pts + tab
+
+
+Eg. In Navbar.js:
+
+import PropTypes from 'prop-types'
+
+Navbar.propTypes= {title: PropTypes.string,
+                    aboutText: PropTypes.string,
+                    }
+
+>> DefaultProps: 
+These are like default values used in a function.
+These define the default values to be used if props 
+are not passed in the component's tag.
+
+Eg. Navbar.defaultProps={
+    title:"Set-Title-Here",
+    aboutText: "About-Text-here"
+
+}
+
+>> isRequired:
+If some prop value is mandatory use isRequired.
+If the mandatory value is not passed 
+isRequired will not give an error if the value is
+already set by DefaultProps.
+
+Eg. Navbar.propTypes= {
+    title: PropTypes.string.isRequired,
+    aboutText: PropTypes.string,
+                    }
+
