@@ -90,6 +90,7 @@ root.render(
 JSX is similar to HTML. It just has a few syntax different to HTML as:
 - className instead of class (since class is reserved keyword in JS)
 - htmlFor instead of for (for => reserved keyword in JS)
+- tabIndex insted of tabindex
 
 The following code of App.js is written in JSX:
 
