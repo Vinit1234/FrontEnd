@@ -1,6 +1,7 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./component/Navbar";
+import TextForm from "./component/TextForm";
 
 // let name = "Vinit";
 function App() {
@@ -61,10 +62,21 @@ function App() {
   </div>
 </nav>
 <hr />
-  <Navbar/>
+  {/* <Navbar/> */}
   
   {/* Component with props */}
-  {/* <Navbar title="TextUtils2" aboutText="About TextUtils"/> */}
+  {/* <Navbar title="TextUtils2" aboutText="About-TextUtils"/> */}
+
+  <Navbar title="TextUtils"/>
+  
+  {/* For explaining states and event handling  */}
+  <div className="container my-3">
+    <TextForm heading="Enter a text to analyse."/>
+  </div>
+
+
+
+
     </>
 
   );

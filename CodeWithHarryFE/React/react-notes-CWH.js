@@ -277,3 +277,49 @@ Eg. Navbar.propTypes= {
     aboutText: PropTypes.string,
                     }
 
+
+NOTE: react-dom.development.js:86 Warning: Navbar: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Navbar (http://localhost:3000/static/js/bundle.js:272:25)
+    at App
+
+================================================================
+## Understanding State & Handling Events in React
+
+Copy paste Bootstrap>Forms>Form Controls in TextForm.js
+
+useState is a hook.
+Syntax:
+const [state, setState] = useState(initialState)
+
+import React, {useState} from "react";
+
+export default function TextForm(props) {
+    // hooks
+    const [text, setText] = useState("Enter text here");
+
+    //Event handling
+    const handleOnChange=(event)=>{
+      console.log("handleOnChange event caught");
+
+      //This allows us to write into textarea
+      //otherwise text inside textArea doesnt change
+      //changing state of component
+      setText(event.target.value);
+  }
+
+    return (
+      <div className="mb-3">
+        <textarea  className="form-control"
+          id="myBox" rows="3"
+          value={text}
+          onChange={handleOnChange}
+        ></textarea>
+      </div>
+    )
+    }
+
+Here text is called a state, whose value can be changed only by using set function ie, setText();
+Here text variable will be used inside the component.
+To update the value of text, we cannot reassign it directly like text="new text".
+Instead we need to use function setText (or whatever function you mention in the hook) 
+to set the text value.
