@@ -327,13 +327,27 @@ to set the text value.
 <nav className="navbar navbar-expand-lg  navbar-dark bg-dark">
 
 
+Q. What Causes the “Objects Are Not Valid as a React Child” Error?
+
 - Including an Object in JSX code throws error:
     Invariant Violation: Objects are not valid as a React child
 
 - You'll need to either reference a property of the object that is a string value or convert the Object to a string representation that is desirable. One option might be JSON.stringify if you actually want to see the contents of the Object.
+
+- The error message implies that the component received an object instead of a valid React child element (such as strings, numbers, or React elements, but not arrays or objects). The primary cause of this error is passing an invalid data type and non-serializable data as a child.
+
+Ways  to avoid this error:
+  1. Converting Objects to Strings or Numbers
+  2. Rendering Arrays Correctly With the map() Method
+  3. Using Conditional Rendering to Avoid Rendering Invalid Data Types and handle edge cases.
+  4. Avoid passing non-serializable data as children
+
+
 
 
 Read:
 https://stackoverflow.com/questions/1069666/sorting-object-property-by-values
 
 https://stackoverflow.com/questions/33117449/invariant-violation-objects-are-not-valid-as-a-react-child
+
+https://kinsta.com/knowledgebase/objects-are-not-valid-as-a-react-child/

@@ -64,7 +64,9 @@ export default function TextForm(props) {
       Object.entries(word_count_map).sort(([, a], [, b]) => b - a)
     );
     
-    // You cannot set an Object to a state or prop. You can stringify them and then add.
+    // Throws an error: Objects Are Not Valid as a React Child
+    // Throws the error as the component received an object instead of a valid React child element 
+    //(such as strings, numbers, or React elements, but not arrays or objects
     // setWordCount(sortable)
     setWordCount(JSON.stringify(sortable));
     // console.log("...................");
