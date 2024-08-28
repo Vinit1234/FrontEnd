@@ -2,10 +2,54 @@
 import "./App.css";
 import About from "./component/About";
 import Navbar from "./component/Navbar";
+import Navbar2 from "./component/Navbar2";
 import TextForm from "./component/TextForm";
+import { useState } from "react";
+
 
 // let name = "Vinit";
+// let mode_choice = "dark";
+let mode_contrast = "dark";
 function App() {
+  // A React component re-renders whenever there is a change in the component's local state.
+  // the following Creates error as App gets randomly loaded frequently 
+  // and set mode_choice to dark randomly
+  // let mode_choice = "dark";
+
+  // const [mode, setMode] = useState("");
+  const [modeClass, setModeClass] = useState("");
+
+
+  // Uncaught Error: Too many re-renders.
+  // Do not directly update the state inside the render method.
+  // if (mode_choice==="dark"){
+  //   setMode("navbar-dark bg-dark")
+  // }else{
+  //   setMode("bg-body-tertiary");
+  // }
+
+  const modeSetter= ()=>{
+    console.log("1.>>>>>>>>>>",mode_contrast)
+    if (mode_contrast==="dark"){
+      mode_contrast="light";
+      setModeClass("navbar-dark bg-dark")
+      document.body.style.backgroundColor="#343a40"
+    }else{
+      mode_contrast="dark";
+      setModeClass("bg-body-tertiary");
+      document.body.style.backgroundColor="white";
+    }
+    console.log("2.>>>>>>>>>>",mode_contrast)
+    
+  }
+
+  // Uncaught Error: Too many re-renders.
+  // Do not directly update the state inside the render method. 
+  // Call eventHandler
+  // modeSetter();
+
+  
+
   return (
     // ** Default code=======================================
     // <div className="App">
@@ -94,13 +138,25 @@ function App() {
       
       {/* =========================================== */}
       {/* For explaining states and event handling  */}
-      <div className="container my-3">
+      {/* <div className="container my-3">
         <TextForm heading="Enter a text to analyse." />
-      </div>
+      </div> */}
 
       {/* =========================================== */}
       {/* Creating "Enable Dark Mode" Button Using useState Hook */}
       {/* <About/> */}
+
+      {/* =========================================== */}
+      {/* Improving Dark Mode & Refactoring App Component  */}
+      {/* {console.log(">>>>>>>>>>",mode_choice)} */}
+        <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/>
+      {/* <div className="container-fluid">
+        <button  onClick={modeSetter} type="button" className="btn btn-primary">Switch Mode</button>
+      </div> */}
+      <div className="container my-3">
+        <TextForm heading="Enter a text to analyse." modeContrast={mode_contrast}/>
+      </div>
+
     </>
   );
 }

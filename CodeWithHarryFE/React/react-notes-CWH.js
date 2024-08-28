@@ -352,3 +352,68 @@ https://stackoverflow.com/questions/1069666/sorting-object-property-by-values
 https://stackoverflow.com/questions/33117449/invariant-violation-objects-are-not-valid-as-a-react-child
 
 https://kinsta.com/knowledgebase/objects-are-not-valid-as-a-react-child/
+
+
+
+==================================================================================
+Ref: https://prathapreddy-mudium.medium.com/react-js-react-dom-development-js-16317-5000c75a64e7
+
+Uncaught Error: Too many re-renders. React limits the number of renders to prevent an infinite loop.
+
+This typically happens when there’s a state update being triggered inside the render method or as a result of rendering. To resolve this issue, you need to identify and fix the cause of the infinite re-rendering loop.
+
+Make sure you are not directly updating the state inside the render method. State updates should be placed inside event handlers, lifecycle methods, or functions called within the component.
+
+Solution:
+1. Do not directly update the state inside the render method.
+2. Check your useEffect hooks for dependencies and ensure that they are set up correctly. An incorrect dependency array can cause infinite re-renders.
+3. Be cautious of recursive function calls.
+4. Circular dependencies between components or hooks can sometimes lead to infinite re-renders. Ensure there are no circular dependencies in your code.
+
+
+
+Bad:
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  setCount(count + 1); // Incorrect, don't update state inside render
+}
+
+
+Good:
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  const incrementCount = () => {
+    setCount(count + 1); // Correct, update state in an event handler
+  };
+
+  return (
+    <div>
+      <button onClick={incrementCount}>Increment</button>
+    </div>
+  );
+}
+
+
+NOTE:
+Ref: https://stackoverflow.com/questions/74627673/uncaught-error-too-many-re-renders-react-limits-the-number-of-renders-to-preve
+
+In React, a component re-renders whenever one of these 2 cases occurs:
+
+  1. Whenever there is a change in the component's local state.
+  2. Whenever any of it's parent components themselves are re-rendered.
+
+===========================================================================
+
+NOTE:
+<div className="container my-3" style={{color:props.modeContrast==="dark"?"#343a40":"white"}}>
+Observe:
+style={{color:props.modeContrast==="dark"?"#343a40":"white"}}
+The 1st pair of curly braces is to indicate that it is JS code.
+The 2nd pair of curly braces is used to make an object {}
+
+lly,
+style={{backgroundColor:props.modeContrast==="dark"?"white":"#343a40", color:props.modeContrast==="dark"?"#343a40":"white"}}

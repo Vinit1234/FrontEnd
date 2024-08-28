@@ -88,7 +88,7 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div>
+      <div style={{color:props.modeContrast==="dark"?"#343a40":"white"}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           {/* <label for="myBox" class="form-label">
@@ -100,6 +100,7 @@ export default function TextForm(props) {
           <textarea
             className="form-control"
             id="myBox"
+            style={{backgroundColor:props.modeContrast==="dark"?"white":"#343a40", color:props.modeContrast==="dark"?"#343a40":"white"}}
             rows="3"
             value={text}
             onChange={handleOnChange}
@@ -126,7 +127,7 @@ export default function TextForm(props) {
 
       </div>
 
-      <div className="container my-3">
+      <div className="container my-3" style={{color:props.modeContrast==="dark"?"#343a40":"white"}}>
         <h1>Your Text Summary</h1>
         <p>
           {text.length > 0 ? text.split(" ").length : 0} words, {text.length}{" "}
@@ -134,11 +135,11 @@ export default function TextForm(props) {
         </p>
         <p>{0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter text in the textbox above to preview it here"}</p>
       </div>
 
-      <div className="container my-3">
-        <h1>Word count analysis</h1>
+      <div className="container my-5" style={{color:props.modeContrast==="dark"?"#343a40":"white"}}>
+        <h2>Word count analysis</h2>
         <p>{word_count}</p>
       </div>
     </>
