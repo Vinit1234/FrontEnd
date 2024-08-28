@@ -72,6 +72,15 @@ export default function TextForm(props) {
     // console.log("...................");
     // console.log(sortable);
   };
+
+
+  // Copies text to Clipboard
+  const handleCopy=()=>{
+    let txtData= document.getElementById("myBox");
+    txtData.select();
+    navigator.clipboard.writeText(txtData.value)
+  }
+
   return (
     <>
       <div>
@@ -102,6 +111,9 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-2" onClick={handleWordCount}>
           Count Words
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+          Copy
         </button>
 
       </div>

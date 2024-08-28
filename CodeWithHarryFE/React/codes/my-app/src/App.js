@@ -94,13 +94,13 @@ function App() {
       
       {/* =========================================== */}
       {/* For explaining states and event handling  */}
-      {/* <div className="container my-3">
+      <div className="container my-3">
         <TextForm heading="Enter a text to analyse." />
-      </div> */}
+      </div>
 
       {/* =========================================== */}
       {/* Creating "Enable Dark Mode" Button Using useState Hook */}
-      <About/>
+      {/* <About/> */}
     </>
   );
 }
