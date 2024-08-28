@@ -81,6 +81,11 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(txtData.value)
   }
 
+  // Removes extra spaces
+  const handleExtraSpaces = ()=>{
+    setText(text.trim().split(/[\s]+/).join(" "));
+  }
+
   return (
     <>
       <div>
@@ -113,7 +118,10 @@ export default function TextForm(props) {
           Count Words
         </button>
         <button className="btn btn-primary mx-2" onClick={handleCopy}>
-          Copy
+          Copy 
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>
+          Remove Extra Spaces
         </button>
 
       </div>
