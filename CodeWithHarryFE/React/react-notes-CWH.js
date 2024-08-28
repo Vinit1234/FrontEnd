@@ -323,3 +323,17 @@ Here text variable will be used inside the component.
 To update the value of text, we cannot reassign it directly like text="new text".
 Instead we need to use function setText (or whatever function you mention in the hook) 
 to set the text value.
+
+<nav className="navbar navbar-expand-lg  navbar-dark bg-dark">
+
+
+- Including an Object in JSX code throws error:
+    Invariant Violation: Objects are not valid as a React child
+
+- You'll need to either reference a property of the object that is a string value or convert the Object to a string representation that is desirable. One option might be JSON.stringify if you actually want to see the contents of the Object.
+
+
+Read:
+https://stackoverflow.com/questions/1069666/sorting-object-property-by-values
+
+https://stackoverflow.com/questions/33117449/invariant-violation-objects-are-not-valid-as-a-react-child
