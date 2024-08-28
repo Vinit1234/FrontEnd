@@ -91,6 +91,7 @@ JSX is similar to HTML. It just has a few syntax different to HTML as:
 - className instead of class (since class is reserved keyword in JS)
 - htmlFor instead of for (for => reserved keyword in JS)
 - tabIndex insted of tabindex
+- for CSS syles use camel case InputEvent, instead of background-color, use backgroundColor.
 
 The following code of App.js is written in JSX:
 

@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import About from "./component/About";
 import Navbar from "./component/Navbar";
 import TextForm from "./component/TextForm";
 
@@ -83,18 +84,23 @@ function App() {
           </div>
         </div>
       </nav>
-      <hr />
+      {/* <hr /> */}
       {/* <Navbar/> */}
 
       {/* Component with props */}
       {/* <Navbar title="TextUtils2" aboutText="About-TextUtils"/> */}
 
-      <Navbar title="TextUtils" />
-
+      {/* <Navbar title="TextUtils" /> */}
+      
+      {/* =========================================== */}
       {/* For explaining states and event handling  */}
-      <div className="container my-3">
+      {/* <div className="container my-3">
         <TextForm heading="Enter a text to analyse." />
-      </div>
+      </div> */}
+
+      {/* =========================================== */}
+      {/* Creating "Enable Dark Mode" Button Using useState Hook */}
+      <About/>
     </>
   );
 }
