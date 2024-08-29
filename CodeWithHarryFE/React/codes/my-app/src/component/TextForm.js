@@ -16,6 +16,7 @@ export default function TextForm(props) {
     // setText("You have clicked on handleUpClick");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Coverted to Upper Case.","success");
   };
 
   const handleOnChange = (event) => {
@@ -29,11 +30,13 @@ export default function TextForm(props) {
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Coverted to Lower Case.","success");
   };
 
   const handleClear = () => {
     setText("");
     setWordCount("");
+    props.showAlert("Text Cleared!","success");
   };
 
   const handleWordCount = () => {
@@ -71,6 +74,8 @@ export default function TextForm(props) {
     setWordCount(JSON.stringify(sortable));
     // console.log("...................");
     // console.log(sortable);
+    props.showAlert("Word Cound Analysis shown below.","success");
+
   };
 
 
@@ -79,11 +84,14 @@ export default function TextForm(props) {
     let txtData= document.getElementById("myBox");
     txtData.select();
     navigator.clipboard.writeText(txtData.value)
+    props.showAlert("Text copied to clipboard!","success");
   }
 
   // Removes extra spaces
   const handleExtraSpaces = ()=>{
     setText(text.trim().split(/[\s]+/).join(" "));
+    props.showAlert("Removed extra spaces.","success");
+
   }
 
   return (

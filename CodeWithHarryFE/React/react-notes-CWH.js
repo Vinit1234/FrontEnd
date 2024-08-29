@@ -417,3 +417,42 @@ The 2nd pair of curly braces is used to make an object {}
 
 lly,
 style={{backgroundColor:props.modeContrast==="dark"?"white":"#343a40", color:props.modeContrast==="dark"?"#343a40":"white"}}
+
+=============================================================================
+## Adding + Auto Dismissing Alert Messages
+
+
+function Alert(props) {
+  return (
+    <div className="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{props.alert.type}:</strong> {props.alert.msg}
+      <button
+        type="button"
+        className="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  );
+}
+
+TypeError: Cannot read properties of null (reading 'type')
+
+When you set a state to null and without updating it use it in your 
+components, you get this TypeError.
+
+QuickFix:
+
+function Alert(props) {
+  return (
+    props.alert && <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{props.alert.type}:</strong> {props.alert.msg}
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="alert"
+                      aria-label="Close"
+                    ></button>
+    </div>
+  );
+}

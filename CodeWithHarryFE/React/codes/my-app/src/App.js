@@ -1,6 +1,7 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import About from "./component/About";
+import Alert from "./component/Alert";
 import Navbar from "./component/Navbar";
 import Navbar2 from "./component/Navbar2";
 import TextForm from "./component/TextForm";
@@ -18,8 +19,7 @@ function App() {
 
   // const [mode, setMode] = useState("");
   const [modeClass, setModeClass] = useState("");
-
-
+  
   // Uncaught Error: Too many re-renders.
   // Do not directly update the state inside the render method.
   // if (mode_choice==="dark"){
@@ -34,10 +34,12 @@ function App() {
       mode_contrast="light";
       setModeClass("navbar-dark bg-dark")
       document.body.style.backgroundColor="#343a40"
+      showAlert("Dark mode has been enabled", "success");
     }else{
       mode_contrast="dark";
       setModeClass("bg-body-tertiary");
       document.body.style.backgroundColor="white";
+      showAlert("Light mode has been enabled", "success");
     }
     console.log("2.>>>>>>>>>>",mode_contrast)
     
@@ -48,6 +50,18 @@ function App() {
   // Call eventHandler
   // modeSetter();
 
+  // ========================================
+  const [alert, setAlert] = useState(null);
+
+  const showAlert= (message, type)=>{
+    setAlert({
+      msg:message,
+      type:type
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500);
+  }
   
 
   return (
@@ -149,14 +163,25 @@ function App() {
       {/* =========================================== */}
       {/* Improving Dark Mode & Refactoring App Component  */}
       {/* {console.log(">>>>>>>>>>",mode_choice)} */}
-        <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/>
+
+        {/* <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/> */}
       {/* <div className="container-fluid">
         <button  onClick={modeSetter} type="button" className="btn btn-primary">Switch Mode</button>
       </div> */}
-      <div className="container my-3">
+      {/* <div className="container my-3">
         <TextForm heading="Enter a text to analyse." modeContrast={mode_contrast}/>
-      </div>
+      </div> */}
 
+
+      {/* =========================================== */}
+      {/* Adding + Auto Dismissing Alert Messages */}
+
+      <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/>
+      <Alert alert={alert}/>
+      <div className="container my-3">
+        <TextForm heading="Enter a text to analyse." modeContrast={mode_contrast} 
+        showAlert={showAlert} />
+      </div>
     </>
   );
 }
