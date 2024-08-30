@@ -2,6 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar2(props) {
+  
+  // const blueModeSetter=()=>{
+  //     props.modeBlue==="blue"?props.setModeBlue(null):props.setModeBlue("blue");
+  //     props.modeSetter();
+  // }
+
   return (
     <nav className={`navbar navbar-expand-lg ${props.modeClass}`}>
       <div className="container-fluid">
@@ -43,6 +49,23 @@ export default function Navbar2(props) {
               Search
             </button>
           </form> */}
+
+          {/* Dark Blue Mode */}
+          <div className={`form-check form-switch text-${props.modeContrast} mx-3`}>
+            <input
+            // added eventHandler defined in App.js 
+              // onClick={props.modeSetter}
+              onClick={props.modeBlueSetter}
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+              Blue Mode
+            </label>
+          </div>
+
           <div className={`form-check form-switch text-${props.modeContrast}`}>
             <input
             // added eventHandler defined in App.js
@@ -56,6 +79,8 @@ export default function Navbar2(props) {
               Dark Mode
             </label>
           </div>
+
+          
         </div>
       </div>
     </nav>

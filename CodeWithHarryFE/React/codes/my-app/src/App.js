@@ -30,6 +30,13 @@ function App() {
 
   const modeSetter= ()=>{
     console.log("1.>>>>>>>>>>",mode_contrast)
+    /* if(modeBlue==="blue"){
+      // change Bg to blue
+      // think how to set "dark again" when modeBlue is set as null
+      document.body.style.backgroundColor="blue";
+      setModeBlue(null);
+    } 
+    else  */
     if (mode_contrast==="dark"){
       mode_contrast="light";
       setModeClass("navbar-dark bg-dark")
@@ -63,6 +70,26 @@ function App() {
     }, 1500);
   }
   
+
+  // Dark Mode 2: Blue========================================
+  const [modeBlue, setModeBlue] = useState("blue");
+  const modeBlueSetter=()=>{
+    console.log(">>>>>>modeBlue:",modeBlue);
+    // mode_contrast==="dark"?mode_contrast="light":mode_contrast="dark";
+    if(modeBlue==="blue"){
+      document.body.style.backgroundColor="#113f67";
+      mode_contrast="light";
+      // mode_contrast==="dark"?mode_contrast="light":mode_contrast="dark";
+      setModeBlue(null);
+    }else{
+      setModeBlue("blue");
+      mode_contrast==="dark"?mode_contrast="light":mode_contrast="dark";
+      // mode_contrast==="dark"?mode_contrast="dark":mode_contrast="light";
+      modeSetter();
+    }
+    console.log(">>>>>>modeBlue:",modeBlue);
+    
+  }
 
   return (
     // ** Default code=======================================
@@ -175,8 +202,10 @@ function App() {
 
       {/* =========================================== */}
       {/* Adding + Auto Dismissing Alert Messages */}
-
+        {/* Pending modeBlueSetter */}
       <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/>
+      {/* modeBlueSetter={modeBlueSetter}/> */}
+      {/* modeBlue={modeBlue} setModeBlue={setModeBlue}/> */}
       <Alert alert={alert}/>
       <div className="container my-3">
         <TextForm heading="Enter a text to analyse." modeContrast={mode_contrast} 
