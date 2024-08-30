@@ -42,6 +42,7 @@ function App() {
       setModeClass("navbar-dark bg-dark")
       document.body.style.backgroundColor="#343a40"
       showAlert("Dark mode has been enabled", "success");
+      
     }else{
       mode_contrast="dark";
       setModeClass("bg-body-tertiary");
@@ -49,7 +50,7 @@ function App() {
       showAlert("Light mode has been enabled", "success");
     }
     console.log("2.>>>>>>>>>>",mode_contrast)
-    
+    document.title=`TextUtils-${mode_contrast}`;
   }
 
   // Uncaught Error: Too many re-renders.

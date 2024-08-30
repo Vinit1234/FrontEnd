@@ -456,3 +456,14 @@ function Alert(props) {
     </div>
   );
 }
+
+{/* ================================================================= */}
+## Changing the App's title dynamically & adding favicons to TextUtils
+
+- Change the title from public>index.html
+- Google "favicon generator" end get a favicon.
+  - save the favicon in public folder and edit index.html
+
+- Google Search Central - tool to score SEO performance of your web app.
+- You can change the apps title dynamically from App component too.
+Eg. document.title=`TextUtils-${mode_contrast}`;
