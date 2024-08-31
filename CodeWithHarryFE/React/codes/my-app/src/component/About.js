@@ -7,8 +7,8 @@ export default function About() {
     // }
 
     const [myStyle, setMyStyle] = useState({
-        backgroundColor:"black",
-        color:"white"
+        backgroundColor:"white",
+        color:"black"
     });
 
     const toggleStyle=()=>{

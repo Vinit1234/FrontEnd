@@ -7,19 +7,26 @@ import Navbar2 from "./component/Navbar2";
 import TextForm from "./component/TextForm";
 import { useState } from "react";
 
+import {
+  // createBrowserRouter,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
 
 // let name = "Vinit";
 // let mode_choice = "dark";
 let mode_contrast = "dark";
 function App() {
   // A React component re-renders whenever there is a change in the component's local state.
-  // the following Creates error as App gets randomly loaded frequently 
+  // the following Creates error as App gets randomly loaded frequently
   // and set mode_choice to dark randomly
   // let mode_choice = "dark";
 
   // const [mode, setMode] = useState("");
   const [modeClass, setModeClass] = useState("");
-  
+
   // Uncaught Error: Too many re-renders.
   // Do not directly update the state inside the render method.
   // if (mode_choice==="dark"){
@@ -28,8 +35,8 @@ function App() {
   //   setMode("bg-body-tertiary");
   // }
 
-  const modeSetter= ()=>{
-    console.log("1.>>>>>>>>>>",mode_contrast)
+  const modeSetter = () => {
+    console.log("1.>>>>>>>>>>", mode_contrast);
     /* if(modeBlue==="blue"){
       // change Bg to blue
       // think how to set "dark again" when modeBlue is set as null
@@ -37,60 +44,59 @@ function App() {
       setModeBlue(null);
     } 
     else  */
-    if (mode_contrast==="dark"){
-      mode_contrast="light";
-      setModeClass("navbar-dark bg-dark")
-      document.body.style.backgroundColor="#343a40"
+    if (mode_contrast === "dark") {
+      mode_contrast = "light";
+      setModeClass("navbar-dark bg-dark");
+      document.body.style.backgroundColor = "#343a40";
       showAlert("Dark mode has been enabled", "success");
-      
-    }else{
-      mode_contrast="dark";
+    } else {
+      mode_contrast = "dark";
       setModeClass("bg-body-tertiary");
-      document.body.style.backgroundColor="white";
+      document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
     }
-    console.log("2.>>>>>>>>>>",mode_contrast)
-    document.title=`TextUtils-${mode_contrast}`;
-  }
+    console.log("2.>>>>>>>>>>", mode_contrast);
+    document.title = `TextUtils-${mode_contrast}`;
+  };
 
   // Uncaught Error: Too many re-renders.
-  // Do not directly update the state inside the render method. 
+  // Do not directly update the state inside the render method.
   // Call eventHandler
   // modeSetter();
 
   // ========================================
   const [alert, setAlert] = useState(null);
 
-  const showAlert= (message, type)=>{
+  const showAlert = (message, type) => {
     setAlert({
-      msg:message,
-      type:type
+      msg: message,
+      type: type,
     });
     setTimeout(() => {
       setAlert(null);
     }, 1500);
-  }
-  
+  };
 
   // Dark Mode 2: Blue========================================
   const [modeBlue, setModeBlue] = useState("blue");
-  const modeBlueSetter=()=>{
-    console.log(">>>>>>modeBlue:",modeBlue);
+  const modeBlueSetter = () => {
+    console.log(">>>>>>modeBlue:", modeBlue);
     // mode_contrast==="dark"?mode_contrast="light":mode_contrast="dark";
-    if(modeBlue==="blue"){
-      document.body.style.backgroundColor="#113f67";
-      mode_contrast="light";
+    if (modeBlue === "blue") {
+      document.body.style.backgroundColor = "#113f67";
+      mode_contrast = "light";
       // mode_contrast==="dark"?mode_contrast="light":mode_contrast="dark";
       setModeBlue(null);
-    }else{
+    } else {
       setModeBlue("blue");
-      mode_contrast==="dark"?mode_contrast="light":mode_contrast="dark";
+      mode_contrast === "dark"
+        ? (mode_contrast = "light")
+        : (mode_contrast = "dark");
       // mode_contrast==="dark"?mode_contrast="dark":mode_contrast="light";
       modeSetter();
     }
-    console.log(">>>>>>modeBlue:",modeBlue);
-    
-  }
+    console.log(">>>>>>modeBlue:", modeBlue);
+  };
 
   return (
     // ** Default code=======================================
@@ -177,7 +183,7 @@ function App() {
       {/* <Navbar title="TextUtils2" aboutText="About-TextUtils"/> */}
 
       {/* <Navbar title="TextUtils" /> */}
-      
+
       {/* =========================================== */}
       {/* For explaining states and event handling  */}
       {/* <div className="container my-3">
@@ -192,7 +198,7 @@ function App() {
       {/* Improving Dark Mode & Refactoring App Component  */}
       {/* {console.log(">>>>>>>>>>",mode_choice)} */}
 
-        {/* <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/> */}
+      {/* <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/> */}
       {/* <div className="container-fluid">
         <button  onClick={modeSetter} type="button" className="btn btn-primary">Switch Mode</button>
       </div> */}
@@ -200,18 +206,49 @@ function App() {
         <TextForm heading="Enter a text to analyse." modeContrast={mode_contrast}/>
       </div> */}
 
-
       {/* =========================================== */}
       {/* Adding + Auto Dismissing Alert Messages */}
-        {/* Pending modeBlueSetter */}
-      <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/>
-      {/* modeBlueSetter={modeBlueSetter}/> */}
-      {/* modeBlue={modeBlue} setModeBlue={setModeBlue}/> */}
+      {/* Pending modeBlueSetter */}
+      {/*  <Navbar2 title="TextUtils" modeClass={modeClass} modeSetter={modeSetter} modeContrast={mode_contrast}/>
+      modeBlueSetter={modeBlueSetter}/>
+      modeBlue={modeBlue} setModeBlue={setModeBlue}/>
       <Alert alert={alert}/>
       <div className="container my-3">
         <TextForm heading="Enter a text to analyse." modeContrast={mode_contrast} 
         showAlert={showAlert} />
-      </div>
+        <About/>
+      </div> */}
+
+
+    {/* ========================================== */}
+    {/* React Router Setup + Usage */}
+    {/* Router, Switch, Route code copy-pasted from  react-router-dom v5 docs*/}
+    <Router>
+      <Navbar2
+        title="TextUtils"
+        modeClass={modeClass}
+        modeSetter={modeSetter}
+        modeContrast={mode_contrast}
+      />
+      <Alert alert={alert} />
+    {/* NOTE: in V6 replace Switch with Routes */}
+      <Routes>
+        <Route exact path="/about" element={<About />}>
+        </Route>
+
+        <Route exact path="/" element={
+          <div className="container my-3">
+            <TextForm
+              heading="Enter a text to analyse."
+              modeContrast={mode_contrast}
+              showAlert={showAlert}
+            />
+          </div>
+          
+        }>
+        </Route>
+      </Routes>
+    </Router>
     </>
   );
 }

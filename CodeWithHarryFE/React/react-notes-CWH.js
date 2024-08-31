@@ -467,3 +467,38 @@ function Alert(props) {
 - Google Search Central - tool to score SEO performance of your web app.
 - You can change the apps title dynamically from App component too.
 Eg. document.title=`TextUtils-${mode_contrast}`;
+
+================================================
+## React Router Setup + Usage
+
+Install react router dom package:
+Ref: https://reactrouter.com/en/main/start/tutorial
+
+> cd app_folder_name
+> npm install react-router-dom
+
+--------IMP--------xxxxxxxxx--------------IMP-----------------
+NOTE:
+Ref: https://reactrouter.com/en/main/upgrading/v5
+
+In react-router-dom v6, 
+
+1. "Switch" is replaced by routes "Routes".
+import { Routes ,Route } from 'react-router-dom';
+
+2. Replace "component" with "element"
+<Route path='/' element={<Home/>} />
+
+NOTE: replace "path" by "exact path" otherwise React will match partial matches too.
+ie, it will match "/users" and "/users/home" both and redirect to path="/users" (which we do not expect).
+<Route exact path='/' element={<Home/>} />
+
+Your component along with HTML enclosing it should go here.
+
+
+3. Replace all links like <a href="/"></a> tags on respective components as
+<Link to="/"></Link>
+
+Ref: https://stackoverflow.com/questions/43087007/react-link-vs-a-tag-and-arrow-function
+<a></a> tags reload the entire page, hence make the app slow. Reloading reset the application states.
+Hence use <Link></Link>
