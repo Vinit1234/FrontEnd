@@ -56,7 +56,7 @@ function App() {
       showAlert("Light mode has been enabled", "success");
     }
     console.log("2.>>>>>>>>>>", mode_contrast);
-    document.title = `TextUtils-${mode_contrast}`;
+    // document.title = `TextUtils-${mode_contrast}`;
   };
 
   // Uncaught Error: Too many re-renders.
@@ -233,13 +233,13 @@ function App() {
       <Alert alert={alert} />
     {/* NOTE: in V6 replace Switch with Routes */}
       <Routes>
-        <Route exact path="/about" element={<About />}>
+        <Route exact path="/about" element={<About modeContrast={mode_contrast}/>}>
         </Route>
 
         <Route exact path="/" element={
           <div className="container my-3">
             <TextForm
-              heading="Enter a text to analyse."
+              heading="Try TextUtils - Word counter, Character Counter, Remove extra spaces"
               modeContrast={mode_contrast}
               showAlert={showAlert}
             />

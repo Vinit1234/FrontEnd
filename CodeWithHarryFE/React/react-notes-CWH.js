@@ -589,3 +589,53 @@ Now open server IP address (ie, IVP4 from DigitalOcean) on Browser.
 deployed on DigitalOcean.
 
 12. You can also enable HTTPS by adding SSL certificate.
+
+
+=============================================================
+## Fixed minor bugs:
+
+1. Add .trim() to count words/letters only and not blank spaces in TextForm.
+2. Fix non-blank word minutes read in TextForm.
+3. Fix CLS (Cumulative Layout Shift) in Alert component.
+4. Fix About to change into Dark or Light mode on toggling mode from Navbar.
+5. Change meta description, title in indexedDB.html for SEO.
+6. Change TextForm heading in App.js for SEO.
+7. Remove changing of title while toggling dark/light mode in App.js
+8. Disable all buttons if text is empty. In TextForm.js, set in button:
+    disabled={text.trim().length===0}
+
+9. Google certbot for nginx and install it and obtain SSL certificate for your app.
+10. Remove text selection after Copytext is pressed, add following to handleCopy() in TextForm:
+    document.getSelection().removeAllRanges() 
+
+11. Relpace split(" ") by split(/\s+/) in TextForm to count words on newline. Otherwise 
+    words on newline are considered as 1 word only as string was split by blankspace only.
+
+12. If in About, down arrows are not visible in dark mode add filter: invert(1); to following 
+class of acordion:
+.accordion-button::after {
+    filter: invert(1);
+    }
+
+13. On TextForm "Home" is always highlighted. Remove the "active" class its link tag.
+
+14. In TextForm since you are using navigator api, you dont need to select or deselect text as:
+const handleCopy=()=>{
+    let txtData= document.getElementById("myBox");
+    txtData.select();
+    navigator.clipboard.writeText(txtData.value);
+    document.getSelection().removeAllRanges() 
+    props.showAlert("Text copied to clipboard!","success");
+  }
+
+Edit it to:
+
+const handleCopy=()=>{
+    navigator.clipboard.writeText(txtData.value);
+    props.showAlert("Text copied to clipboard!","success");
+  }
+
+=============================================================================
+check the link to add blue mode and other modes:
+https://youtu.be/Ghp1Mi43dxQ?list=PLu0W_9lII9agx66oZnT6IyhcMIbUMNMdt
+
