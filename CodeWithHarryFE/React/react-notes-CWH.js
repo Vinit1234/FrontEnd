@@ -639,3 +639,74 @@ const handleCopy=()=>{
 check the link to add blue mode and other modes:
 https://youtu.be/Ghp1Mi43dxQ?list=PLu0W_9lII9agx66oZnT6IyhcMIbUMNMdt
 
+
+
+===========================================================================
+## Introduction to Class based components 
+## Component Structure of our NewsMonkey React App
+
+rcc + tab => React Class based Component
+
+1. Remove default function based App component code and 
+replace it with rcc+tab code.
+
+2.  clear code in index.css
+
+3. In index.html => 
+  - add Bootstrap CSS, JS and Popper
+  - rename title and meta description
+
+4. Make a folder src> component. Here we'll keep all components.
+   - Make Navbar component and rcep+tab = React Class Export Component With Proptotype
+   - Copy-paste bootstrap's navbar code inside it.
+   - Replace class= with className= (Do not replace component's keyword "class"); tabindex with tabIndex.
+   - Close all tags.
+
+
+NOTE: render() is a lifecycle method. When React loads a component, a series of methods are executed.
+render() renders HTML on screen after JSX is compiles into HTML.
+
+5. Make News and NewsItem component. Add NewsItem tag into News component.
+  Add News tag into App component (ie, App.js)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
