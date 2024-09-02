@@ -481,6 +481,8 @@ Ref: https://reactrouter.com/en/main/start/tutorial
 NOTE:
 Ref: https://reactrouter.com/en/main/upgrading/v5
 
+More tutorial: https://www.freecodecamp.org/news/how-to-use-react-router-version-6/
+
 In react-router-dom v6, 
 
 1. "Switch" is replaced by routes "Routes".
@@ -502,3 +504,88 @@ Your component along with HTML enclosing it should go here.
 Ref: https://stackoverflow.com/questions/43087007/react-link-vs-a-tag-and-arrow-function
 <a></a> tags reload the entire page, hence make the app slow. Reloading reset the application states.
 Hence use <Link></Link>
+
+
+======================================================
+## Building + Hosting React App For free on Github Pages 
+
+Steps Reference:
+https://create-react-app.dev/docs/deployment/#step-1-add-homepage-to-packagejson
+
+1. Makes your app as static app and makes a build package.
+> npm run build
+
+2. OPen build package on VSCode and open with Live Server (Just press Go Live).
+
+3. Comment Routes and Link tags from app as GitHub Pages doesn’t support routers.
+
+Now to deploy:
+
+1: Add homepage to package.json (Rename myusername and my-app)
+"homepage": "https://myusername.github.io/my-app",
+
+2. Install gh-pages
+> npm install --save gh-pages
+
+3. Add the following scripts in your package.json:
+  
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+
+  The predeploy script will run automatically before deploy is run.
+
+4. Run the following:
+> npm run deploy
+
+5. Go to github.com > Settings > Pages > Select Source branch to:
+gh-pages
+
+6. Uninstall gh-pages:
+> npm uninstall gh-pages
+
+======================================================
+## Purchasing a Domain + Hosting TextUtils on a VPS 
+
+1. Check if the app is running properly 
+> npm start
+
+2. Build the app 
+> npm run build
+
+3. Login to DigitalOcean. Open VPS. Create Droplet.
+If Droplet is already running for some othe app, 
+destroy it and the rebuild it. 
+
+4. Login to digital ocean account via Powershell on PC.
+If you forgot password, go to Access> Reset root password. 
+Copy IPV4. Paste it to your powershell on PC as:
+> ssh root@<IPV4-here>
+> password: <Enter password sent to your email>
+
+5. Install nginx. 
+> sudo apt update
+
+6. Allow nginx through firewall:
+> sudo ufw app list
+> sudo ufw allow 'Nginx Full'
+
+Now open server IP address (ie, IVP4 from DigitalOcean) on Browser.
+
+7. Use file zilla app:
+    1. Enter DigitalOCean details on it and press QuickConnect.
+    2 . Search on Remote site /var/www/html and delete file index_nginx-debian.html
+    3. Copy paste your App's build folder contents in  /var/www/html
+
+8. Refesh IPV4 opened in your browser and you'll see your build running.
+
+9. Now Purchase a domain(eg. from GoDaddy) and point this IPV4 address on it.
+ eg, mytextutils.com
+
+10. Open Domain manager on godaddy.com :
+      1. DNS Manangement> Records 
+      Edit value :"Parked" to value : <IPV4_here>
+  
+11. Open mytextutils.com and you'll open your app 
+deployed on DigitalOcean.
+
+12. You can also enable HTTPS by adding SSL certificate.

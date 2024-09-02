@@ -43,7 +43,7 @@ export default function TextForm(props) {
     let str = text;
     // "Peter Piper picked a peck of pickled peppers.A peck of pickled peppers Peter Piper picked.If Peter Piper picked a peck of pickled peppers,Where’s the peck of pickled peppers Peter Piper picked?";
 
-    let all_words = str.toLowerCase().split(/[\s?,.]+/);
+    let all_words = str.toLowerCase().trim().split(/[\s?,.]+/);
     let obj_keys = new Set(all_words);
     console.log(obj_keys);
 
@@ -138,10 +138,10 @@ export default function TextForm(props) {
       <div className="container my-3" style={{color:props.modeContrast==="dark"?"#343a40":"white"}}>
         <h1>Your Text Summary</h1>
         <p>
-          {text.length > 0 ? text.split(" ").length : 0} words, {text.length}{" "}
+          {text.length > 0 ? text.trim().split(" ").length : 0} words, {text.length}{" "}
           letters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes read</p>
+        <p>{0.008 * text.trim().split(" ").length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter text in the textbox above to preview it here"}</p>
       </div>
