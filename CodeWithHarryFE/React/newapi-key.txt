@@ -1,0 +1,8 @@
+Ref: https://newsapi.org/
+
+Email: vinitsakhare5678@gmail.com
+
+pwd: @ wala
+
+News API key:
+15732b52d5f64d8fabd83b1f45a1a62c

@@ -2,6 +2,7 @@
 2. Thunder Client : VSCode extenstion (alternative of Postman)
 3. ES7 React/Redux/GraphQL/React-Native snippets : VSCode extenstion
 4. Auto rename tag :VSCode 
+5. JSON formatter:  Google chrome extension
 
 
 Try :

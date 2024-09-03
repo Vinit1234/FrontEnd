@@ -719,6 +719,10 @@ imageUrl={element.urlToImage} newsUrl={element.url}/>
 
 Also make sure that images are of same size to maintain the uniform size.
 
+NOTE: Sequence:
+constructor() then render() then componentDidMount()
+componentDidMount() is a lifecycle method which automatically runs after render().
+
 
 
 
