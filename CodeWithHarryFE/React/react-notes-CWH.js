@@ -679,10 +679,30 @@ GET https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY
 
 
 
+NOTE: In React class-based component, if writing constructor(), it is compulsary to call super()
+inside constructor().
 
+export class News extends Component {
+      constructor(){
+        super();
+        console.log("")
+      }
 
+      render() {
+        . . . .
+      }
+}
 
+Remember: constructor() will run for each object if class. 
+Eg. If there are 10 NewItems tags used, constructor will run 10 times.
 
+NOTE: props are not meant to be changed ie, Read-only
+props can be used to set state.
+states can be changed using setState();
+state is used to display the changes on the webpage without reloading it.
+
+8. Copy paste articles from sampleOutput.json in NewsItem 
+constructor 
 
 
 

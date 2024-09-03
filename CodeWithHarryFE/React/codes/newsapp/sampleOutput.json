@@ -1,266 +1,136 @@
 {
     "status": "ok",
-    "totalResults": 38,
+    "totalResults": 10,
     "articles": [
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "FOX Sports",
-    "title": "2024 college football rankings: Georgia, Ohio State on top; Nebraska cracks top 25 - FOX Sports",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOWjFiTWpqa1ZaazdtbHpzdm5ZQ2R6djRKblRZQWhkMVNBcFRva2FuaUVmQW83eXpjbm1SS1JOdXNxdkV2MG84U29RWGtQNE00c044WE9KS1BNOXFMZWFvamoydE82NVhVd0dIVmZnQTBIdjlheF9oN0lSOVJld1lQQ2xoNllEMDkxdVVGemJFdXI2eEJZM0l0QkJUTG00dEh1TnVodFpBTk1tSURSeVQ0V1EzSGRCQWNvN0dkZVByck54Z0kxeEHSAcYBQVVfeXFMTnVrNTIxN3lCSU5KTWt4MzhDcGxYemJYeEozSHAzRFJkVFdLdlkzcXlmVmZyZnZkTVhXcEJZZU5LUHNBZXlDT2ZxOUZVTGh3ODlwbTJKWTlEa0t5VEZjaFptYXp5ME4zU3hUYmlqcS1YYVF1UkRKcXpVeHFlV2V5YXplLTlQNURpLTNpRS1KZDQyNld6bGQ2cE9vUFY5cmZmUHkyODE5Ny0yY1VHajZiWUZWSllDMHg4VG9SZEU1N2hYNjRrajVB?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T04:30:00Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "Chicago Sun-Times",
-    "title": "4 sleeping passengers shot, killed on CTA Blue Line in Forest Park, suspect in custody - Chicago Sun-Times",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOY1hQV2lMMmNvYU9VRXFLT2FRVFloRDNYdGxZdVZwN01sWXdqTDRMclpUZ1dfaGx5TTdpMlc5Yk80a2hOSWVTQW9qV1p2ck02UExKdjFXMjdOMzJIak4ySWZ1ZjE2d2NnZmV2Z1RQUXZJNlRFQmtaQVY0QXdydkxRckRjT3ZGeHA5ZEVyZXRiUGMwZjUtdEdVbTFoemJTQmFWVUFMT3AycnhhYkF4bkpYekkzNXRRVHM?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T03:25:00Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Titanic: Striking images reveal depths of ship's slow decay",
+    "description": "A new expedition finds that a large part of the railing at the ship's front has fallen away.",
+    "url": "https://www.bbc.co.uk/news/articles/crkm82enkgko",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/16e0/live/d75a5540-6901-11ef-8c32-f3c2bc7494c6.jpg",
+    "publishedAt": "2024-09-03T06:22:18.5476437Z",
+    "content": "The team has also announced another discovery of an artefact they were hoping to find even though it was against all the odds.\r\nIn 1986 a bronze statue called the Diana of Versailles was spotted and … [+887 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "The Washington Post",
-    "title": "Venezuela orders arrest of opposition candidate who claimed victory - The Washington Post",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZXA3U0k0QkxDeDR4dDdscll3Qkcycl9mQVZxLXY3ZGhGekZ2RFZwcjhJVWM1VjdJd1hhcl8wMDNMNEEtdUVYMENhT0tGdzdLZmhBbExGbHRDbDRFNlJ5UWZFWWVwQUdld3owLU9ZOGUyUlJiOFRMU20yWHdFWjB4REJuZUFGRFpjYkxaVnNwbzRRSThSQ3c?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T03:24:00Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "BBC.com",
-    "title": "Gaza hostage deaths leave Israel protesters at breaking point - BBC.com",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE45TjR0ZDJJaVdPNHJ2SV8ycHNfbTB6eTI2UV9PdVZpMndzcVk1RG5MTFdlVlFGakNKSWlLYlc0clJyWUJ2aXplQlhUcHBpQkZjMzBqUENENU51Z9IBX0FVX3lxTE0tVlY2aWFvNHlnYkdvTWZpNlY3OGtMNG4xekN2OVdOR1J6Nnd1QkYtSVBGQTVsSkRodTRIWGRrS19JT1ItNG5OdmpPQkY4MDF6SHBFVGNEazl3cGVhcG1R?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T03:12:40Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Sheikh Hasina poses a Bangladesh conundrum for India",
+    "description": "Former Bangladesh PM Sheikh Hasina's continued presence in India means new diplomatic challenges for Delhi.",
+    "url": "https://www.bbc.co.uk/news/articles/cg4ypkpx1rqo",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/de41/live/dd096640-6922-11ef-8c32-f3c2bc7494c6.jpg",
+    "publishedAt": "2024-09-03T06:22:17.2067449Z",
+    "content": "The Indian government has wasted no time in reaching out to the interim government in Dhaka, with Prime Minister Narendra Modi holding a telephone conversation with leader Muhammad Yunus.\r\nHowever, i… [+2445 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "Tallahassee Democrat",
-    "title": "FSU football's uninspiring performance leads to loss against Boston College | 3 takeaways - Tallahassee Democrat",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPUTFKTG1YTHUwWm90LWJkQ0kyZGRzQm4ydGdpTVpVU3hSaWhPeEdzUG1aWVhJTndOdkVPOTNJSUF0SXZCdklvNUtsVlAtVDlnN0NkdW5Ca0JHQWhHanlhVjNjR3h4M1lZS1NuNGJzbnZjVGFITElTaHY4SzF3VlowYncxQWlGU1hrbXE5Zk1SMDJ3VmE0ZENScVNtdnVUYjBLT0lHT3MxQXVNb0RTTkFYQnpPVzFIQjJ0N21mM3dYMU9mbHc4WFpHcTgtckUzc2pENFA0YjF5MjlTOVZIYUdjbzYzMGQzcXd2WVFZ?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T03:00:28Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "Al Jazeera English",
-    "title": "Hewlett Packard to pursue $4bn claim against late tech mogul Mike Lynch - Al Jazeera English",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQklUUDJmcHFET0Y1TklmMmpFdURMcW1HdU9NdjRZYUMzUTMtcEppZmZUWlJKM3lQd3pqWWc2Zi1FVjFkdkZpZU1VMno4clg0X3JSRFZSS09VVGwtbDZqSlhaUDB2cHpnSnFxcDd3eUR6eTlpdTJ3LXdDeEcwdHUzTjRmR19FTVNFOFlpSnNkc1V6dmJyNGlmV251b09mQUlUQ3AxTnAtQ1FvVkZhMS1JYVJBa9IBuAFBVV95cUxNcmpaV2lUY2xyS0VmX1BCWVpod3FtbHE1cHlpZGxjUFVBdU5IeXFqZTFVLU1Xc3ZOclF0SVFsWHpoWnhKUy1VckpRdmR6TkxXQmtnRVFBbTNVZWVFaWZqSlBIbEpTdHZ0Tl90NTlmeWZZTDhBLUFoMmpwSF9hb1BPNUxoQjZYWjZLUk03b0lkTmd3MFFDSlp1R3ZQV1lab0RnOE1ObVZ6cVd6WkE0aVVXQmY5azUyUm9y?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T02:28:54Z",
-    "content": null
+    "author": "BBC News",
+    "title": "US seizes Venezuelan President Nicolás Maduro's plane",
+    "description": "US officials say the aircraft was recovered in the Dominican Republic after having been purchased illegally.",
+    "url": "https://www.bbc.co.uk/news/articles/cm2np4xl083o",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/431a/live/f0c46b10-694c-11ef-b1ff-237e43844635.png",
+    "publishedAt": "2024-09-03T05:52:14.8277995Z",
+    "content": "The plane appeared to be flown to the Venezuelan capital Caracas after arriving in Kingston in Saint Vincent and the Grenadines in April 2023, according to data held by the Flightradar24 website. \r\nU… [+1510 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "TVLine",
-    "title": "James Darren, Veteran of T.J. Hooker and Deep Space Nine , Dead at 88 - TVLine",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPY1JpNlZfbU1idHVlQ3I4MU5MVFozdXY2OHFxcXVtWVZ6RGROQVVUME1iVG1rZWc0R2RBODV3elNZUFN1RTFzcE1uMUNjbm1xN0hYWlpQay01ZmpmNlhkeDVfLS1YQzVDUWV0b3BSQW4wVlpLaktIRTBIZlVlZ0N4WUllb2NaOUZYczI3SFRnd3lqWGF4Qk9fekZucHhWU3BnbVVySg?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T02:14:14Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "Los Angeles Times",
-    "title": "Southern California heat wave to bring temperatures up to 119 degrees - Los Angeles Times",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVEF0RzRDSlFCMGtEbzVLMHBGUGVuNHFLY1AzMXJYb0tRU01uS0g3T2NMdkFNLUVvYUdlbXdPemNnZmJyYm9TeGxjVXdpbE9jcVJJTXBNWlhvUE4zYWpibFM4ZFB3R3l4UkYzeUpnUFlYOGdteVpUVGZDd2hmVmRNQkpVOEhDNzFoQnVLdktYajIzWGlsX0lCZktad19UZlNQVjFxNmRRWVFmVVIwVVlkc1FUVVItSHhqTmlvVlVB?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T02:05:04Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Pope Francis embarks on ambitious Asia-Pacific tour",
+    "description": "Francis will visit Indonesia, Papua New Guinea, Timor-Leste and Singapore over 11 days.",
+    "url": "https://www.bbc.co.uk/news/articles/cm2npr4pg5no",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/a5dd/live/05cb6a50-6997-11ef-b04d-a1e115c95ab0.jpg",
+    "publishedAt": "2024-09-03T05:37:14.5464667Z",
+    "content": "Parts of Francis's trip, which was originally scheduled in 2020 but postponed due to the pandemic, will retrace the steps of St John Paul II, who also visited the four nations during his 27-year pont… [+3012 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "Hollywood Reporter",
-    "title": "Summer Box Office Conundrum: Domestic Revenue Falls 10 Percent, But It Could Have Been Far Worse - Hollywood Reporter",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUUp3cHpXRUI4Z3Y5WHBUNUU3TUxuSXFwMWdrVTRMSWtvVjZUTFVTVmxYNEN0QUxaWTBGb0NxU3V5XzBjTTNLbTVmam8zSkFvUmVTVlEzanVmeHlNb3lDZzhaWHhQMWx0OTdVRDNtQ2dRLU5rUFRhUV81TWdneUUtSXAzT2hHSGJERy1LYVIyOVgwQVFUVnk4M2Zn?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T00:18:54Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "CNN",
-    "title": "Netanyahu defiant as protesters demanding a ceasefire-for-hostages deal bring Israel to a halt - CNN",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZE5ZeW5lQUtTVU9ScnhZSENfR1FCcmZONFFVWVY1SWxoQk9xN1BtTmh2RWFJcm5wODFiZm5HeGtpY1pkNHhvNDN5XzFfRHdGdTF3ai1DUER4czBKU2hjNEtGR2NYX21BOHdGOUVvVFBnNFdPT0hRU1JacDhUMFV6TXo2TENocjJ6Z1dPbEhJclNYcXE1Smh4dHZTR1jSAZMBQVVfeXFMTXVwNVFNaURGNDFxV1B1OHNyYV9OZnB4NmJ1SXM3SzFLN3ZHOUp3X2MwbS1hWDlpRExfZzlES0tVYUVGamtZNFNRS0w3OEJ4c2lycTg3YkRxOXRPZDVqNGZQSnlnY3Nwd3FDZXNmeUIxdXFmajhBUHgyZGVfc3JRdnk2cWcyOExEcDg4dzAzQ210UHVJ?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T00:12:00Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Cathay Pacific grounds planes after engine problem",
+    "description": "Airline has found faulty engine parts during an inspection of its fleet of 48 A350 aircraft.",
+    "url": "https://www.bbc.co.uk/news/articles/c5yd7w0dzpwo",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/300a/live/f1ff8d10-69a2-11ef-bf15-41ffd3dfb033.jpg",
+    "publishedAt": "2024-09-03T03:37:12.485923Z",
+    "content": "Cathay Pacific said the engine component that caused its plane to return to Hong Kong was \"the first of its type to suffer such failure on any A350 aircraft worldwide.\" \r\n\"Thus far we have identified… [+734 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "Fox News",
-    "title": "Two U.S. Marines ambushed, assaulted by mob of Turkish nationalists: 'Yankee, go home!' - Fox News",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPcVAyS2Q4ckw5S01lZU5CaXlkTzRmbzMzNWRndzdKbHVoVTFEbVZFNnZ0WWZSRlR0a2lycVBRS0pzU1Bka3pfdERmc1BhZXhLVzFXVmlRM2lzdGRyUW9vbmlKektMRU5FYkJ0TU1BT3hIeDJYWGJZaklBa3JEcGxTbHhiakNicUtrTHFjYlpEVG1RaHpwczNHMzRfWExLYnhQNVpXMVJlUdIBrAFBVV95cUxQVmotakNoeUtBUzl5clRSTmp6RjJQN1pvOFp0d1N3ZVVqQWp3WWdUMDFmZVFfeFFOS1RQSHJzT0VfWXhObE9IX2tDNzlDelVKYjZYcHJDRkFFZTJFX2RTeXhiODVHRXRBTGRrR3VqY3FXYjNxZzlwc3hpcDA1TWtaTVFldUsyMHNnczk2ZTZKZkNWTGFBUEVBTERabjREUlh4bzljLWRoMW1ZU2FS?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-03T00:10:05Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "CBS News",
-    "title": "Democrats hope Tim Walz brings boost in battleground congressional races - CBS News",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcHRhQnE1N1lkczN1LTE2YlpjSzZyOXpubkg2ei12MFRxNi1KU19xTUxQOWxGblBuSkdMQ2Z2aThPNkVnbFNoR09IcHduem5SZGN0WUhoQW94WkkyVHkxRlljcmlmYnVTd3R2VXdIU2UtWERuRDBqbnBuSXhMNjVJUF83ci1BRE9YaHFJQ052S2XSAZYBQVVfeXFMTjltekl1eWVLTktMNjgwWW5fQTVtNnZsTkpBRWdaTWJzLXAwMVNXWlVaZTdLSlBkZl8zbXhmTm1JSDBpbEQ5WVg1ZmhLRGZwMDNIaTBwN1NEQmJRU3lMNjR1TjJQTGlRdUt5SzNheDh5U1V3al9lelF6ZmlVSUFzSjZMX0JmSVlqMEZqSmg4MkMyeV9rWndB?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T23:55:32Z",
-    "content": null
+    "author": "BBC News",
+    "title": "South Korea: The deepfake crisis engulfing hundreds of schools",
+    "description": "The crisis engulfing more than 500 schools and universities involves many underage victims.",
+    "url": "https://www.bbc.co.uk/news/articles/cpdlpj9zn9go",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/25f3/live/ac0d8ec0-6929-11ef-b43e-6916dcba5cbf.jpg",
+    "publishedAt": "2024-09-03T00:52:16.1127113Z",
+    "content": "Last Saturday, a Telegram message popped up on Heejins phone from an anonymous sender. Your pictures and personal information have been leaked. Lets discuss.\r\nAs the university student entered the ch… [+2412 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "BBC.com",
-    "title": "Landslides force power cuts in upscale LA neighbourhood - BBC.com",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBPZzNVa3dnQkVocW5WcDZwVlVBbXQxVlNfbWVOcXJ6dG9UNHJPa24wWFVJN1MyNUlKbDJoSDZ5ME9xaUtwckc0ZnJ4WUxiaXFmZDJZcm1uUXhwQdIBX0FVX3lxTFBHbVdWMDMzc2RXak9PeExOamJoSkdwcGhhWXRaaXBQcHk3eTlYMlRDS2lGckl0RXhpdHMzSjlzbUdlV1BxN3FsYmZ2aTZDdGdXVmpPbzdNUVlHSlNMS0xZ?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T23:13:25Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "Yahoo Finance",
-    "title": "Exclusive-Elliott now owns enough of Southwest Airlines to call special meeting - Yahoo Finance",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNMS1XQVJiZmhyR29MSkE2T0Q4bUdySUM0ZER3NkhzTjVuTmJzMjREVEpoZ2Vla0xOeW9pYlhyTzIzc3I3Rm9LRnNSM1JEbi1pYkFjNkVoamhGaWp5ZHp5bGR3NEp5UGxxb3d2XzhCUnJFbEtJVHdSd08yZy1LcEtCMnVqdkIwdw?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T23:07:10Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Is US economy better now than under Trump?",
+    "description": "BBC Verify looks at jobs, inflation, stocks and other indicators to compare the Trump and Biden economies.",
+    "url": "https://www.bbc.co.uk/news/articles/c8xl5vnlzpwo",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/c911/live/561b3350-692e-11ef-8c32-f3c2bc7494c6.jpg",
+    "publishedAt": "2024-09-03T00:52:14.6755675Z",
+    "content": "Mr Biden claims this is the fastest job growth at any point of any president in all of American history.\r\nThats correct - if you look at the available data since records began in 1939.\r\nBut his admin… [+653 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "Business Insider",
-    "title": "NASA's dream of a space plane could finally become reality - Business Insider",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNb1ZyaXRYc1V2elZfVFVKUDhCUlJFUUtDWGduMU9qeWFrdUF5alV6d0dna3dCMklGVWZEMTdXbGlQeVRzS3FYLUQ4VTI0dFp4REVXckNLSE81Y01VMzh5SlgyZHE4Y0RRenloZ0QyaWZibWozLUNHVWo4Y2QtcG5mcnh5clNwN2tlSlRWNXh6M1ZDM1IyX2VuNEtKQmdqNE1Sd2dVbg?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T23:06:00Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "Bloomberg",
-    "title": "Asian Stocks Look Steady as China Concerns Mount: Markets Wrap - Bloomberg",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPTzQwY3A4ZEVCalJ4MlQwcjYtc2JlZDJwNXQ5cnFUMFBKWnl4T1dfaXpMckMwaExHaGFTN0VXdkNzUTNNRHZGX1NrSE4tMktCbDJrTFdzejcwdlZHbUpzcGJnZi16VDhlZDFqRnd0eGNSLVY4a3FEYVRyYmpEcXVPZ3NYYklOQmh0d3JIZm1VTGpaZ0tB?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T22:38:58Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Israeli outpost settlers rapidly seizing West Bank land",
+    "description": "The number of illegal outposts has risen in the past five years to 196, BBC analysis has found.",
+    "url": "https://www.bbc.co.uk/news/articles/c207j6wy332o",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/bd4e/live/7df2fd20-662e-11ef-8c32-f3c2bc7494c6.jpg",
+    "publishedAt": "2024-09-02T23:22:15.9822417Z",
+    "content": "Through limiting access to grazing land, outpost settlers like Moshe Sharvit are able to put Palestinian farmers in increasingly precarious positions, says Moayad Shaaban, the head of the Palestinian… [+1444 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "The Associated Press",
-    "title": "Harris is set to oppose US Steel's sale to a Japanese firm during event with Biden in Pennsylvania - The Associated Press",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUlhmVXQxYWh3Z0RSUHQ0WUc0cllxaEt0ajdKRGVPUXdZUFNoTnBUYlRTV0hCcVJ3T3lzc29HTW9ZOWd4OEMtQUR6QmMwTkhuV1Z3UjAtLThoWEV5aS1xaUprM182Rm1mcTdjZWNVRm1mUHhOd2ZiaXhFMUVsaGxjdXdvS0MyQmNNWW1CR2VGSQ?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T22:21:00Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "Hindustan Times",
-    "title": "After JLo, Ben Affleck is ‘where he wants to be’; she is also ‘moving forward’ - Hindustan Times",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPUFY0ZjdldnhlWDVMM0N2Q2dzZVMwMzhTX2cwRVpLejFIRzNiWGQ2Nzl2VF9WSG1tMnZLUXEwZFZNLTczMmhabElsdnVhNkVCR1MyWlZmRHNvRERpSGd2cXhBM0tPTlpzWlZqU2lqMWVEZmNYUDF1TGZxNFRIRGM0QjZfemhuN3dRV0hMeGZIWGY0SmZZV3NSYjFCQzJITGRkcTRUWUdkYWVLQk9vdlpTaW5LQTlCNkppLWhfNURhSkQ4M0VnRHMzWl9EZHdlWlRINUZ2OVRIQXVua2R0YVl0c3N30gHnAUFVX3lxTE1nSV9mTE8ybFJxLWZxZ2o5dVYwUGRBSnlTdk8zdC1wUDl1MVNkMzhRZEF4TVRvQmI2ZHpYd2pfWlFIV1dDa0VKRGFSOTFud2VLQkFXZlJMUmFfRnk3dkJFaWNXdF9JWWxuWVV6MFYxOXRvSHFQRGRVNnVsZWE5YnVWa01FQ2FLd1VNVHdoVVQzNkpXRUZidEJjWFp5UDdOdm56OXdydlQwNktmS3RySFdPMmVJdlBNNGRseURxcUhUdTBCTG8zMVBqWnlTbTZiOW1XeW9GVGExbjN3V0ttNEgzbUk2TWhHRQ?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T22:18:13Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Tim Walz unharmed after motorcade vehicles involved in crash",
+    "description": "Some journalists and campaign staff were injured but the candidate for vice-president was not hurt.",
+    "url": "https://www.bbc.co.uk/news/articles/cx2n1g4gzypo",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/ab06/live/bf46bec0-6966-11ef-ae46-19f76aad857d.jpg",
+    "publishedAt": "2024-09-02T22:52:18.8618601Z",
+    "content": "It is unclear what caused the crash, which occurred on Interstate 794.\r\nVice-President Kamala Harris, his running mate, phoned Mr Walz to check that he was OK, a White House official told CBS, the BB… [+1362 chars]"
     },
     {
     "source": {
-    "id": "google-news",
-    "name": "Google News"
+    "id": "bbc-news",
+    "name": "BBC News"
     },
-    "author": "CNN",
-    "title": "Exclusive: US seizes Venezuela President Nicolas Maduro’s airplane in the Dominican Republic - CNN",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOYm9jMDU4R0xlbC1Ea0tCUGJyMFJfaFlVUFd1Y1ZiWUd1RnFGb1c1SFhqTnNIUHhYZmtmek9vanVmM3QzOGt1cnQ5ZFBpOFo4TzVQdjY2SUZMTC16eEFpZ01Wazd1MWhyN01nMkNiREI1bjBEUzRMcFVwYWtMc2xOem1PU3V0SXktRm16dXpsLXlOMUJPbk0tTTBUMHV0Z9IBlAFBVV95cUxQUnRNWll1Slp1Q3pUV2ZlbkpwQkswQUZRcDdkaFhvcVhjYmpRR2d5Y2poMU5aMlpjUG5ua1VLUmlUYjk5LXk3UTRTTmZTeXplWkZxZmNGYThyUTAxQXd4N2lVX0xZNGF0QzFDSGJuVXFFRENtc3pPYldVd0YwMVloMXlkcG5Lc0JaZGVfQ3pDV244ZmJk?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T22:10:00Z",
-    "content": null
-    },
-    {
-    "source": {
-    "id": "google-news",
-    "name": "Google News"
-    },
-    "author": "NBC Philadelphia",
-    "title": "Fake ads in Philly falsely claim the Eagles are endorsing Kamala Harris - NBC Philadelphia",
-    "description": null,
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQRWl6NTZMQUQ4V3JzcEE4YW11YzJ5RjI3OTRPSEZMLS04enZPOFNCUlFDdjZicFlCOXlBSGR2emtOWURydjRPbUtoSVdpb29MR19nLVlqOEdwb1k4Y2Q0T3B3SmN6Q0lieG5iYXpfQ3VNSGVKRjZxbFlqeU1ITWMtTXFtYmZFTlRoUVVwZlFFaFdCRVZDU1VrWGN3d3VydmFFeW16ci1yaFlfTHJL0gG0AUFVX3lxTFBtS04weHh3TEZES1BaNnNabDBUSlFwelduTjRkTXdBaS1zNWw2dkxkWWVCVTJrVVhzcDBaMGs1aFFkNURZZHlrU3oyZ0JwSW1Xb1AxWHA0UDRtV1Utc2JaWXZiUDc4YjNfU1M0blc5WjRubjd5OHdZNDd2XzE2MlE1QUdwY2Mwb0ZZc1hkV0cweU9EN0RZdklTWFdadnU1ZDhQZHdjS0djZEhIWi1xZ19RNEc1eA?oc=5",
-    "urlToImage": null,
-    "publishedAt": "2024-09-02T21:55:37Z",
-    "content": null
+    "author": "BBC News",
+    "title": "Netanyahu asks Israelis for 'forgiveness' over hostage deaths",
+    "description": "It comes as Hamas said more hostages could be \"returned to their families in shrouds\" if a ceasefire isn't reached.",
+    "url": "https://www.bbc.co.uk/news/articles/cn02pz4wnyro",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/9776/live/45780950-6966-11ef-b43e-6916dcba5cbf.jpg",
+    "publishedAt": "2024-09-02T22:52:17.8492032Z",
+    "content": "Thousands of Israelis took to the streets on Monday in fresh protests called by hostages' families to express their anger at Mr Netanyahu's failure to bring home their loved ones after almost 11 mont… [+1839 chars]"
     }
     ]
     }
