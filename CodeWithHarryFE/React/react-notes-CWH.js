@@ -704,9 +704,20 @@ state is used to display the changes on the webpage without reloading it.
 8. Copy paste articles from sampleOutput.json in NewsItem 
 constructor 
 
+NOTE: ctrl+shift+r = clear cache and reload
 
 
+*** Warning: Each child in a list should have a unique "key" prop.
+NOTE: Whenever you iterate over element/components, then you must 
+provide a unique key each item returned.
 
+-To keep the new cards (NewsItems) of uniform size clip the strings into same size as:
+
+<NewsItem  title={element.title.slice(0,45)} description={element.description.slice(0,88)} 
+imageUrl={element.urlToImage} newsUrl={element.url}/>
+
+
+Also make sure that images are of same size to maintain the uniform size.
 
 
 
