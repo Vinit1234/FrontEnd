@@ -654,13 +654,13 @@ replace it with rcc+tab code.
 
 3. In index.html => 
   - add Bootstrap CSS, JS and Popper
-  - rename title and meta description
+  - rename title and meta description for SEO
 
 4. Make a folder src> component. Here we'll keep all components.
    - Make Navbar component and rcep+tab = React Class Export Component With Proptotype
    - Copy-paste bootstrap's navbar code inside it.
    - Replace class= with className= (Do not replace component's keyword "class"); tabindex with tabIndex.
-   - Close all tags.
+   - Close all tags </>.
 
 
 NOTE: render() is a lifecycle method. When React loads a component, a series of methods are executed.
@@ -669,7 +669,13 @@ render() renders HTML on screen after JSX is compiles into HTML.
 5. Make News and NewsItem component. Add NewsItem tag into News component.
   Add News tag into App component (ie, App.js)
 
+6. Copy paste sample JSON response from NewApi documentation page into sampleOutput.json.
+Ref: https://newsapi.org/docs/get-started
 
+GET https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY
+
+7. Paste Bootstrap Card component code into NewsItem.js and edit it into JSX.
+    Organise the NewsItems in New.js using Bootstrap rows and columns.
 
 
 
