@@ -709,7 +709,7 @@ NOTE: ctrl+shift+r = clear cache and reload
 
 *** Warning: Each child in a list should have a unique "key" prop.
 NOTE: Whenever you iterate over element/components, then you must 
-provide a unique key each item returned.
+provide a unique key to each item returned.
 
 -To keep the new cards (NewsItems) of uniform size clip the strings into same size as:
 
@@ -723,6 +723,21 @@ NOTE: Sequence:
 constructor() then render() then componentDidMount()
 componentDidMount() is a lifecycle method which automatically runs after render().
 
+
+## Adding Previous & Next Buttons to populate NewsItems
+
+- In News.js:
+
+- Disable previous button if page <=1
+<button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
+
+NOTE: Use "this" with handlers defined in the class component.
+
+
+NOTE: In News API you can set &pageSize in url to set the number of results to return per page.
+Eg. "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=20"
+
+will display only 20 results from page1
 
 
 

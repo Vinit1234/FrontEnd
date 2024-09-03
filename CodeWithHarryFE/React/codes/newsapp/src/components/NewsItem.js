@@ -19,7 +19,7 @@ export class NewsItem extends Component {
               {/* Some quick example text to build on the card title and make up the
               bulk of the card's content. */}
             </p>
-            <a href={newsUrl} target="_blank" className="btn btn-sm btn-primary" rel="noreferrer">
+            <a href={newsUrl} target="_blank" className="btn btn-sm btn-dark" rel="noreferrer">
               Read More
               {/* Go somewhere */}
             </a>

@@ -172,18 +172,65 @@ export class News extends Component {
       // articles: this.articles,
       articles: [],
       loading: false,
+      page:1,
     };
   }
 
   // Fetch data from news api and populate state
   async componentDidMount() {
     let url =
-      "https://newsapi.org/v2/top-headlines?country=in&apiKey=15732b52d5f64d8fabd83b1f45a1a62c";
+    "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=20"
+    // "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1"
+      // "https://newsapi.org/v2/top-headlines?country=in&apiKey=15732b52d5f64d8fabd83b1f45a1a62c";
+
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
-    this.setState({articles:parsedData.articles});
+    this.setState({
+      articles:parsedData.articles,
+      totalResults: parsedData.totalResults
+    });
   }
+
+  handlePrevClick = async ()=>{
+    console.log(">> handlePrevClick");
+    let url =
+    `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=20`
+    // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}`
+    console.log(">>prev url:",url)
+
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    console.log(parsedData);
+    // this.setState({articles:parsedData.articles});
+    this.setState({
+      page:this.state.page-1,
+      articles:parsedData.articles
+    });
+  }
+
+  handleNextClick = async ()=>{
+    console.log(">> handleNextClick");
+    if(this.state.page+1> Math.ceil(this.state.totalResults/20)){
+
+    }
+    else{
+        let url =
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=20`
+        // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}`
+        console.log(">>next url:",url)
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        console.log(parsedData);
+        // this.setState({articles:parsedData.articles});
+        this.setState({
+          page:this.state.page+1,
+          articles:parsedData.articles
+        });
+  } 
+
+  }
+
 
   render() {
     return (
@@ -203,6 +250,11 @@ export class News extends Component {
               </div>
             );
           })}
+
+          <div className="container d-flex justify-content-between">
+            <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
+            <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+          </div>
 
           {/* <div className="col-md-4"><NewsItem title="My Title" description="My Description" imageUrl="https://ichef.bbci.co.uk/news/1024/branded_news/de41/live/dd096640-6922-11ef-8c32-f3c2bc7494c6.jpg"
           newsUrl="TODO"/></div>
