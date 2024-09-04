@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
+import Spinner from "./Spinner";
 
 export class News extends Component {
   articles = [
@@ -179,53 +180,61 @@ export class News extends Component {
   // Fetch data from news api and populate state
   async componentDidMount() {
     let url =
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=20"
+`https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
+    // "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=20"
     // "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1"
       // "https://newsapi.org/v2/top-headlines?country=in&apiKey=15732b52d5f64d8fabd83b1f45a1a62c";
 
+    this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
     this.setState({
       articles:parsedData.articles,
-      totalResults: parsedData.totalResults
+      totalResults: parsedData.totalResults,
+      loading:false
     });
   }
 
   handlePrevClick = async ()=>{
     console.log(">> handlePrevClick");
     let url =
-    `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=20`
+    `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
     // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}`
     console.log(">>prev url:",url)
 
+    this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
     // this.setState({articles:parsedData.articles});
     this.setState({
       page:this.state.page-1,
-      articles:parsedData.articles
+      articles:parsedData.articles,
+      loading:false
     });
   }
 
   handleNextClick = async ()=>{
     console.log(">> handleNextClick");
-    if(this.state.page+1> Math.ceil(this.state.totalResults/20)){
+    // if(this.state.page+1> Math.ceil(this.state.totalResults/20)){
 
-    }
-    else{
+    // }
+    // else{
+    if(!(this.state.page+1> Math.ceil(this.state.totalResults/20))){
         let url =
-        `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=20`
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
         // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}`
         console.log(">>next url:",url)
+        this.setState({loading:true});
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
         // this.setState({articles:parsedData.articles});
         this.setState({
           page:this.state.page+1,
-          articles:parsedData.articles
+          articles:parsedData.articles,
+          loading:false
         });
   } 
 
@@ -235,10 +244,11 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h2>NewsMonkey - Top headlines</h2>
+        <h2 className="text-center">NewsMonkey - Top headlines</h2>
+        {this.state.loading && <Spinner/>}
 
         <div className="row">
-          {this.state.articles.map((element) => {
+          {!this.state.loading && this.state.articles.map((element) => {
             return (
               <div key={element.url} className="col-md-4">
                 <NewsItem
@@ -253,7 +263,9 @@ export class News extends Component {
 
           <div className="container d-flex justify-content-between">
             <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
-            <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+            {/* <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button> */}
+            {/* <button disabled={this.state.page+1> Math.ceil(this.state.totalResults/20)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button> */}
+            <button disabled={this.state.page+1> Math.ceil(this.state.totalResults/this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
           </div>
 
           {/* <div className="col-md-4"><NewsItem title="My Title" description="My Description" imageUrl="https://ichef.bbci.co.uk/news/1024/branded_news/de41/live/dd096640-6922-11ef-8c32-f3c2bc7494c6.jpg"

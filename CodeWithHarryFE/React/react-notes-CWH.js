@@ -732,6 +732,8 @@ componentDidMount() is a lifecycle method which automatically runs after render(
 <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
 
 NOTE: Use "this" with handlers defined in the class component.
+Use props using "this"
+Eg. `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
 
 
 NOTE: In News API you can set &pageSize in url to set the number of results to return per page.
@@ -739,13 +741,28 @@ Eg. "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd8
 
 will display only 20 results from page1
 
+================================================================
+## Adding loading spinner & variable pageSize to NewsMonkey 
+
+> Google for spinner as: create spinner gif 
+Eg. https://icons8.com/preloaders/
 
 
+NOTE: To check if there is any mistake in the url you are hitting:
+Open Devtools on Chrome (by Inspect) > Network >Filter > add some keyword of url and check it.
 
+NOTE:
+ERROR in ./src/components/Spinner.js 5:0-47
+Module not found: Error: You attempted to import ../../public/loading.gif which falls outside of the project src/ directory. Relative imports outside of src/ are not supported.
+You can either move it inside src/, or add a symlink to it from project's node_modules/.
 
+Add Spinner component and in News.js add:
+{this.state.loading && <Spinner/>}
 
+and this.setState({loading:true});
 
-
+and combine the conditions as :
+{!this.state.loading && this.state.articles.map((element) => {....}}
 
 
 
