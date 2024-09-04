@@ -764,8 +764,39 @@ and this.setState({loading:true});
 and combine the conditions as :
 {!this.state.loading && this.state.articles.map((element) => {....}}
 
+=====================================================
+##Adding Categories & propTypes to NewsMonkey React App
+
+Add the following to News.js
+
+static defaultProps={
+  country:"us",
+  pageSize:8
+}
+
+static propType={
+  country: PropTypes.string,
+  pageSize: PropTypes.number,
+}
+
+- Add the following link items to Navbar.js
+    business
+    entertainment
+    generalhealth
+    science
+    sports
+    technology
+
+- Pass category to <News/> from App.js
 
 
+- Set Router to set routes on the NewsMonkey app, to open 
+the news category wise when selected from Navbar.
+
+- Till now we have used <a href="...."></a> ; 
+hence complete NewsMonkey application reloads on each request.
+We need to use <Link to="...."/> instead to render components in place 
+without reloading the entire page.
 
 
 
