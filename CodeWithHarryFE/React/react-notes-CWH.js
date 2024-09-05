@@ -850,4 +850,63 @@ handlePrevClick = async ()=>{
 }
 
 
+============================================================================
+## React Component Lifecycle & Lifecycle methods | Complete React Course in Hindi #34
+
+NOTE: To use props inside a constructor, pass prop as an argument to 
+both constructor and super.
+Eg. In News.js:
+
+constructor(props) {
+  super(props);
+  console.log(">> NewsItem constructor called");
+  this.state = {
+    // articles: this.articles,
+    articles: [],
+    loading: false,
+    page:1,
+  };
+  document.title=this.props.category;
+}
+
+
+## React Lifecycle Methods:
+Ref: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+>>> React Component Lifecycle
+
+The series of events that happen from the mounting of a React component to its Unmounting.
+
+• Mounting - Birth of your component
+• Update - Growth of your component
+• Unmount - Death of your component
+
+>>> Methods in React Component Lifecycle
+
+• The render() method is used to render HTML of the component in react. This method is required for a class based component to render the DOM. It runs during the mounting and updating of your component. Render() method should be pure ie you cannot modify state inside it!
+
+• The componentDidMount() method runs after the component output has been rendered to the DOM.
+
+• The componentDidUpdate() method is invoked as soon as the updating happens. The most common use case for the componentDidUpdate() method is updating the DOM in response to prop or state changes.
+
+• The componentWill Unmount() lifecycle method is called just before the component is unmounted and destroyed. Usually used to perform cleanups
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

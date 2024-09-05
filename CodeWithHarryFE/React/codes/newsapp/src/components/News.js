@@ -181,8 +181,22 @@ export class News extends Component {
     },
   ];
 
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
+  //   console.log(">> NewsItem constructor called");
+  //   this.state = {
+  //     // articles: this.articles,
+  //     articles: [],
+  //     loading: false,
+  //     page:1,
+  //   };
+  // }
+
+  capitalizeFirstLetter = (string)=>{
+    return string[0].toUpperCase()+string.slice(1)
+  }
+  constructor(props) {
+    super(props);
     console.log(">> NewsItem constructor called");
     this.state = {
       // articles: this.articles,
@@ -190,6 +204,7 @@ export class News extends Component {
       loading: false,
       page:1,
     };
+    document.title= this.capitalizeFirstLetter(this.props.category) +" - NewsMonkey";
   }
 
   // Refactoring repeated code in single function
@@ -303,7 +318,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h2 className="text-center">NewsMonkey - Top headlines</h2>
+        <h2 className="text-center" style={{margin:'35px 0px'}}>NewsMonkey - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
         {this.state.loading && <Spinner/>}
 
         {/* Bootstrap Grid */}
