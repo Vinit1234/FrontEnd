@@ -799,13 +799,24 @@ We need to use <Link to="...."/> instead to render components in place
 without reloading the entire page.
 
 
+================================================================
+## Fetching News category wise in NewsMonkey React App 
 
+> npm install react-router-dom
 
+Import and add Router,Routes, Route in App.js 
+Change <a href=""> tags to <Link to> in Navbar.js
 
+After this, when you click any category on the Navbar, the page 
+is not updated with the category news. It gets updated only when 
+the page is refreshed.
+To fix this, you need to (force) remount the component when the category is clicked.
+(as React doesn't feel need to update as the component is already present there.')
 
-
-
-
+  - first give key to each News component in App.js
+  <Routes>
+    <Route exact path='/' element={<News key="general" pageSize={5} country="us" category="general"/>}></Route>
+  </Routes>
 
 
 
