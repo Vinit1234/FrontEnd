@@ -827,7 +827,27 @@ Use Bootstrap Cards> Image caps to display author and date.
 Use Bootstrap Badges to show publisher.
 
 
+================================================================
+## Refactoring News component to use the same function | Complete React Course in Hindi #33
 
+Many functions in News.js have repititive code, refactor it into a separate function.
+Refactor the following:
+
+handlePrevClick = async ()=>{
+  console.log(">> handlePrevClick");
+  let url =
+  `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
+
+  this.setState({loading:true});
+  let data = await fetch(url);
+  let parsedData = await data.json();
+  console.log(parsedData);
+  this.setState({
+    page:this.state.page-1,
+    articles:parsedData.articles,
+    loading:false
+  });
+}
 
 
 

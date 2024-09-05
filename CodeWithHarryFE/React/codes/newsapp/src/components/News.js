@@ -192,16 +192,11 @@ export class News extends Component {
     };
   }
 
-  // Fetch data from news api and populate state
-  async componentDidMount() {
+  // Refactoring repeated code in single function
+  async updateNews(){
+    console.log(">>>this.state.page:", this.state.page);
     let url =
-`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
-// `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
-    // "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=20"
-    // "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1"
-      // "https://newsapi.org/v2/top-headlines?country=in&apiKey=15732b52d5f64d8fabd83b1f45a1a62c";
-
-    console.log("url:",url);
+`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
     this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -213,13 +208,41 @@ export class News extends Component {
     });
   }
 
+  // Fetch data from news api and populate state
+  async componentDidMount() {
+//     let url =
+// `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
+
+
+// `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
+    // "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=20"
+    // "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1"
+      // "https://newsapi.org/v2/top-headlines?country=in&apiKey=15732b52d5f64d8fabd83b1f45a1a62c";
+
+    /* console.log("url:",url);
+    this.setState({loading:true});
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    console.log(parsedData);
+    this.setState({
+      articles:parsedData.articles,
+      totalResults: parsedData.totalResults,
+      loading:false
+    }); */
+
+    this.updateNews();
+  }
+
   handlePrevClick = async ()=>{
     console.log(">> handlePrevClick");
-    let url =
-    `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
+    // let url =
+    // `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
+
+
     // `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
     // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}`
-    console.log(">>prev url:",url)
+    
+    /* console.log(">>prev url:",url)
 
     this.setState({loading:true});
     let data = await fetch(url);
@@ -230,7 +253,12 @@ export class News extends Component {
       page:this.state.page-1,
       articles:parsedData.articles,
       loading:false
+    }); */
+
+    this.setState({
+      page:--this.state.page,
     });
+    this.updateNews();
   }
 
   handleNextClick = async ()=>{
@@ -240,10 +268,15 @@ export class News extends Component {
     // }
     // else{
     if(!(this.state.page+1> Math.ceil(this.state.totalResults/this.state.pageSize))){
-        let url =
-        `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
+        // let url =
+        // `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
+        
+        
         // `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
         // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}`
+        
+        /* 
+        
         console.log(">>next url:",url)
         this.setState({loading:true});
         let data = await fetch(url);
@@ -255,6 +288,13 @@ export class News extends Component {
           articles:parsedData.articles,
           loading:false
         });
+       
+        */
+
+        this.setState({
+          page:++this.state.page,
+        });
+        this.updateNews();
   } 
 
   }
