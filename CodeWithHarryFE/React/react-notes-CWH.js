@@ -819,6 +819,12 @@ To fix this, you need to (force) remount the component when the category is clic
   </Routes>
 
 
+==============================================================
+## Adding time, author and news source to News React App | Complete React Course in Hindi #32
+
+Add date and author from the requested JSON data into NewsItem 
+Use Bootstrap Cards> Image caps to display author and date.
+Use Bootstrap Badges to show publisher.
 
 
 

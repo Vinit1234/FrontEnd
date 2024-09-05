@@ -266,6 +266,7 @@ export class News extends Component {
         <h2 className="text-center">NewsMonkey - Top headlines</h2>
         {this.state.loading && <Spinner/>}
 
+        {/* Bootstrap Grid */}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
             return (
@@ -275,11 +276,15 @@ export class News extends Component {
                   description={element.description?element.description.slice(0, 88):""}
                   imageUrl={element.urlToImage?element.urlToImage:"https://ichef.bbci.co.uk/news/1024/branded_news/ab06/live/bf46bec0-6966-11ef-ae46-19f76aad857d.jpg"}
                   newsUrl={element.url}
+                  author={element.author} date={element.publishedAt}
+                  source={element.source.name}
+                  category={this.props.category}
                 />
               </div>
             );
           })}
 
+          {/* Bootstrap flex */}
           <div className="container d-flex justify-content-between">
             <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
             {/* <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button> */}
