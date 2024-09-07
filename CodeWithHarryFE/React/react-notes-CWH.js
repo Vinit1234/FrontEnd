@@ -893,10 +893,84 @@ The series of events that happen from the mounting of a React component to its U
 
 
 
+===============================================================
+## Adding Infinite Scroll to NewsMonkey | Complete React Course in Hindi #35
+
+https://www.npmjs.com/package/react-infinite-scroll-component
+
+> npm i react-infinite-scroll-component
+
+In News.js: 
+
+ // for infinite scroll
+ fetchMoreData = async () => {
+  this.setState({page: this.state.page+1});
+  // this.updateNews();
+  let url =
+`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
+  this.setState({loading:true});
+  let data = await fetch(url);
+  let parsedData = await data.json();
+  console.log(parsedData);
+  this.setState({
+    articles:this.articles.concat(parsedData.articles),
+    totalResults: parsedData.totalResults,
+    loading:false
+  });
+
+};
+
+{/* Add react infinite scroll after installing */}
+<InfiniteScroll
+// dataLength={this.state.items.length}
+dataLength={this.state.articles.length}
+next={this.fetchMoreData}
+// hasMore={true}
+hasMore={this.articles.length !== this.state.totalResults}
+// loader={<h4>Loading...</h4>}
+loader={<Spinner/>}
+>
+<div className="container">
+  <div className="row">
+    { this.state.articles.map((element) => {
+      return (
+        <div key={element.url} className="col-md-4">
+          <NewsItem
+            title={element.title? element.title.slice(0, 45):""}
+            description={element.description?element.description.slice(0, 88):""}
+            imageUrl={element.urlToImage?element.urlToImage:"https://ichef.bbci.co.uk/news/1024/branded_news/ab06/live/bf46bec0-6966-11ef-ae46-19f76aad857d.jpg"}
+            newsUrl={element.url}
+            author={element.author} date={element.publishedAt}
+            source={element.source.name}
+            category={this.props.category}
+          />
+        </div>
+      );
+    })}
+  </div>
+</div>
+</InfiniteScroll>
 
 
 
+- Comment external div and wrap everything in <></> to remove 
+horizontal scroll bar when <InfiniteScroll> is added.
 
+<>
+  {/* <div className="container my-3"> */}
+  .
+  .
+  .
+  {/* <div/> */}
+</>
+
+
+NOTE:
+1. For "Encountered two children with the same key" error, in map function use index  
+{this.state.articles.map((element,index) => {
+ return <div className="col-md-4" key = {index}>
+
+2. 
 
 
 

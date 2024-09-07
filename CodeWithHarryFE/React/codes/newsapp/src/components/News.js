@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from 'prop-types'
+import InfiniteScroll from "react-infinite-scroll-component"
 
 
 export class News extends Component {
@@ -201,8 +202,10 @@ export class News extends Component {
     this.state = {
       // articles: this.articles,
       articles: [],
-      loading: false,
+      // loading: false,
+      loading: true,
       page:1,
+      totalResults:0
     };
     document.title= this.capitalizeFirstLetter(this.props.category) +" - NewsMonkey";
   }
@@ -315,14 +318,35 @@ export class News extends Component {
   }
 
 
+  // for infinite scroll
+  fetchMoreData = async () => {
+    this.setState({page: this.state.page+1});
+    // this.updateNews();
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log("this.state.articles.length:"+this.state.articles.length+" this.state.totalResults:"+this.state.totalResults);
+    let url =
+`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
+    // this.setState({loading:true});
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    console.log(parsedData);
+    this.setState({
+      articles:this.articles.concat(parsedData.articles),
+      totalResults: parsedData.totalResults,
+      // loading:false
+    });
+
+  };
+
   render() {
     return (
-      <div className="container my-3">
+      <>
+       {/* <div className="container my-3"> */}
         <h2 className="text-center" style={{margin:'35px 0px'}}>NewsMonkey - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
         {this.state.loading && <Spinner/>}
 
         {/* Bootstrap Grid */}
-        <div className="row">
+        {/* <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
             return (
               <div key={element.url} className="col-md-4">
@@ -337,8 +361,39 @@ export class News extends Component {
                 />
               </div>
             );
-          })}
-
+          })} */}
+        
+        {/* Add react infinite scroll after installing */}
+        <InfiniteScroll
+          // dataLength={this.state.items.length}
+          dataLength={this.state.articles.length}
+          next={this.fetchMoreData}
+          // hasMore={true}
+          hasMore={this.state.articles.length < this.state.totalResults}
+          // loader={<h4>Loading...</h4>}
+          loader={<Spinner/>}
+        >
+        <div className="container">
+            <div className="row">
+              { this.state.articles.map((element,index) => {
+                return (
+                  // <div key={element.url} className="col-md-4">
+                  <div key={index} className="col-md-4">
+                    <NewsItem
+                      title={element.title? element.title.slice(0, 45):""}
+                      description={element.description?element.description.slice(0, 88):""}
+                      imageUrl={element.urlToImage?element.urlToImage:"https://ichef.bbci.co.uk/news/1024/branded_news/ab06/live/bf46bec0-6966-11ef-ae46-19f76aad857d.jpg"}
+                      newsUrl={element.url}
+                      author={element.author} date={element.publishedAt}
+                      source={element.source.name}
+                      category={this.props.category}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </InfiniteScroll>
           {/* Bootstrap flex */}
           <div className="container d-flex justify-content-between">
             <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
@@ -351,8 +406,9 @@ export class News extends Component {
           newsUrl="TODO"/></div>
           <div className="col-md-4"><NewsItem/></div>
           <div className="col-md-4"><NewsItem/></div>  */}
-        </div>
-      </div>
+        {/* </div> */}
+       {/* </div> */}
+      </>
     );
   }
 }
