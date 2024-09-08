@@ -27,10 +27,18 @@ export class NewsItem extends Component {
         <div className="card">
         {/* Bootstrap badge */}
         {/* <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger"  */}
-        <span className="position-absolute top-0 translate-middle badge rounded-pill" 
-        style={{left: "85%", zIndex:"1", backgroundColor:`${badgeColor[category]}`}}>
-          {source}
-        </span>
+        <div style={
+          {display:"flex",
+           justifyContent:"flex-end",
+           position:"absolute",
+           right:"0",
+          }
+        }>
+          <span className="badge rounded-pill" style={{backgroundColor:`${badgeColor[category]}`}} >
+           {/* style={{left: "85%", zIndex:"1", backgroundColor:`${badgeColor[category]}`}}> */}
+            {source}
+          </span>
+        </div>
           <img src={imageUrl} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}...

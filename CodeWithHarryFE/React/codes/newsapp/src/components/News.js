@@ -212,18 +212,32 @@ export class News extends Component {
 
   // Refactoring repeated code in single function
   async updateNews(){
-    console.log(">>>this.state.page:", this.state.page);
+    // console.log(">>>this.state.page:", this.state.page);
+    // console.log(">>>this.state.articles:", this.state.articles);
+    this.props.setProgress(10);
+//     let url =
+// `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
     let url =
-`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
+`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
     this.setState({loading:true});
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parsedData = await data.json();
-    console.log(parsedData);
+    this.props.setProgress(60);
+    // console.lo
     this.setState({
       articles:parsedData.articles,
       totalResults: parsedData.totalResults,
       loading:false
     });
+    // console.log("XXXXXXXXX updateNews() called")
+    console.log(parsedData);
+    // console.log(this.state);
+    this.props.setProgress(100);
+
+    // console.log(">>>this.state.page:", this.state.page);
+    // console.log(">>>this.state.articles:", this.state.articles);
+    // console.log("this.state.articles.length !==0: ",this.state.articles.length !==0 )
   }
 
   // Fetch data from news api and populate state
@@ -276,7 +290,7 @@ export class News extends Component {
     this.setState({
       page:--this.state.page,
     });
-    this.updateNews();
+    // this.updateNews();
   }
 
   handleNextClick = async ()=>{
@@ -312,7 +326,7 @@ export class News extends Component {
         this.setState({
           page:++this.state.page,
         });
-        this.updateNews();
+        // this.updateNews();
   } 
 
   }
@@ -322,20 +336,20 @@ export class News extends Component {
   fetchMoreData = async () => {
     this.setState({page: this.state.page+1});
     // this.updateNews();
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>")
-    console.log("this.state.articles.length:"+this.state.articles.length+" this.state.totalResults:"+this.state.totalResults);
     let url =
-`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
+`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
     // this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
-    console.log(parsedData);
+    // console.log(parsedData);
     this.setState({
-      articles:this.articles.concat(parsedData.articles),
+      articles:this.state.articles.concat(parsedData.articles),
       totalResults: parsedData.totalResults,
       // loading:false
     });
-
+    // console.log(this.state)
+    // console.log(">>>this.state.articles:", this.state.articles);
+    // console.log("this.state.articles.length < this.state.totalResults: ",this.state.articles.length < this.state.totalResults )
   };
 
   render() {
@@ -370,6 +384,7 @@ export class News extends Component {
           next={this.fetchMoreData}
           // hasMore={true}
           hasMore={this.state.articles.length < this.state.totalResults}
+          // hasMore={this.state.articles.length !==0 }
           // loader={<h4>Loading...</h4>}
           loader={<Spinner/>}
         >

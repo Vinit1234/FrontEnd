@@ -970,17 +970,79 @@ NOTE:
 {this.state.articles.map((element,index) => {
  return <div className="col-md-4" key = {index}>
 
-2. 
+
+ // ===============================================================
+## Adding a top loading bar to NewsMonkey | Complete React Course in Hindi #36
+
+https://www.npmjs.com/package/react-top-loading-bar
+
+> npm i react-top-loading-bar
+
+In App.js:
+
+import LoadingBar from 'react-top-loading-bar'
+
+state={
+  progress:0
+}
+
+setProgress = (progress)=>{
+  this.setState({
+    progress:progress
+  });
+}
+
+<LoadingBar
+    color='#f11946'
+    progress={this.state.progress}
+  />
 
 
 
+NOTE:
+
+Replace the following attribute of button in Navbar 
+from "/navbarSupportedContent" to "#navbarSupportedContent"
+<button
+  data-bs-target="#navbarSupportedContent"
+  >
+
+Otherwise we get an error:
+Uncaught SyntaxError: Failed to execute 'querySelectorAll' on 'Element': '/navbarSupportedContent' is not a valid selector.
+
+Add to NewsItem to make bagde appear on right corner:
+
+<div style={
+  {display:"flex",
+   justifyContent:"flex-end",
+   position:"absolute",
+   right:"0",
+  }
+}>
 
 
+// ======================================================================
+## Hiding API Key by Adding Custom Environment Variables | Complete React Course in Hindi #37
 
+Ref: https://create-react-app.dev/docs/adding-custom-environment-variables/
 
+Exposing your API key is prone to be misused.
+`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
 
+Keep your api in a new file .env.local . 
+It is already added in gitignore file too.
 
+NOTE: Any environment variable with prefix react_app is 
+accessible in your react app directly in App.js as:
+apiKey = process.env.REACT_APP_NEWS_API_KEY;
 
+And pass it as props to News component and replace it in the url.
 
+let url =
+`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
+
+After adding key in file you need to reastart app to reload the file otherwise you get 
+error:
+GET https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=undefined&page=1&pageSize=15 401 (Unauthorized)
 
 
