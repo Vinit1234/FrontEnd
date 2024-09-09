@@ -1046,3 +1046,52 @@ error:
 GET https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=undefined&page=1&pageSize=15 401 (Unauthorized)
 
 
+// ========================================================================
+## Introduction to React Hooks | Complete React Course in Hindi #38
+
+NOTE: Prefer Function Based Components over 
+Class based components. In this tutorial we just needed to 
+learn Class based component to have the ability read and 
+modify existing codes written with it.
+
+
+What are React Hooks?
+
+* Features of Class based components in function based components
+* It allows you to use state and other React features without writing a class.
+* Hooks are the functions which "hook into" React state and lifecycle features from function components
+
+Commonly used Hooks:
+
+1. useState: 
+- sets initial value of state
+- updates value of state
+- can be used multiple times
+
+2. useEffect
+- similar to componentDidMount()
+- put an effect(eg show alert etc) after state gets modified ; aka side effect
+
+3. useContext
+- In case of complex nested components (tree), 
+use useContext to send the props across the tree 
+without having to perform prop-drill ie, 
+keeping on passing props to inner components until 
+the target inner component receives the prop.
+
+4. useRef
+- returns mutable reference object 
+
+// =================================================================
+
+
+
+
+
+
+
+
+
+
+
+
