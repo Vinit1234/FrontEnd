@@ -1083,14 +1083,86 @@ the target inner component receives the prop.
 - returns mutable reference object 
 
 // =================================================================
+## Changing Class based NewsMonkey components to Functional based | Complete React Course in Hindi #39
+
+NOTe: A React application can be Class based or Function based or a mix of both.
+
+Convert Navbar from Class based component into Function based component.
+1. remove class and use arrow function.
+2. remove render()
+3. pass props as function argument
+4. replace this.props with props
+5. cut paste defaultProps and propTypes at the end of function (Google 'proptypes in functional components React')
+Eg. 
+
+See Navbar2.js
+
+const NewsItem2 = (props)=>{
+//   render() {
+// let {title, description, imageUrl, newsUrl, author, date, source, category}=this.props;
+let {title, description, imageUrl, newsUrl, author, date, source, category} = props;
+
+}
+
+6. replace static with component name for defaultProps and propType as (Refer News2.js):
+Eg.
+// static defaultProps={
+News.defaultProps={
+  country:"us",
+  pageSize:8,
+  category:"general"
+}
+
+7. import useEffect and useState from React, 
+remove constructor and initialize states as (Refer News2.js):
+
+ const [articles, setArticles] = useState([]);
+ const [loading, setLoading] = useState(true);
+ const [page, setPage] = useState(1);
+ const [totalResults, setTotalResults] = useState(0);
+
+8. Replace all setState() to individual setState functions ie:
+Eg.
+Convert the following :
+this.setState({
+  articles:parsedData.articles,
+  totalResults: parsedData.totalResults,
+  loading:false
+});
 
 
+To:
+setArticles(parsedData.articles);
+setTotalResults(parsedData.totalResults);
+setLoading(false);
 
 
+9. Replace componentDidMount() with useEffect() as:
+(use useEffect snippet)
 
+useEffect(() => {
+  this.updateNews();
+  }, [])
 
+10. Remove render().
 
+11. All methods of class must be const.
 
+12. Remove all this.state.
+
+13. Remove all this.setState() to individual set state ie,
+
+Replace:
+this.setState({
+  articles:articles.concat(parsedData.articles),
+  totalResults: parsedData.totalResults,
+});
+
+With:
+setArticles(articles.concat(parsedData.articles));
+setTotalResults(parsedData.totalResults);
+
+14. Add export default App; in the end of App.js
 
 
 
