@@ -91,6 +91,7 @@ const News2 =(props) => {
     this.updateNews();
   } */
  useEffect(() => {
+  document.title= capitalizeFirstLetter(props.category) +" - NewsMonkey";
   updateNews();
   }, [])
  
@@ -125,23 +126,27 @@ const News2 =(props) => {
   // for infinite scroll
   const fetchMoreData = async () => {
     // this.setState({page: page+1});
-    setPage(page+1);
+    
+    // page doesn't always get updated in the url as setPage() is asynchronous
+    // hence add page+1 to url itself and then setPage(page+1)
+    // setPage(page+1);
 
     // this.updateNews();
     let url =
-`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`
+// `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`
+`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`
     // this.setState({loading:true});
+    setPage(page+1);
     let data = await fetch(url);
     let parsedData = await data.json();
     // console.log(parsedData);
-
     /* this.setState({
       articles:articles.concat(parsedData.articles),
       totalResults: parsedData.totalResults,
       // loading:false
-    }); */
-    setArticles(articles.concat(parsedData.articles));
-    setTotalResults(parsedData.totalResults);
+      }); */
+      setArticles(articles.concat(parsedData.articles));
+      setTotalResults(parsedData.totalResults);
   };
 
   // render() {
@@ -149,7 +154,7 @@ const News2 =(props) => {
       <>
        {/* <div className="container my-3"> */}
         {/* <h2 className="text-center" style={{margin:'35px 0px'}}>NewsMonkey - Top {this.capitalizeFirstLetter(props.category)} Headlines</h2> */}
-        <h2 className="text-center" style={{margin:'35px 0px'}}>NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h2>
+        <h2 className="text-center" style={{margin:'35px 0px', marginTop:"90px"}}>NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h2>
         {loading && <Spinner/>}
 
              

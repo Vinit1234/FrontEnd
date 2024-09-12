@@ -1165,5 +1165,28 @@ setTotalResults(parsedData.totalResults);
 14. Add export default App; in the end of App.js
 
 
+// =============================================================
+## Sticky Navbar & NewsMonkey bug fixes | Complete React Course in Hindi #40
+
+Use Bootstrap class fixed-top to make the Navbar sticky.
+Set margin-top on the heading h2 in News.js as it gets hidden by sticky navbar.
+
+NOTE: setPage(page+1) is an ascynchronous function ie, it doesn't immediately' take effect.
+Hence when the url is history, the page doesn't' always get updated which brings the 
+duplicate results ie, results from (page) instead of (page+1).
+
+Add  the following comment in the code that triggers unncessary warning:
+// eslint-disable-line
+
+Update title in News.js as:
+
+useEffect(() => {
+  document.title= capitalizeFirstLetter(props.category) +" - NewsMonkey";
+  updateNews();
+  }, [])
+
+
+
+
 
 
