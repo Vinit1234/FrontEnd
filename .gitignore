@@ -1,5 +1,6 @@
 .vscode
-Bootstrap/
+Bootstrap/tutorial/bootstrap-5.3.3
+Bootstrap/tutorial/bootstrap-official-examples
 CodeWithHarryFE/JS/node_modules/
 CodeWithHarryFE/JS/notes-2.js
 CodeWithHarryFE/JS/package-lock.json
