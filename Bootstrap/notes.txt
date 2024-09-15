@@ -61,10 +61,35 @@ means take 12 column size in screen sizes >= lg
 Here, box-1 and box-2 come at 1st row and box-3 is pushed to the next row.
 
 
-.offset-md-3 means leave 3 columns space and start with 4th column
+## Bootstrap classes
+
+.offset-md-3 
+>> means leave 3 columns space and start with 4th column
+
+
+.py-4 
+>> padding-y 4 ie, padding in y axis top-bottom
+
+.list-unstyled
+>> list-style-type:none
+
+.mx-auto
+>> auto center on x axis like margin: 0 auto;
+
+.fw-light
+>> font-weight: light
+
+
+.text-body-emphasis
+.text-body-secondary
 
 
 
+#Template 1:
 
-
+.container
+    .row
+        .col-lg-6
+    .row
+        .col-lg-6
 
