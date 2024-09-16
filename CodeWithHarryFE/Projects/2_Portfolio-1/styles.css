@@ -20,13 +20,17 @@ font-style: normal;
 }
 
 .sidebar{
-    background-color: red;
-    width: 10vw;
+    /* background-color: red; */
+    background-color: rgb(194, 97, 45);
+    color: white;
+    width: 300px;
+    min-width:400px ;
     height: 100vh;
 }
 
 .main{
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-color: rgb(246, 201, 167);
     width: 90vw;
 }
 
@@ -38,4 +42,70 @@ font-style: normal;
     list-style-type: none;
     font-size: 20px;
     padding: 33px 0;
+    border-bottom: 1px solid #ebebbb;;
+}
+
+.sidebar>nav li a{
+    text-decoration: none;
+    color:white;
+}
+
+.infoContainer{
+    /* background-color: blueviolet; */
+    /* background-color: rgb(165, 94, 232); */
+    /* width: 85vw; */
+    width: 60vw;
+    height: 60vh;
+    margin: 144px auto;
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: space-evenly;
+}
+
+.devInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hello{
+    font-size: 75px;
+    font-weight: 300;
+}
+
+.name{
+    font-size: 55px;
+    font-weight: 500;
+
+}
+.about{
+    font-size: 35px;
+    font-weight: 300;
+
+}
+
+.moreAbout{
+    font-size: 22px;
+}
+
+.devPic img{
+    height: 60vh;
+}
+
+.buttons{
+    margin-top:34px;
+}
+
+.buttons button{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ebebbb;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 4px;
+}
+
+.buttons button:hover{
+    background-color: rgb(194, 97, 45);
+    color:white;
 }
