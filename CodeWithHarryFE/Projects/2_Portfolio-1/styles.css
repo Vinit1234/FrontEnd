@@ -141,7 +141,10 @@ font-style: normal;
 .formContainer input{
     font-size: 16px;
     border-radius: 5px;
+    /* border: 1px solid  rgb(194, 97, 45); */
+    background-color: #ebebbb;
 }
+
 
 .form-control{
     width:90%;
@@ -149,6 +152,11 @@ font-style: normal;
     padding:8px;
     border-style: none;
     
+}
+
+.form-control:focus {
+    outline: none;
+    border: 1px solid rgb(194, 97, 45) !important;
 }
 
 .form-button{
