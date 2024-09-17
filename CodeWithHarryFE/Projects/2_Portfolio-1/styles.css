@@ -24,7 +24,6 @@ font-style: normal;
     background-color: rgb(194, 97, 45);
     color: white;
     width: 300px;
-    min-width:400px ;
     height: 100vh;
     padding-bottom: 54px;
 }
@@ -51,7 +50,7 @@ font-style: normal;
     color:white;
 }
 
-.infoContainer{
+.info-container{
     /* background-color: blueviolet; */
     /* background-color: rgb(165, 94, 232); */
     /* width: 85vw; */
@@ -63,7 +62,7 @@ font-style: normal;
     justify-content: space-evenly;
 }
 
-.devInfo{
+.dev-info{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,7 +89,7 @@ font-style: normal;
     margin-top: 10px;
 }
 
-.devPic img{
+.dev-pic img{
     height: 60vh;
 }
 
@@ -200,4 +199,46 @@ button:hover{
 .btn-blog{
     padding: 8px;
     margin-top: 12px;
+}
+
+.skills{
+    width:350px;
+    /* background-color: green; */
+}
+
+.skill{
+    display: grid;
+    grid-template-columns: 1fr 3fr 20px;
+    align-items: center;
+    font-weight: bold;
+    text-align: right;
+    
+}
+
+.score{
+    margin: 0 10px;
+    height:5px;
+    background-color: rgb(194, 97, 45);
+}
+
+.score-100{
+    width: 98%;
+    margin-right: 8px;
+}
+
+.score-90{
+    width: 90%;
+}
+.score-75{
+    width: 75%;
+}
+.score-50{
+    width: 50%;
+}
+.score-40{
+    width: 40%;
+}
+
+.padding-lt{
+    padding-left: 12px;
 }
