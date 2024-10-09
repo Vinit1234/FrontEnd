@@ -1,432 +1,623 @@
-import React, { Component } from "react";
-import NewsItem from "./NewsItem";
-import Spinner from "./Spinner";
-import PropTypes from 'prop-types'
-import InfiniteScroll from "react-infinite-scroll-component"
-import NewsItem2 from "./NewsItem2";
-
-
-export class News extends Component {
-
-  static defaultProps={
-    country:"us",
-    pageSize:8,
-    category:"general"
+rgs, count, rgb) {
+      let cursor = functionArgs.head;
+      let args = [];
+      let wasValue = false;
+      while (cursor !== null) {
+        const { type, value } = cursor.data;
+        switch (type) {
+          case "Number":
+          case "Percentage":
+            if (wasValue) {
+              return;
+            }
+            wasValue = true;
+            args.push({
+              type,
+              value: Number(value)
+            });
+            break;
+          case "Operator":
+            if (value === ",") {
+              if (!wasValue) {
+                return;
+              }
+              wasValue = false;
+            } else if (wasValue || value !== "+") {
+              return;
+            }
+            break;
+          default:
+            return;
+        }
+        cursor = cursor.next;
+      }
+      if (args.length !== count) {
+        return;
+      }
+      if (args.length === 4) {
+        if (args[3].type !== "Number") {
+          return;
+        }
+        args[3].type = "Alpha";
+      }
+      if (rgb) {
+        if (args[0].type !== args[1].type || args[0].type !== args[2].type) {
+          return;
+        }
+      } else {
+        if (args[0].type !== "Number" || args[1].type !== "Percentage" || args[2].type !== "Percentage") {
+          return;
+        }
+        args[0].type = "Angle";
+      }
+      return args.map(function(arg) {
+        let value = Math.max(0, arg.value);
+        switch (arg.type) {
+          case "Number":
+            value = Math.min(value, 255);
+            break;
+          case "Percentage":
+            value = Math.min(value, 100) / 100;
+            if (!rgb) {
+              return value;
+            }
+            value = 255 * value;
+            break;
+          case "Angle":
+            return (value % 360 + 360) % 360 / 360;
+          case "Alpha":
+            return Math.min(value, 1);
+        }
+        return Math.round(value);
+      });
+    }
+    function compressFunction(node, item) {
+      let functionName = node.name;
+      let args;
+      if (functionName === "rgba" || functionName === "hsla") {
+        args = parseFunctionArgs(node.children, 4, functionName === "rgba");
+        if (!args) {
+          return;
+        }
+        if (functionName === "hsla") {
+          args = hslToRgb(...args);
+          node.name = "rgba";
+        }
+        if (args[3] === 0) {
+          const scopeFunctionName = this.function && this.function.name;
+          if (args[0] === 0 && args[1] === 0 && args[2] === 0 || !/^(?:to|from|color-stop)$|gradient$/i.test(scopeFunctionName)) {
+            item.data = {
+              type: "Identifier",
+              loc: node.loc,
+              name: "transparent"
+            };
+            return;
+          }
+        }
+        if (args[3] !== 1) {
+          node.children.forEach((node2, item2, list) => {
+            if (node2.type === "Operator") {
+              if (node2.value !== ",") {
+                list.remove(item2);
+              }
+              return;
+            }
+            item2.data = {
+              type: "Number",
+              loc: node2.loc,
+              value: _Number.packNumber(args.shift())
+            };
+          });
+          return;
+        }
+        functionName = "rgb";
+      }
+      if (functionName === "hsl") {
+        args = args || parseFunctionArgs(node.children, 3, false);
+        if (!args) {
+          return;
+        }
+        args = hslToRgb(...args);
+        functionName = "rgb";
+      }
+      if (functionName === "rgb") {
+        args = args || parseFunctionArgs(node.children, 3, true);
+        if (!args) {
+          return;
+        }
+        item.data = {
+          type: "Hash",
+          loc: node.loc,
+          value: toHex(args[0]) + toHex(args[1]) + toHex(args[2])
+        };
+        compressHex(item.data, item);
+      }
+    }
+    function compressIdent(node, item) {
+      if (this.declaration === null) {
+        return;
+      }
+      let color = node.name.toLowerCase();
+      if (NAME_TO_HEX.hasOwnProperty(color) && cssTree.lexer.matchDeclaration(this.declaration).isType(node, "color")) {
+        const hex = NAME_TO_HEX[color];
+        if (hex.length + 1 <= color.length) {
+          item.data = {
+            type: "Hash",
+            loc: node.loc,
+            value: hex
+          };
+        } else {
+          if (color === "grey") {
+            color = "gray";
+          }
+          node.name = color;
+        }
+      }
+    }
+    function compressHex(node, item) {
+      let color = node.value.toLowerCase();
+      if (color.length === 6 && color[0] === color[1] && color[2] === color[3] && color[4] === color[5]) {
+        color = color[0] + color[2] + color[4];
+      }
+      if (HEX_TO_NAME[color]) {
+        item.data = {
+          type: "Identifier",
+          loc: node.loc,
+          name: HEX_TO_NAME[color]
+        };
+      } else {
+        node.value = color;
+      }
+    }
+    exports2.compressFunction = compressFunction;
+    exports2.compressHex = compressHex;
+    exports2.compressIdent = compressIdent;
   }
+});
 
-  static propType={
-    country: PropTypes.string,
-    pageSize: PropTypes.number,
-    category: PropTypes.string,
-  }
-
-  articles = [
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Titanic: Striking images reveal depths of ship's slow decay",
-      description:
-        "A new expedition finds that a large part of the railing at the ship's front has fallen away.",
-      url: "https://www.bbc.co.uk/news/articles/crkm82enkgko",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/16e0/live/d75a5540-6901-11ef-8c32-f3c2bc7494c6.jpg",
-      publishedAt: "2024-09-03T06:22:18.5476437Z",
-      content:
-        "The team has also announced another discovery of an artefact they were hoping to find even though it was against all the odds.\r\nIn 1986 a bronze statue called the Diana of Versailles was spotted and … [+887 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Sheikh Hasina poses a Bangladesh conundrum for India",
-      description:
-        "Former Bangladesh PM Sheikh Hasina's continued presence in India means new diplomatic challenges for Delhi.",
-      url: "https://www.bbc.co.uk/news/articles/cg4ypkpx1rqo",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/de41/live/dd096640-6922-11ef-8c32-f3c2bc7494c6.jpg",
-      publishedAt: "2024-09-03T06:22:17.2067449Z",
-      content:
-        "The Indian government has wasted no time in reaching out to the interim government in Dhaka, with Prime Minister Narendra Modi holding a telephone conversation with leader Muhammad Yunus.\r\nHowever, i… [+2445 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "US seizes Venezuelan President Nicolás Maduro's plane",
-      description:
-        "US officials say the aircraft was recovered in the Dominican Republic after having been purchased illegally.",
-      url: "https://www.bbc.co.uk/news/articles/cm2np4xl083o",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/431a/live/f0c46b10-694c-11ef-b1ff-237e43844635.png",
-      publishedAt: "2024-09-03T05:52:14.8277995Z",
-      content:
-        "The plane appeared to be flown to the Venezuelan capital Caracas after arriving in Kingston in Saint Vincent and the Grenadines in April 2023, according to data held by the Flightradar24 website. \r\nU… [+1510 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Pope Francis embarks on ambitious Asia-Pacific tour",
-      description:
-        "Francis will visit Indonesia, Papua New Guinea, Timor-Leste and Singapore over 11 days.",
-      url: "https://www.bbc.co.uk/news/articles/cm2npr4pg5no",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/a5dd/live/05cb6a50-6997-11ef-b04d-a1e115c95ab0.jpg",
-      publishedAt: "2024-09-03T05:37:14.5464667Z",
-      content:
-        "Parts of Francis's trip, which was originally scheduled in 2020 but postponed due to the pandemic, will retrace the steps of St John Paul II, who also visited the four nations during his 27-year pont… [+3012 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Cathay Pacific grounds planes after engine problem",
-      description:
-        "Airline has found faulty engine parts during an inspection of its fleet of 48 A350 aircraft.",
-      url: "https://www.bbc.co.uk/news/articles/c5yd7w0dzpwo",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/300a/live/f1ff8d10-69a2-11ef-bf15-41ffd3dfb033.jpg",
-      publishedAt: "2024-09-03T03:37:12.485923Z",
-      content:
-        'Cathay Pacific said the engine component that caused its plane to return to Hong Kong was "the first of its type to suffer such failure on any A350 aircraft worldwide." \r\n"Thus far we have identified… [+734 chars]',
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "South Korea: The deepfake crisis engulfing hundreds of schools",
-      description:
-        "The crisis engulfing more than 500 schools and universities involves many underage victims.",
-      url: "https://www.bbc.co.uk/news/articles/cpdlpj9zn9go",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/25f3/live/ac0d8ec0-6929-11ef-b43e-6916dcba5cbf.jpg",
-      publishedAt: "2024-09-03T00:52:16.1127113Z",
-      content:
-        "Last Saturday, a Telegram message popped up on Heejins phone from an anonymous sender. Your pictures and personal information have been leaked. Lets discuss.\r\nAs the university student entered the ch… [+2412 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Is US economy better now than under Trump?",
-      description:
-        "BBC Verify looks at jobs, inflation, stocks and other indicators to compare the Trump and Biden economies.",
-      url: "https://www.bbc.co.uk/news/articles/c8xl5vnlzpwo",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/c911/live/561b3350-692e-11ef-8c32-f3c2bc7494c6.jpg",
-      publishedAt: "2024-09-03T00:52:14.6755675Z",
-      content:
-        "Mr Biden claims this is the fastest job growth at any point of any president in all of American history.\r\nThats correct - if you look at the available data since records began in 1939.\r\nBut his admin… [+653 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Israeli outpost settlers rapidly seizing West Bank land",
-      description:
-        "The number of illegal outposts has risen in the past five years to 196, BBC analysis has found.",
-      url: "https://www.bbc.co.uk/news/articles/c207j6wy332o",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/bd4e/live/7df2fd20-662e-11ef-8c32-f3c2bc7494c6.jpg",
-      publishedAt: "2024-09-02T23:22:15.9822417Z",
-      content:
-        "Through limiting access to grazing land, outpost settlers like Moshe Sharvit are able to put Palestinian farmers in increasingly precarious positions, says Moayad Shaaban, the head of the Palestinian… [+1444 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Tim Walz unharmed after motorcade vehicles involved in crash",
-      description:
-        "Some journalists and campaign staff were injured but the candidate for vice-president was not hurt.",
-      url: "https://www.bbc.co.uk/news/articles/cx2n1g4gzypo",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/ab06/live/bf46bec0-6966-11ef-ae46-19f76aad857d.jpg",
-      publishedAt: "2024-09-02T22:52:18.8618601Z",
-      content:
-        "It is unclear what caused the crash, which occurred on Interstate 794.\r\nVice-President Kamala Harris, his running mate, phoned Mr Walz to check that he was OK, a White House official told CBS, the BB… [+1362 chars]",
-    },
-    {
-      source: {
-        id: "bbc-news",
-        name: "BBC News",
-      },
-      author: "BBC News",
-      title: "Netanyahu asks Israelis for 'forgiveness' over hostage deaths",
-      description:
-        'It comes as Hamas said more hostages could be "returned to their families in shrouds" if a ceasefire isn\'t reached.',
-      url: "https://www.bbc.co.uk/news/articles/cn02pz4wnyro",
-      urlToImage:
-        "https://ichef.bbci.co.uk/news/1024/branded_news/9776/live/45780950-6966-11ef-b43e-6916dcba5cbf.jpg",
-      publishedAt: "2024-09-02T22:52:17.8492032Z",
-      content:
-        "Thousands of Israelis took to the streets on Monday in fresh protests called by hostages' families to express their anger at Mr Netanyahu's failure to bring home their loved ones after almost 11 mont… [+1839 chars]",
-    },
-  ];
-
-  // constructor() {
-  //   super();
-  //   console.log(">> NewsItem constructor called");
-  //   this.state = {
-  //     // articles: this.articles,
-  //     articles: [],
-  //     loading: false,
-  //     page:1,
-  //   };
-  // }
-
-  capitalizeFirstLetter = (string)=>{
-    return string[0].toUpperCase()+string.slice(1)
-  }
-  constructor(props) {
-    super(props);
-    console.log(">> NewsItem constructor called");
-    this.state = {
-      // articles: this.articles,
-      articles: [],
-      // loading: false,
-      loading: true,
-      page:1,
-      totalResults:0
+// node_modules/csso/cjs/replace/index.cjs
+var require_replace = __commonJS({
+  "node_modules/csso/cjs/replace/index.cjs"(exports2, module2) {
+    "use strict";
+    var cssTree = require_cjs2();
+    var Atrule = require_Atrule4();
+    var AttributeSelector = require_AttributeSelector3();
+    var Value = require_Value3();
+    var Dimension = require_Dimension3();
+    var Percentage = require_Percentage3();
+    var _Number = require_Number3();
+    var Url = require_Url3();
+    var color = require_color();
+    var handlers = {
+      Atrule,
+      AttributeSelector,
+      Value,
+      Dimension,
+      Percentage,
+      Number: _Number.Number,
+      Url,
+      Hash: color.compressHex,
+      Identifier: color.compressIdent,
+      Function: color.compressFunction
     };
-    document.title= this.capitalizeFirstLetter(this.props.category) +" - NewsMonkey";
+    function replace(ast) {
+      cssTree.walk(ast, {
+        leave(node, item, list) {
+          if (handlers.hasOwnProperty(node.type)) {
+            handlers[node.type].call(this, node, item, list);
+          }
+        }
+      });
+    }
+    module2.exports = replace;
   }
+});
 
-  // Refactoring repeated code in single function
-  async updateNews(){
-    // console.log(">>>this.state.page:", this.state.page);
-    // console.log(">>>this.state.articles:", this.state.articles);
-    this.props.setProgress(10);
-//     let url =
-// `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page}&pageSize=${this.props.pageSize}`
-    let url =
-`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
-    this.setState({loading:true});
-    let data = await fetch(url);
-    this.props.setProgress(30);
-    let parsedData = await data.json();
-    this.props.setProgress(60);
-    // console.lo
-    this.setState({
-      articles:parsedData.articles,
-      totalResults: parsedData.totalResults,
-      loading:false
-    });
-    // console.log("XXXXXXXXX updateNews() called")
-    console.log(parsedData);
-    // console.log(this.state);
-    this.props.setProgress(100);
-
-    // console.log(">>>this.state.page:", this.state.page);
-    // console.log(">>>this.state.articles:", this.state.articles);
-    // console.log("this.state.articles.length !==0: ",this.state.articles.length !==0 )
+// node_modules/csso/cjs/restructure/prepare/createDeclarationIndexer.cjs
+var require_createDeclarationIndexer = __commonJS({
+  "node_modules/csso/cjs/restructure/prepare/createDeclarationIndexer.cjs"(exports2, module2) {
+    "use strict";
+    var cssTree = require_cjs2();
+    var Index = class {
+      constructor() {
+        this.map = /* @__PURE__ */ new Map();
+      }
+      resolve(str) {
+        let index = this.map.get(str);
+        if (index === void 0) {
+          index = this.map.size + 1;
+          this.map.set(str, index);
+        }
+        return index;
+      }
+    };
+    function createDeclarationIndexer() {
+      const ids = new Index();
+      return function markDeclaration(node) {
+        const id = cssTree.generate(node);
+        node.id = ids.resolve(id);
+        node.length = id.length;
+        node.fingerprint = null;
+        return node;
+      };
+    }
+    module2.exports = createDeclarationIndexer;
   }
+});
 
-  // Fetch data from news api and populate state
-  async componentDidMount() {
-//     let url =
-// `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
-
-
-// `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=${this.props.pageSize}`
-    // "https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1&pageSize=20"
-    // "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=1"
-      // "https://newsapi.org/v2/top-headlines?country=in&apiKey=15732b52d5f64d8fabd83b1f45a1a62c";
-
-    /* console.log("url:",url);
-    this.setState({loading:true});
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    console.log(parsedData);
-    this.setState({
-      articles:parsedData.articles,
-      totalResults: parsedData.totalResults,
-      loading:false
-    }); */
-
-    this.updateNews();
+// node_modules/csso/cjs/restructure/prepare/specificity.cjs
+var require_specificity = __commonJS({
+  "node_modules/csso/cjs/restructure/prepare/specificity.cjs"(exports2, module2) {
+    "use strict";
+    var cssTree = require_cjs2();
+    function ensureSelectorList(node) {
+      if (node.type === "Raw") {
+        return cssTree.parse(node.value, { context: "selectorList" });
+      }
+      return node;
+    }
+    function maxSpecificity(a, b) {
+      for (let i = 0; i < 3; i++) {
+        if (a[i] !== b[i]) {
+          return a[i] > b[i] ? a : b;
+        }
+      }
+      return a;
+    }
+    function maxSelectorListSpecificity(selectorList) {
+      return ensureSelectorList(selectorList).children.reduce(
+        (result, node) => maxSpecificity(specificity(node), result),
+        [0, 0, 0]
+      );
+    }
+    function specificity(simpleSelector) {
+      let A = 0;
+      let B = 0;
+      let C = 0;
+      simpleSelector.children.forEach((node) => {
+        switch (node.type) {
+          case "IdSelector":
+            A++;
+            break;
+          case "ClassSelector":
+          case "AttributeSelector":
+            B++;
+            break;
+          case "PseudoClassSelector":
+            switch (node.name.toLowerCase()) {
+              case "not":
+              case "has":
+              case "is":
+              case "matches":
+              case "-webkit-any":
+              case "-moz-any": {
+                const [a, b, c] = maxSelectorListSpecificity(node.children.first);
+                A += a;
+                B += b;
+                C += c;
+                break;
+              }
+              case "nth-child":
+              case "nth-last-child": {
+                const arg = node.children.first;
+                if (arg.type === "Nth" && arg.selector) {
+                  const [a, b, c] = maxSelectorListSpecificity(arg.selector);
+                  A += a;
+                  B += b + 1;
+                  C += c;
+                } else {
+                  B++;
+                }
+                break;
+              }
+              case "where":
+                break;
+              case "before":
+              case "after":
+              case "first-line":
+              case "first-letter":
+                C++;
+                break;
+              default:
+                B++;
+            }
+            break;
+          case "TypeSelector":
+            if (!node.name.endsWith("*")) {
+              C++;
+            }
+            break;
+          case "PseudoElementSelector":
+            C++;
+            break;
+        }
+      });
+      return [A, B, C];
+    }
+    module2.exports = specificity;
   }
+});
 
-  handlePrevClick = async ()=>{
-    console.log(">> handlePrevClick");
-    // let url =
-    // `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
-
-
-    // `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
-    // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page-1}`
-    
-    /* console.log(">>prev url:",url)
-
-    this.setState({loading:true});
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    console.log(parsedData);
-    // this.setState({articles:parsedData.articles});
-    this.setState({
-      page:this.state.page-1,
-      articles:parsedData.articles,
-      loading:false
-    }); */
-
-    this.setState({
-      page:--this.state.page,
-    });
-    // this.updateNews();
-  }
-
-  handleNextClick = async ()=>{
-    console.log(">> handleNextClick");
-    // if(this.state.page+1> Math.ceil(this.state.totalResults/20)){
-
-    // }
-    // else{
-    if(!(this.state.page+1> Math.ceil(this.state.totalResults/this.state.pageSize))){
-        // let url =
-        // `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
-        
-        
-        // `https://newsapi.org/v2/top-headlines?country=us&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
-        // `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=15732b52d5f64d8fabd83b1f45a1a62c&page=${this.state.page+1}`
-        
-        /* 
-        
-        console.log(">>next url:",url)
-        this.setState({loading:true});
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        console.log(parsedData);
-        // this.setState({articles:parsedData.articles});
-        this.setState({
-          page:this.state.page+1,
-          articles:parsedData.articles,
-          loading:false
+// node_modules/csso/cjs/restructure/prepare/processSelector.cjs
+var require_processSelector = __commonJS({
+  "node_modules/csso/cjs/restructure/prepare/processSelector.cjs"(exports2, module2) {
+    "use strict";
+    var cssTree = require_cjs2();
+    var specificity = require_specificity();
+    var nonFreezePseudoElements = /* @__PURE__ */ new Set([
+      "first-letter",
+      "first-line",
+      "after",
+      "before"
+    ]);
+    var nonFreezePseudoClasses = /* @__PURE__ */ new Set([
+      "link",
+      "visited",
+      "hover",
+      "active",
+      "first-letter",
+      "first-line",
+      "after",
+      "before"
+    ]);
+    function processSelector(node, usageData) {
+      const pseudos = /* @__PURE__ */ new Set();
+      node.prelude.children.forEach(function(simpleSelector) {
+        let tagName = "*";
+        let scope = 0;
+        simpleSelector.children.forEach(function(node2) {
+          switch (node2.type) {
+            case "ClassSelector":
+              if (usageData && usageData.scopes) {
+                const classScope = usageData.scopes[node2.name] || 0;
+                if (scope !== 0 && classScope !== scope) {
+                  throw new Error("Selector can't has classes from different scopes: " + cssTree.generate(simpleSelector));
+                }
+                scope = classScope;
+              }
+              break;
+            case "PseudoClassSelector": {
+              const name = node2.name.toLowerCase();
+              if (!nonFreezePseudoClasses.has(name)) {
+                pseudos.add(`:${name}`);
+              }
+              break;
+            }
+            case "PseudoElementSelector": {
+              const name = node2.name.toLowerCase();
+              if (!nonFreezePseudoElements.has(name)) {
+                pseudos.add(`::${name}`);
+              }
+              break;
+            }
+            case "TypeSelector":
+              tagName = node2.name.toLowerCase();
+              break;
+            case "AttributeSelector":
+              if (node2.flags) {
+                pseudos.add(`[${node2.flags.toLowerCase()}]`);
+              }
+              break;
+            case "Combinator":
+              tagName = "*";
+              break;
+          }
         });
-       
-        */
-
-        this.setState({
-          page:++this.state.page,
-        });
-        // this.updateNews();
-  } 
-
+        simpleSelector.compareMarker = specificity(simpleSelector).toString();
+        simpleSelector.id = null;
+        simpleSelector.id = cssTree.generate(simpleSelector);
+        if (scope) {
+          simpleSelector.compareMarker += ":" + scope;
+        }
+        if (tagName !== "*") {
+          simpleSelector.compareMarker += "," + tagName;
+        }
+      });
+      node.pseudoSignature = pseudos.size > 0 ? [...pseudos].sort().join(",") : false;
+    }
+    module2.exports = processSelector;
   }
+});
 
-
-  // for infinite scroll
-  fetchMoreData = async () => {
-    this.setState({page: this.state.page+1});
-    // this.updateNews();
-    let url =
-`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
-    // this.setState({loading:true});
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    // console.log(parsedData);
-    this.setState({
-      articles:this.state.articles.concat(parsedData.articles),
-      totalResults: parsedData.totalResults,
-      // loading:false
-    });
-    // console.log(this.state)
-    // console.log(">>>this.state.articles:", this.state.articles);
-    // console.log("this.state.articles.length < this.state.totalResults: ",this.state.articles.length < this.state.totalResults )
-  };
-
-  render() {
-    return (
-      <>
-       {/* <div className="container my-3"> */}
-        <h2 className="text-center" style={{margin:'35px 0px'}}>NewsMonkey - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
-        {this.state.loading && <Spinner/>}
-
-        {/* Bootstrap Grid */}
-        {/* <div className="row">
-          {!this.state.loading && this.state.articles.map((element) => {
-            return (
-              <div key={element.url} className="col-md-4">
-                <NewsItem
-                  title={element.title? element.title.slice(0, 45):""}
-                  description={element.description?element.description.slice(0, 88):""}
-                  imageUrl={element.urlToImage?element.urlToImage:"https://ichef.bbci.co.uk/news/1024/branded_news/ab06/live/bf46bec0-6966-11ef-ae46-19f76aad857d.jpg"}
-                  newsUrl={element.url}
-                  author={element.author} date={element.publishedAt}
-                  source={element.source.name}
-                  category={this.props.category}
-                />
-              </div>
-            );
-          })} */}
-        
-        {/* Add react infinite scroll after installing */}
-        <InfiniteScroll
-          // dataLength={this.state.items.length}
-          dataLength={this.state.articles.length}
-          next={this.fetchMoreData}
-          // hasMore={true}
-          hasMore={this.state.articles.length < this.state.totalResults}
-          // hasMore={this.state.articles.length !==0 }
-          // loader={<h4>Loading...</h4>}
-          loader={<Spinner/>}
-        >
-        <div className="container">
-            <div className="row">
-              { this.state.articles.map((element,index) => {
-                return (
-                  // <div key={element.url} className="col-md-4">
-                  <div key={index} className="col-md-4">
-                    <NewsItem
-                      title={element.title? element.title.slice(0, 45):""}
-                      description={element.description?element.description.slice(0, 88):""}
-                      imageUrl={element.urlToImage?element.urlToImage:"https://ichef.bbci.co.uk/news/1024/branded_news/ab06/live/bf46bec0-6966-11ef-ae46-19f76aad857d.jpg"}
-                      newsUrl={element.url}
-                      author={element.author} date={element.publishedAt}
-                      source={element.source.name}
-                      category={this.props.category}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </InfiniteScroll>
-          {/* Bootstrap flex */}
-          <div className="container d-flex justify-content-between">
-            <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
-            {/* <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button> */}
-            {/* <button disabled={this.state.page+1> Math.ceil(this.state.totalResults/20)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button> */}
-            <button disabled={this.state.page+1> Math.ceil(this.state.totalResults/this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-          </div>
-
-          {/* <div className="col-md-4"><NewsItem title="My Title" description="My Description" imageUrl="https://ichef.bbci.co.uk/news/1024/branded_news/de41/live/dd096640-6922-11ef-8c32-f3c2bc7494c6.jpg"
-          newsUrl="TODO"/></div>
-          <div className="col-md-4"><NewsItem/></div>
-          <div className="col-md-4"><NewsItem/></div>  */}
-        {/* </div> */}
-       {/* </div> */}
-      </>
-    );
+// node_modules/csso/cjs/restructure/prepare/index.cjs
+var require_prepare = __commonJS({
+  "node_modules/csso/cjs/restructure/prepare/index.cjs"(exports2, module2) {
+    "use strict";
+    var cssTree = require_cjs2();
+    var createDeclarationIndexer = require_createDeclarationIndexer();
+    var processSelector = require_processSelector();
+    function prepare(ast, options) {
+      const markDeclaration = createDeclarationIndexer();
+      cssTree.walk(ast, {
+        visit: "Rule",
+        enter(node) {
+          node.block.children.forEach(markDeclaration);
+          processSelector(node, options.usage);
+        }
+      });
+      cssTree.walk(ast, {
+        visit: "Atrule",
+        enter(node) {
+          if (node.prelude) {
+            node.prelude.id = null;
+            node.prelude.id = cssTree.generate(node.prelude);
+          }
+          if (cssTree.keyword(node.name).basename === "keyframes") {
+            node.block.avoidRulesMerge = true;
+            node.block.children.forEach(function(rule) {
+              rule.prelude.children.forEach(function(simpleselector) {
+                simpleselector.compareMarker = simpleselector.id;
+              });
+            });
+          }
+        }
+      });
+      return {
+        declaration: markDeclaration
+      };
+    }
+    module2.exports = prepare;
   }
-}
+});
 
-export default News;
+// node_modules/csso/cjs/restructure/1-mergeAtrule.cjs
+var require_mergeAtrule = __commonJS({
+  "node_modules/csso/cjs/restructure/1-mergeAtrule.cjs"(exports2, module2) {
+    "use strict";
+    var cssTree = require_cjs2();
+    var { hasOwnProperty: hasOwnProperty2 } = Object.prototype;
+    function addRuleToMap(map, item, list, single) {
+      const node = item.data;
+      const name = cssTree.keyword(node.name).basename;
+      const id = node.name.toLowerCase() + "/" + (node.prelude ? node.prelude.id : null);
+      if (!hasOwnProperty2.call(map, name)) {
+        map[name] = /* @__PURE__ */ Object.create(null);
+      }
+      if (single) {
+        delete map[name][id];
+      }
+      if (!hasOwnProperty2.call(map[name], id)) {
+        map[name][id] = new cssTree.List();
+      }
+      map[name][id].append(list.remove(item));
+    }
+    function relocateAtrules(ast, options) {
+      const collected = /* @__PURE__ */ Object.create(null);
+      let topInjectPoint = null;
+      ast.children.forEach(function(node, item, list) {
+        if (node.type === "Atrule") {
+          const name = cssTree.keyword(node.name).basename;
+          switch (name) {
+            case "keyframes":
+              addRuleToMap(collected, item, list, true);
+              return;
+            case "media":
+              if (options.forceMediaMerge) {
+                addRuleToMap(collected, item, list, false);
+                return;
+              }
+              break;
+          }
+          if (topInjectPoint === null && name !== "charset" && name !== "import") {
+            topInjectPoint = item;
+          }
+        } else {
+          if (topInjectPoint === null) {
+            topInjectPoint = item;
+          }
+        }
+      });
+      for (const atrule in collected) {
+        for (const id in collected[atrule]) {
+          ast.children.insertList(
+            collected[atrule][id],
+            atrule === "media" ? null : topInjectPoint
+          );
+        }
+      }
+    }
+    function isMediaRule(node) {
+      return node.type === "Atrule" && node.name === "media";
+    }
+    function processAtrule(node, item, list) {
+      if (!isMediaRule(node)) {
+        return;
+      }
+      const prev = item.prev && item.prev.data;
+      if (!prev || !isMediaRule(prev)) {
+        return;
+      }
+      if (node.prelude && prev.prelude && node.prelude.id === prev.prelude.id) {
+        prev.block.children.appendList(node.block.children);
+        list.remove(item);
+      }
+    }
+    function rejoinAtrule(ast, options) {
+      relocateAtrules(ast, options);
+      cssTree.walk(ast, {
+        visit: "Atrule",
+        reverse: true,
+        enter: processAtrule
+      });
+    }
+    module2.exports = rejoinAtrule;
+  }
+});
+
+// node_modules/csso/cjs/restructure/utils.cjs
+var require_utils6 = __commonJS({
+  "node_modules/csso/cjs/restructure/utils.cjs"(exports2) {
+    "use strict";
+    var { hasOwnProperty: hasOwnProperty2 } = Object.prototype;
+    function isEqualSelectors(a, b) {
+      let cursor1 = a.head;
+      let cursor2 = b.head;
+      while (cursor1 !== null && cursor2 !== null && cursor1.data.id === cursor2.data.id) {
+        cursor1 = cursor1.next;
+        cursor2 = cursor2.next;
+      }
+      return cursor1 === null && cursor2 === null;
+    }
+    function isEqualDeclarations(a, b) {
+      let cursor1 = a.head;
+      let cursor2 = b.head;
+      while (cursor1 !== null && cursor2 !== null && cursor1.data.id === cursor2.data.id) {
+        cursor1 = cursor1.next;
+        cursor2 = cursor2.next;
+      }
+      return cursor1 === null && cursor2 === null;
+    }
+    function compareDeclarations(declarations1, declarations2) {
+      const result = {
+        eq: [],
+        ne1: [],
+        ne2: [],
+        ne2overrided: []
+      };
+      const fingerprints = /* @__PURE__ */ Object.create(null);
+      const declarations2hash = /* @__PURE__ */ Object.create(null);
+      for (let cursor = declarations2.head; cursor; cursor = cursor.next) {
+        declarations2hash[cursor.data.id] = true;
+      }
+      for (let cursor = declarations1.head; cursor; cursor = cursor.next) {
+        const data = cursor.data;
+        if (data.fingerprint) {
+          fingerprints[data.fingerprint] = data.important;
+        }
+        if (declarations2hash[data.id]) {
+          declarations2hash[data.id] = false;
+          result.eq.push(data);
+        } else {
+          result.ne1.push(data);
+        }
+      }
+      for (let cursor = declarations2.head; cursor; cursor = cursor.next) {
+        const data = cursor.data;
+        if (declarations2hash[data.id]) {
+          if (!hasOwnProperty2.call(fingerprints, data.fingerprint) || !fingerprints[data.fingerprint] && data.important) {
+            result.ne2.push(data);
+          }
+          result.ne2overrided.push(data);
+        }
+      }
+      return result;
+    }
+    function addSelectors(dest, source) {
+      source.forEach((sourceData) => {
+        const newStr = sourceData.id;
+        let cursor = dest.head;
+        while (cursor) {
+          const nextStr = cursor.data.id;
+          if (nextStr === newStr) {
+            return;
+          }
+          if (nextStr > newStr) {
+            break;
+          }
+          cursor = cursor.next;
+        }
+        dest.insert(dest.createItem(sourceData), cursor);
+      });
+      return dest;
+    }
+    function hasSimilarSelectors(selectors
