@@ -4,6 +4,7 @@
 4. Auto rename tag :VSCode 
 5. JSON formatter:  Google chrome extension
 6. Auto rename tag : VSCode
+7. Prettier - Code formatter : VS Code
 
 Try :
 1. EarlyAi : VSCode extenstion
