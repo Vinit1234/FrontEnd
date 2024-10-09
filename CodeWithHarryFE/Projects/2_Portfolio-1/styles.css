@@ -14,6 +14,10 @@ font-style: normal;
     font-family: "Poppins", sans-serif;
 }
 
+body{
+  background-color: rgb(246, 201, 167);
+}
+
 .container{
     display: flex;
 
@@ -56,7 +60,8 @@ font-style: normal;
     /* width: 85vw; */
     width: 60vw;
     height: 60vh;
-    margin: 144px auto;
+    /* margin: 144px auto; */
+    margin: 50px auto;
     display: flex;
     /* justify-content: space-around; */
     justify-content: space-evenly;
@@ -268,4 +273,35 @@ button:hover{
 
 .icon-group li a{
     color: rgb(43,45,58);
+}
+
+.cross>img, .ham>img{
+  width: 30px;
+}
+
+.hamburger{
+  /* display: flex;
+  justify-content: space-between; */
+  padding: 4px;
+  position: relative;
+  /* top:5px;
+  left:200px; */
+
+}
+
+.cross{
+  position: absolute;
+  top:5px;
+  left:-40px;
+}
+
+.ham{
+  position: absolute;
+  top:5px;
+  left:-240px;
+}
+
+.sidebar-hide{
+  transform: translate(-300px, 0px);
+  transition: transform 1s ease-out;
 }
