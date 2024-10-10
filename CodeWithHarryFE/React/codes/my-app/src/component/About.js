@@ -1,29 +1,135 @@
-claration_emit_for_this_file_requires_using_private_name_0_from_module_1_An_explicit_type_annotati_9006": "このファイルの宣言の生成では、モジュール '{1}' からのプライベート名 '{0}' を使用する必要があります。明示的な型の注釈では、宣言の生成のブロックを解除できます。",
-  "Declaration_expected_1146": "宣言が必要です。",
-  "Declaration_name_conflicts_with_built_in_global_identifier_0_2397": "宣言名が組み込みのグローバル識別子 '{0}' と競合しています。",
-  "Declaration_or_statement_expected_1128": "宣言またはステートメントが必要です。",
-  "Declaration_or_statement_expected_This_follows_a_block_of_statements_so_if_you_intended_to_write_a_d_2809": "宣言またはステートメントが必要です。この '=' はステートメントのブロックに続くため、非構造化割り当てを作成する場合は、割り当て全体をかっこで囲む必要があります。",
-  "Declarations_with_definite_assignment_assertions_must_also_have_type_annotations_1264": "明確な代入アサーションを使った宣言には、型の注釈も指定する必要があります。",
-  "Declarations_with_initializers_cannot_also_have_definite_assignment_assertions_1263": "初期化子を使った宣言に明確な代入アサーションを含めることはできません。",
-  "Declare_a_private_field_named_0_90053": "'{0}' という名前のプライベート フィールドを宣言します。",
-  "Declare_method_0_90023": "メソッド '{0}' を宣言する",
-  "Declare_private_method_0_90038": "プライベート メソッド '{0}' を宣言する",
-  "Declare_private_property_0_90035": "プライベート プロパティ '{0}' を宣言します",
-  "Declare_property_0_90016": "プロパティ '{0}' を宣言する",
-  "Declare_static_method_0_90024": "静的メソッド '{0}' を宣言する",
-  "Declare_static_property_0_90027": "静的プロパティ '{0}' を宣言する",
-  "Decorator_function_return_type_0_is_not_assignable_to_type_1_1270": "デコレーター関数の戻り値の型 '{0}' は、型 '{1}' に割り当てられません。",
-  "Decorator_function_return_type_is_0_but_is_expected_to_be_void_or_any_1271": "デコレーター関数の戻り値の型は '{0}' ですが、\"void\" または \"any\" である必要があります。",
-  "Decorators_are_not_valid_here_1206": "デコレーターはここでは無効です。",
-  "Decorators_cannot_be_applied_to_multiple_get_Slashset_accessors_of_the_same_name_1207": "デコレーターを同じ名前の複数の get/set アクセサーに適用することはできません。",
-  "Decorators_may_not_be_applied_to_this_parameters_1433": "デコレーターを ' this ' パラメーターに適用することができない場合があります。",
-  "Decorators_must_precede_the_name_and_all_keywords_of_property_declarations_1436": "デコレーターは、プロパティ宣言の名前とすべてのキーワードの前に置く必要があります。",
-  "Default_catch_clause_variables_as_unknown_instead_of_any_6803": "既定の catch 句の変数は '任意' ではなく '不明' です。",
-  "Default_export_of_the_module_has_or_is_using_private_name_0_4082": "モジュールの既定エクスポートがプライベート名 '{0}' を持っているか、使用しています。",
-  "Default_library_1424": "既定のライブラリ",
-  "Default_library_for_target_0_1425": "ターゲット '{0}' の既定のライブラリ",
-  "Definitions_of_the_following_identifiers_conflict_with_those_in_another_file_Colon_0_6200": "次の識別子の定義が、別のファイル内の定義と競合しています: {0}",
-  "Delete_all_unused_declarations_95024": "未使用の宣言をすべて削除します",
-  "Delete_all_unused_imports_95147": "未使用の import をすべて削除します",
-  "Delete_all_unused_param_tags_95172": "未使用の '@param' タグをすべて削除します",
-  "Delete_the_outputs_of_a
+import React, { useState } from "react";
+
+export default function About() {
+    // let myStyle={
+    //     backgroundColor:"black",
+    //     color:"white"
+    // }
+
+    const [myStyle, setMyStyle] = useState({
+        backgroundColor:"black",
+        color:"white"
+    });
+
+    const toggleStyle=()=>{
+        if(myStyle.color==="white"){
+            setMyStyle({
+                backgroundColor:"white",
+                color:"black"
+            })
+        }else{
+            setMyStyle({
+                backgroundColor:"black",
+                color:"white"
+            })
+        }
+    }
+
+  return (
+    <div className="container" style={myStyle}>
+      <h2 className="my-4">About Us</h2>
+      <div className="accordion" id="accordionExample">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingOne">
+            <button
+              className="accordion-button"
+              style={myStyle}
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Accordion Item #1
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            className="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body" style={myStyle}>
+              <strong>This is the first item's accordion body.</strong> It is
+              shown by default, until the collapse plugin adds the appropriate
+              classes that we use to style each element. These classes control
+              the overall appearance, as well as the showing and hiding via CSS
+              transitions. You can modify any of this with custom CSS or
+              overriding our default variables. It's also worth noting that just
+              about any HTML can go within the <code>.accordion-body</code>,
+              though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingTwo">
+            <button
+              className="accordion-button collapsed"
+              style={myStyle}
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Accordion Item #2
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            className="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body" style={myStyle}>
+              <strong>This is the second item's accordion body.</strong> It is
+              hidden by default, until the collapse plugin adds the appropriate
+              classes that we use to style each element. These classes control
+              the overall appearance, as well as the showing and hiding via CSS
+              transitions. You can modify any of this with custom CSS or
+              overriding our default variables. It's also worth noting that just
+              about any HTML can go within the <code>.accordion-body</code>,
+              though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingThree">
+            <button
+              className="accordion-button collapsed"
+              style={myStyle}
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Accordion Item #3
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            className="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body" style={myStyle}>
+              <strong>This is the third item's accordion body.</strong> It is
+              hidden by default, until the collapse plugin adds the appropriate
+              classes that we use to style each element. These classes control
+              the overall appearance, as well as the showing and hiding via CSS
+              transitions. You can modify any of this with custom CSS or
+              overriding our default variables. It's also worth noting that just
+              about any HTML can go within the <code>.accordion-body</code>,
+              though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container my-3">
+        <button onClick={toggleStyle} type="button" className="btn btn-primary" >Dark Mode</button>
+      </div>
+    </div>
+  );
+}

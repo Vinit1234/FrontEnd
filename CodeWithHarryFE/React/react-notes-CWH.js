@@ -1195,3 +1195,20 @@ useEffect(() => {
 
 
 
+===============================================
+Ref: https://www.youtube.com/watch?v=3hE_5r5hPcE&ab_channel=ByteGrad
+If react app is not running via npm start:
+
+>> Solution 1:
+1. delete node_modules folder
+2. run npm install
+===Solution 1 worked========
+
+>> Solution 2:
+> npm install react-scripts
+
+>> Solution 3:
+make .env file and add the following to it:
+SKIP_PREFLIGHT_CHECK=true
+And run:
+> npm start
