@@ -35,7 +35,7 @@ Include FontAwesome
 .container-fluid (full width ie, width of viewport)
 
 
-.grid 
+Grid 
 .row (12 columns by default)
 .col-1 to .col-12
 
@@ -93,3 +93,177 @@ Here, box-1 and box-2 come at 1st row and box-3 is pushed to the next row.
     .row
         .col-lg-6
 
+==========================================================
+Youtube NetNinja
+Ref: https://www.youtube.com/watch?v=YQRmczOYIG0&list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR&index=2&ab_channel=NetNinja
+
+Bootstrap 5 New Features:
+- dropped jQuery
+- forms are improved
+- right-to-left support is added
+- new utility classes (positioning, font size, border radius)
+- bootstrap icons
+- 2 New components - offcanvas, Accordion
+
+================================================
+## Colors and Typography:
+Heading classes =>  .h1 to .h6 (bold)
+display classes => .display-1 to display-6 (bigger than above but not bold)
+.lead => attention grabbing starting text for article
+
+.text-start
+.text-center
+.text-end
+
+.text-center.text-md-start
+
+.text-muted
+
+
+<!-- text decoration and font weight-->
+.text-decoration-underline
+.text-decoration-line-through
+.fw-bold
+
+<!-- Colors -->
+primary, secondary
+danger, warning, success
+light, dark
+
+Eg.
+.text-primary
+.bg-primary
+.btn-primary
+
+
+================================================
+##Buttons and Button Groups
+
+.btn
+.btn.btn-primary
+
+<!--Button Size-->
+.btn-btn-lg 
+.btn-btn-sm
+
+<!--Button Outline-->
+.btn.btn-outline-danger
+
+<!--Button Groups-->
+.btn-group>
+        .btn.btn-primary
+        .btn.btn-warning
+        .btn.btn-danger
+
+
+================================================
+## Common Utility classes 
+
+<!-- Margin and padding -->
+
+Strength => 1 to 5
+
+(All directions)
+margin => m-1 to m-5
+padding =>p-1 to p-5
+
+(X direction)
+margin => mx-1 to mx-5
+padding =>px-1 to px-5
+
+(Y direction)
+margin => my-1 to my-5
+padding =>py-1 to py-5
+
+(margin-bottom; margin-top)
+mb-1 to mb-5
+mt-1 to mt-5
+
+(margin-start; margin-end)
+ms-1 to ms-5
+me-1 to  me-5
+
+Similarly for padding.
+
+<!--Border -->
+border
+border-top
+border-bottom
+border-start
+border-end
+border-danger
+border-5
+.rounded.border 
+.rounded-pill.border
+
+<!--Box shadow -->
+ .shadow-sm
+ .shadow-lg
+
+<!--Font weight; font style -->
+fw-bold
+fw-bolder
+fw-light
+fst-italic
+
+## Container
+.container (centered container)
+.container-fluid (100% width)
+.container-lg (work as container on large screens; else take 100% in smaller screens)
+
+
+##Grid
+
+.container
+    .row
+        .col
+        .col-1 to .col-12
+        .col-lg-6 (takes width of 6 columns only when lg screen and above; below that it takes 12 columns)
+
+
+
+.row.jusify-start
+.row.jusify-center
+.row.jusify-end
+.row.jusify-content-between (behaves as space-between)
+
+
+img.img-fluid
+
+Set display:none to img for screen size smaller than medium
+(use .d-none)
+
+<div class="col-md-5 text-center d-none d-md-block">
+  <img src="./b2.jpg" alt="book cover" class="img-fluid">
+</div>
+
+
+##Navbar
+
+.navbar-brand => title inside the navbar
+.navbar-toggler => collapse and show 
+data-bs-toggle="collapse" => to collapse
+data-bs-target="#main-nav" => target element to collapse
+
+.navbar-expand-md => for md and smaller screens, collapse nabar ie, show hamburger icon; for screens larger than md expand the navbar
+.navbar-light => light themed navbar
+.navbar-dark
+.bg-primary
+
+.fixed-bottom
+
+
+<div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+    <ul class="navbar-nav">
+      <!--this link is shown on screens smaller than md-->
+      <li class="nav-item d-md-none">
+        <a href="#pricing" class="nav-link">Pricing</a>
+      </li>
+
+      
+      <!--this button is shown on screens larger than md-->
+      <li class="nav-item ms-2 d-none d-md-inline">
+        <a href="#pricing" class="btn btn-secondary">Buy now</a>
+      </li>
+    </ul>
+</div>
