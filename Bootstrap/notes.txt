@@ -227,6 +227,7 @@ fst-italic
 .row.jusify-end
 .row.jusify-content-between (behaves as space-between)
 
+.row.g-0 => g-0 means gap:0 (g-0 to g-5)
 
 img.img-fluid
 
@@ -267,3 +268,12 @@ data-bs-target="#main-nav" => target element to collapse
       </li>
     </ul>
 </div>
+
+
+## Card
+
+.card
+.card-title => bold title for card
+.card-subtitle => subtitle for card
+.card-header => Set heading/label for the card (gray bg)
+
