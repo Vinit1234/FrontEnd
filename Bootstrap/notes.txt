@@ -277,3 +277,10 @@ data-bs-target="#main-nav" => target element to collapse
 .card-subtitle => subtitle for card
 .card-header => Set heading/label for the card (gray bg)
 
+
+
+## Using Bootstrap icons
+
+Add cdn for icons from 
+https://icons.getbootstrap.com/?q=clock#install
+
